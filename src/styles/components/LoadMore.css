@@ -1,0 +1,33 @@
+.loadmore {
+  text-align: center;
+  margin: 40px 0 80px 0;
+}
+
+.loadmore button {
+  background: var(--secondary-color);
+  color: var(--white-color);
+  /* padding: 10px 20px; */
+  height: 40px;
+  width: 120px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: var(--font-smaller);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadmore img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+.round {
+  margin-right: 10px;
+}

@@ -1,0 +1,22 @@
+.goback {
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  padding: 7px 10px;
+  outline: none;
+  margin-top: 20px;
+  font-size: 13px;
+  border: 2px solid var(--blue-color);
+  font-weight: 700;
+  background: var(--white-color);
+  color: var(--secondary-color);
+}
+
+.back-icon {
+  margin-right: 10px;
+  font-size: var(--font-med);
+  color: var(--secondary-color) !important;
+  margin-bottom: -1px;
+}

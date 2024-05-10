@@ -1,0 +1,41 @@
+.new-arrivals {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.new-arrivals-header {
+  height: 60px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.new-arrivals-header .header {
+  font-size: var(--font-bigger);
+  font-weight: 800;
+  color: var(--secondary-color);
+  font-family: 'Roboto';
+}
+
+.market-icon {
+  font-size: var(--font-big);
+  margin-top: -3px;
+  margin-right: 5px;
+  color: var(--blue-color);
+}
+
+.new-arrivals-header a {
+  color: var(--white-color);
+  font-weight: 600;
+  font-size: var(--font-smaller) !important;
+}
+
+/* The new arrivals bottom */
+.new-arrivals-bottom {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1rem;
+  grid-row-gap: 1.5rem;
+}

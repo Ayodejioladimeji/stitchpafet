@@ -1,0 +1,408 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=Roboto:wght@300;500;700;900&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .major-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        font-family: "Nunito Sans";
+        background: #1a083e;
+        padding: 30px 10px;
+      }
+
+      .main-container {
+        width: 100%;
+        padding: 20px 20px;
+        background: #fff;
+      }
+
+      .nav {
+        padding-bottom: 20px;
+      }
+
+      .nav img {
+        width: 100px;
+        height: 100%;
+      }
+
+      /* mainbody */
+      .main-body {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .main-body img {
+        width: 80px;
+        height: 100%;
+        margin-left: 5px;
+      }
+
+      .main-body h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-top: -5px;
+        color: #1a083e;
+        font-family: "Roboto";
+      }
+
+      .main-body p {
+        font-size: 16px;
+        font-family: "Nunito Sans";
+        margin: 20px 0;
+      }
+
+      .main-body small {
+        font-size: 16px;
+      }
+
+      /* main details */
+      .main-details {
+        background: #f7f7f7;
+        margin-top: 20px;
+        padding: 20px;
+        margin-bottom: 50px;
+      }
+
+      .main-details h5 {
+        margin-bottom: 40px;
+        font-size: 18px;
+      }
+
+      /* payment box */
+      .payment-box {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border: 1px solid #7e7e7e;
+        padding: 10px 5px;
+      }
+
+      .payment-box .left {
+        width: 30%;
+        text-align: left;
+      }
+
+      .payment-box .right {
+        width: 70%;
+        text-align: right;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #7e7e7e;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f1f0f0;
+      }
+
+      .continue {
+        margin-bottom: 40px;
+        display: block;
+      }
+
+      .thanks {
+        text-align: left;
+        display: block;
+        margin-bottom: 40px;
+        font-size: 14px;
+      }
+
+      .main-body span {
+        display: block;
+        margin-top: 20px;
+        color: #7e7e7e;
+      }
+
+      .main-body span strong {
+        color: #1a083e;
+      }
+
+      .social-icons {
+        margin: 20px auto;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .fa {
+        font-size: 25px;
+      }
+
+      .main-body .copyrights {
+        font-size: 13px;
+        color: #7e7e7e;
+      }
+
+      /* The responsiveness section */
+      @media (min-width: 768px) {
+        .main-container {
+          width: 700px;
+          padding: 20px 40px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .main-table {
+          overflow: auto;
+        }
+
+        table {
+          width: 600px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .main-container {
+          padding: 20px 10px;
+        }
+        .main-details {
+          padding: 20px 10px;
+        }
+        .payment-box {
+          font-size: 14px;
+        }
+
+        .main-body span {
+          font-size: 14px;
+        }
+
+        .main-body .copyrights {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .main-body h3 {
+          font-size: 20px;
+        }
+        .payment-box .left {
+          width: 50%;
+          text-align: left;
+        }
+      }
+
+      @media (max-width: 300px) {
+        .nav {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .main-body h3 {
+          font-size: 17px;
+        }
+
+        .payment-box {
+          flex-wrap: wrap;
+        }
+
+        .payment-box .right {
+          text-align: left;
+          margin-top: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="major-container">
+      <div class="main-container">
+        <nav class="nav">
+          <img
+            src="https://res.cloudinary.com/devsource/image/upload/v1657906629/verifibiz/reg_i25lcp.png"
+          />
+        </nav>
+
+        <hr />
+
+        <div class="main-body">
+          <img
+            src="https://res.cloudinary.com/devsource/image/upload/v1660828415/verifibiz/check-mark_hiaoc2.png"
+          />
+          <h3>Order Created Successfully</h3>
+
+          <p>Hi, Emeka Stores</p>
+          <small
+            >Layobright just ordered an item from you, find the details of the
+            order below:</small
+          >
+
+          <div class="main-details">
+            <h5>Order Details</h5>
+
+            <div class="payment-box">
+              <div class="left">Seller's Email</div>
+              <div class="right"><b>chiamaka13@gmail.com</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Buyer's Email</div>
+              <div class="right"><b>layobright@gmail.com</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Buyer's Name</div>
+              <div class="right"><b>Ayodeji Oladimeji</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Verifibiz Id</div>
+              <div class="right"><b>224234235</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Delivery Address</div>
+              <div class="right"><b>12 Ayodeji street emeka bus stop</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Transaction Reference</div>
+              <div class="right">
+                <b>verifibiz-transaction-dsk233kl34k334k</b>
+              </div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Date</div>
+              <div class="right"><b>18th Aug, 2022</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Sub Total</div>
+              <div class="right"><b>#100000</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Flutterwave Charges</div>
+              <div class="right"><b>₦5000</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Verifibiz Charges (2%)</div>
+              <div class="right"><b>₦2000</b></div>
+            </div>
+            <div class="payment-box">
+              <div class="left">Grand Total</div>
+              <div class="right"><b>₦120000</b></div>
+            </div>
+          </div>
+
+          <div class="main-details">
+            <h5>Product Details</h5>
+
+            <div class="main-table">
+              <table>
+                <tr>
+                  <th>No</th>
+                  <th>Thumbnails</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                  <th>Sub total</th>
+                </tr>
+
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <img
+                      src="https://res.cloudinary.com/devsource/image/upload/v1657488373/verifibiz/transaction-image_besavb.jpg"
+                      alt=""
+                    />
+                  </td>
+                  <td>Blue Fashion top</td>
+                  <td>#50,000</td>
+                  <td>2</td>
+                  <td>100,000</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <img
+                      src="https://res.cloudinary.com/devsource/image/upload/v1657488373/verifibiz/transaction-image_besavb.jpg"
+                      alt=""
+                    />
+                  </td>
+                  <td>Yellow Skirt</td>
+                  <td>#50,000</td>
+                  <td>2</td>
+                  <td>100,000</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <img
+                      src="https://res.cloudinary.com/devsource/image/upload/v1657488373/verifibiz/transaction-image_besavb.jpg"
+                      alt=""
+                    />
+                  </td>
+                  <td>Turtle Neck top</td>
+                  <td>#50,000</td>
+                  <td>2</td>
+                  <td>100,000</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <a href="" class="continue">click here to continue</a>
+
+          <small class="thanks"
+            >Thanks for trusting us <br />
+            <b>Verifibiz team</b>
+          </small>
+
+          <hr />
+
+          <span
+            >If you have any questions, concerns or feedback, kindly reach us on
+            <strong>support@verifibiz.africa</strong> or chat us across all our
+            social media handles.
+          </span>
+
+          <div class="social-icons">
+            <a
+              href="https://www.facebook.com/Verifibiz_africa-108734885270817/"
+              target="_blank"
+              ><i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/verifibiz_africa/"
+              target="_blank"
+              ><i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="" target="_blank"
+              ><i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/verifibiz/"
+              target="_blank"
+              ><i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <small class="copyrights">
+            © 2021 Verifibiz. All Rights Reserved.
+          </small>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

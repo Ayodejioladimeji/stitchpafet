@@ -1,0 +1,51 @@
+.footer {
+  background: var(--black-color);
+  padding: 80px 10px 10px 10px;
+}
+
+.footer-cards {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.footer-cards img {
+  height: 40%;
+  width: 40%;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.footer-cards p {
+  font-size: var(--font-smallest);
+  color: var(--secondary-color);
+  font-family: "Nunito Sans";
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: var(--white-color);
+}
+
+.footer-icons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.footer-social {
+  font-size: var(--font-bigger);
+  color: var(--primary-color);
+  margin-right: 10px;
+  cursor: pointer;
+  color: var(--white-color);
+}
+
+.footer-rights {
+  color: var(--secondary-color);
+  text-align: center;
+  margin: 100px 0 30px 0;
+  font-size: var(--font-small);
+  display: block;
+  color: var(--white-color);
+}

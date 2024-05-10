@@ -1,0 +1,77 @@
+.referral h3 {
+  padding-left: 20px;
+  font-size: var(--font-big);
+  font-family: 'Roboto';
+  color: var(--primary-color);
+}
+
+.referral-div {
+  padding: 10px 40px;
+}
+
+.referral-div p {
+  padding-top: 15px;
+}
+
+.referral-div span {
+  color: var(--text-color);
+  display: block;
+  margin-top: 20px;
+  font-size: var(--font-smaller);
+}
+
+.referral-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 650px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.referral-box .ref {
+  height: 50px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--light-color);
+  margin-right: 15px;
+  border-radius: 3px;
+  color: var(--light-color);
+}
+
+.referral-box button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  height: 50px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  font-size: var(--font-smaller);
+}
+
+.referral-code {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid var(--light-color);
+  border-radius: 3px;
+}
+
+.referral-code small {
+  font-size: var(--font-smallest);
+  font-weight: 600;
+}
+
+.referral-code h2 {
+  font-weight: 700;
+  font-family: 'Roboto';
+}
+
+.checkdouble {
+  color: green;
+  font-size: var(--font-medium);
+  margin-right: 10px;
+}

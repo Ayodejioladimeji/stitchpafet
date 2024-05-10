@@ -1,0 +1,77 @@
+.best-offer {
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100%;
+  background: var(--light-blue-color);
+}
+
+/* best offer left */
+.best-offer-left {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.best-offer-left {
+  .image-box {
+    height: 600px;
+    width: 100%;
+
+    img {
+      border-radius: 15px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* best offer right */
+.best-offer-right {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.best-offer-box {
+  text-align: right;
+}
+
+.best-offer-box h5 {
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: var(--font-mid);
+}
+
+.best-offer-box h1 {
+  width: 80%;
+  font-weight: 800;
+  font-size: var(--font-large);
+  line-height: 40px;
+  margin-left: auto;
+  color: var(--secondary-color);
+}
+
+.best-offer-box p {
+  color: var(--text-color);
+  font-size: var(--font-mid);
+  width: 80%;
+  margin-left: auto;
+}
+
+.best-offer-box button {
+  background: var(--secondary-color);
+  color: var(--white-color);
+  padding: 12px 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: var(--font-smallest);
+  transition: var(--transition);
+}
+
+.best-offer-box button:hover {
+  background: var(--blue-color);
+}

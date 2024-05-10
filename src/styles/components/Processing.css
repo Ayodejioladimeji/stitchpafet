@@ -1,0 +1,43 @@
+.processing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+}
+
+.processing-div {
+  box-shadow: var(--shadoos);
+  border-radius: 10px;
+  padding: 30px 20px;
+  width: 400px;
+  text-align: center;
+}
+
+.processing-div h3 {
+  font-size: var(--font-bigger);
+}
+
+.pro-load {
+  margin: 20px auto;
+  width: 80px;
+}
+
+.check-circle {
+  font-size: 60px;
+  color: green;
+}
+
+.times-circle {
+  font-size: 60px;
+  color: red;
+}
+
+.processing-div button {
+  padding: 10px 25px;
+  border: none;
+  background: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 3px;
+  outline: none;
+  font-size: var(--font-smaller);
+}

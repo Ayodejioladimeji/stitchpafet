@@ -1,0 +1,68 @@
+.search {
+  overflow-x: auto;
+  width: 100%;
+  margin: 20px auto;
+  /* border-radius: 15px; */
+}
+
+.search-box {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1rem;
+  /* border-radius: 15px; */
+  background: var(--white-color);
+  box-shadow: var(--shadoos);
+  padding: 15px 10px 5px 10px;
+  border: 1px solid var(--border-color);
+}
+
+.search-card {
+  padding: 10px;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-card p {
+  font-size: var(--font-smaller);
+  color: var(--black-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left !important;
+}
+
+.search-card select {
+  background: transparent;
+  color: var(--text-color);
+  border: none;
+  padding: 10px;
+  width: 120px;
+  border-bottom: 1px solid var(--light-color);
+  cursor: pointer;
+  outline: none;
+  margin-top: -7px;
+  font-weight: 600;
+  font-size: var(--font-smaller);
+}
+
+.search-card button {
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: var(--white-color);
+  cursor: pointer;
+  padding: 13px 30px;
+  font-size: var(--font-smaller);
+  margin-top: -5px;
+}
+
+.search .search-error {
+  font-size: 11px;
+  color: red;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+}

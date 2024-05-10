@@ -1,0 +1,28 @@
+.questions {
+  padding: 80px;
+  background: var(--light-blue-color);
+  text-align: center;
+}
+
+.questions-icon {
+  font-size: var(--font-largest);
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.questions button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.questions button:hover {
+  background: var(--secondary-color);
+}

@@ -1,15 +1,25 @@
-import React from 'react'
+import React from "react";
 
-interface Props {
+// Components
+import Hero from "./../components/hero/Hero";
+import Securely from "../components/securely/Securely";
+import Transaction from "../components/transaction/Transaction";
+import BestOffer from "../components/bestoffer/BestOffer";
+import BestSecurity from "../components/bestsecurity/BestSecurity";
+import Layout from "./../common/Layout";
 
-}
-
-const Homepage = (props: Props) => {
+const Home = () => {
   return (
-    <>
-      <h1>Homepage</h1>
-    </>
-  )
-}
+    <Layout>
+      {/* <SEO title="Homepage" /> */}
+      <Hero />
+      <Securely />
+      <Transaction />
+      <BestOffer />
+      <BestSecurity />
+      {/* <Testimonial /> */}
+    </Layout>
+  );
+};
 
-export default Homepage
+export default Home;

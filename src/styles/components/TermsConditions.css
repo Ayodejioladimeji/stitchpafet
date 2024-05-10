@@ -1,0 +1,27 @@
+.terms-conditions {
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.terms-div {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.terms-box {
+  margin-bottom: 50px;
+}
+
+.terms-box h2 {
+  font-size: var(--font-medium);
+  font-weight: 700;
+}
+
+.terms-box p {
+  line-height: 30px;
+}
+
+.line {
+  margin-bottom: 50px;
+}

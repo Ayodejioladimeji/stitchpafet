@@ -1,0 +1,84 @@
+.responsive {
+  width: calc(100% - 230px);
+  margin-left: 230px;
+  transition: var(--transition);
+  height: 70px;
+  background: var(--white-color);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  /* border-bottom: 10px solid var(--lighter-color); */
+  /* box-shadow: var(--shadoos); */
+  z-index: 99;
+}
+
+.response {
+  width: calc(100% - 70px);
+  margin-left: 70px;
+  transition: var(--transition);
+  height: 70px;
+  background: var(--white-color);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  /* border-bottom: 10px solid var(--lighter-color); */
+  /* box-shadow: var(--shadoos); */
+  z-index: 99;
+}
+
+.topbar-menu {
+  font-size: var(--font-medium);
+  cursor: pointer;
+}
+
+.profile-email {
+  margin-bottom: 15px;
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: var(--blue-color);
+}
+
+/* user section */
+.user-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  height: 100%;
+  position: relative;
+}
+
+.user-box-icon {
+  margin-top: -3px;
+  cursor: pointer;
+}
+
+.user-box-name {
+  font-size: var(--font-smaller);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.user-box-image {
+  cursor: pointer;
+}
+
+.user-box-name span {
+  color: var(--blue-color);
+  font-size: var(--font-smaller);
+}
+
+.user-box img {
+  height: 40px;
+  width: 40px;
+  margin-left: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}

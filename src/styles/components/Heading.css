@@ -1,0 +1,15 @@
+.header-heading {
+  font-size: var(--font-large);
+  font-family: "Roboto";
+  color: var(--black-color);
+  font-weight: 600;
+  text-align: center;
+}
+
+.header-paragraph {
+  font-size: var(--font-mid);
+  color: var(--text-color);
+  text-align: center;
+  width: 50%;
+  margin: 20px auto;
+}

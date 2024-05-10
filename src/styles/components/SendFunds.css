@@ -1,0 +1,89 @@
+.sendfunds {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+/* sendfunds left */
+.sendfunds-left {
+  width: 75%;
+  box-shadow: var(--shadoos);
+  background: var(--white-color);
+}
+
+.sendfunds-left-img {
+  height: 200px;
+  width: 100%;
+}
+
+.sendfunds-left-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sendfunds-center {
+  padding: 30px 40px;
+}
+
+.sendfunds-name {
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sendfunds-name h2 {
+  font-size: var(--font-big);
+  font-weight: 700;
+  color: var(--primary-color);
+  padding-top: 10px;
+  text-transform: capitalize;
+}
+
+.sendfunds-balance {
+  font-weight: 700;
+  font-size: var(--font-smaller);
+}
+
+.sendfunds-center .arrow-left {
+  cursor: pointer;
+  font-size: var(--font-big);
+}
+
+.sendfunds-center p {
+  color: var(--text-color);
+  font-size: 12px;
+  margin-top: 20px;
+  color: var(--blue-color);
+  font-weight: 700;
+}
+
+.sendfunds-center input {
+  padding: 12px 25px;
+  width: 70% !important;
+  outline: none;
+  border: 1px solid var(--light-color) !important;
+}
+
+.sendfunds-center .sendfunds-error {
+  font-size: 11px;
+  color: red;
+  display: block;
+  width: 80%;
+  margin-top: 5px;
+}
+
+.sendfunds-center button {
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  outline: none;
+  border: none;
+  width: 70%;
+  font-size: var(--font-smaller);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

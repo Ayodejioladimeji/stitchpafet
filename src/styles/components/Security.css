@@ -1,0 +1,44 @@
+.security {
+  padding: 30px;
+}
+
+.security-password {
+  border-radius: 3px;
+  box-shadow: var(--shadoos);
+  padding: 30px;
+  margin-bottom: 40px;
+  border: 2px solid var(--blue-color);
+}
+
+.security-password h3 {
+  font-size: var(--font-big);
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.security-password p {
+  color: var(--text-color);
+  font-size: var(--font-smallest);
+}
+
+.security-password button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: var(--font-smaller);
+  padding: 10px 25px;
+  font-weight: bold;
+}
+
+.security-password .delete {
+  background: var(--red-tag-color);
+}
+
+.security-password span {
+  display: block;
+  font-size: 14px;
+  color: red;
+  margin-top: 5px;
+}

@@ -1,0 +1,122 @@
+.clock {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transform: translate(0%, 0%);
+  box-shadow: var(--shadoos);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+  font-size: var(--font-med);
+  color: var(--text-color);
+  text-align: center;
+  border: 2px solid var(--secondary-color);
+}
+
+.clock::after {
+  background: var(--light-color);
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--secondary-color);
+}
+
+.hour_hand {
+  position: absolute;
+  width: 5px;
+  height: 45px;
+  background: var(--primary-color);
+  top: 28%;
+  left: 48.5%;
+  transform-origin: bottom;
+}
+
+.min_hand {
+  position: absolute;
+  width: 4px;
+  height: 75px;
+  background: var(--blue-color);
+  top: 12%;
+  left: 49%;
+  transform-origin: bottom;
+}
+
+.sec_hand {
+  position: absolute;
+  width: 2px;
+  height: 81px;
+  background: red;
+  top: 9%;
+  left: 50%;
+  transform-origin: bottom;
+}
+
+.clock span {
+  position: absolute;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+}
+
+.twelve {
+  top: 10px;
+  left: 45%;
+}
+
+.one {
+  top: 10%;
+  right: 26%;
+}
+
+.eleven {
+  top: 10%;
+  left: 26%;
+}
+
+.two {
+  top: 23%;
+  right: 12%;
+}
+
+.three {
+  right: 10px;
+  top: 42%;
+}
+
+.four {
+  right: 24px;
+  top: 62%;
+}
+
+.five {
+  right: 54px;
+  top: 75%;
+}
+
+.six {
+  bottom: 10px;
+  left: 47%;
+}
+
+.seven {
+  left: 54px;
+  top: 75%;
+}
+
+.eight {
+  left: 24px;
+  top: 62%;
+}
+
+.nine {
+  left: 10px;
+  top: 42%;
+}
+
+.ten {
+  top: 23%;
+  left: 12%;
+}

@@ -1,0 +1,42 @@
+.breadcumb {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(84, 18, 141, 1) 35%,
+    rgba(161, 37, 125, 1) 100%
+  );
+  height: 400px;
+  width: 100%;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breadcumb-info {
+  width: 50%;
+}
+
+.breadcumb h1 {
+  color: var(--white-color);
+  font-family: "Alfa Slab One";
+  font-size: var(--font-bigger);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.breadcumb p {
+  color: var(--white-color);
+  font-size: var(--font-med);
+}
+
+.breadcumb-img {
+  width: 30%;
+}
+
+.breadcumb-img img {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+}

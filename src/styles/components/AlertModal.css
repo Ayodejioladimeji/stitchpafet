@@ -1,0 +1,42 @@
+.alert-modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(17, 15, 15, 0.493);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.alert-modalContainer {
+  background: var(--white-color);
+  box-shadow: var(--shadoos);
+  width: 40%;
+  animation: slideUp 0.6s ease-in-out 0.6s forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+/* ANIMATION SECTION */
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* The media query */
+/* @media screen and (min-width: 1000px) {
+  .modalContainer {
+    width: 90%;
+  }
+} */

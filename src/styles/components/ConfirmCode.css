@@ -1,0 +1,217 @@
+.confirm-code {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--white-color);
+  height: 100vh;
+}
+
+/* confirm-code left */
+.confirm-code-left {
+  width: 50%;
+  text-align: left;
+  align-items: center;
+  position: relative;
+  background-image: url("/images/reg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.confirm-code-left::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.952));
+  bottom: 0;
+  left: 0;
+}
+
+.confirm-code-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.confirm-code-top {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+}
+
+.confirm-code-top img {
+  width: 105px;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.confirm-code-top h2 {
+  font-size: var(--font-largest);
+  font: weight 700;
+  font-family: "Alfa Slab One";
+  -webkit-text-stroke: 1px var(--white-color);
+  /* color: var(--primary-color); */
+  color: transparent;
+}
+
+.confirm-code-top button {
+  background: var(--primary-color);
+  padding: 10px 25px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: var(--white-color);
+  font-size: var(--font-smaller);
+}
+
+/* =============================== */
+/* The signup modal right */
+.confirm-code-right {
+  width: 50%;
+  text-align: left;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.confirm-code-right::-webkit-scrollbar {
+  width: 8px;
+}
+.confirm-code-right::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--light-color);
+  border-radius: 10px;
+}
+.confirm-code-right::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.confirm-code-form {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--shadoos);
+  padding: 30px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--light-color);
+}
+
+.confirm-code-right h1 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: var(--font-medium);
+  -webkit-text-stroke: 1px var(--primary-color);
+  color: var(--primary-color);
+}
+
+.confirm-code-right small {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: var(--font-smaller);
+}
+
+.confirm-code-right small b {
+  color: var(--blue-color);
+  font-size: var(--font-smaller);
+}
+
+.confirm-code-box .code-input {
+  width: 65% !important;
+}
+
+.confirm-code-box .code-input > div[class^="styles_react-code-input"] {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.confirm-code-box .code-input > div[class^="styles_react-code-input"] input {
+  border: 3px solid var(--primary-color) !important;
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 7px;
+  font-size: var(--font-large);
+  font-weight: 800;
+
+  /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08); */
+}
+
+.confirm-code-box .codes-input > div[class^="styles_react-code-input"] input {
+  border: 3px solid red !important;
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 7px;
+  font-size: var(--font-large);
+  font-weight: 800;
+  /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08); */
+}
+
+.confirm-code-box
+  .code-input
+  > div[class^="styles_react-code-input"]
+  input:focus {
+  border: 3px solid var(--blue-color) !important;
+}
+
+.confirm-code-box
+  .code-input
+  > div[class^="styles_react-code-input"]
+  input:first-child {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.confirm-code-box
+  .code-input
+  > div[class^="styles_react-code-input"]
+  input:last-child {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.resend {
+  color: var(--blue-color);
+  margin-top: 30px;
+  cursor: pointer;
+  font-size: var(--font-smaller);
+}
+
+.confirm-code-box button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  height: 45px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  font-size: var(--font-smaller);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirm-code-box small {
+  text-align: center;
+  color: var(--red-tag-color);
+  margin-top: 15px;
+  display: block;
+  font-size: 11px;
+}
+
+.button-code-error {
+  background: var(--light-color) !important;
+  color: var(--primary-color) !important;
+  cursor: not-allowed !important;
+  font-weight: bold;
+}

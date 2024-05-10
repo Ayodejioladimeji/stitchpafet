@@ -1,0 +1,72 @@
+.otp-code {
+  text-align: center;
+  padding: 40px;
+}
+
+.otp-code h3 {
+  font-size: var(--font-smallest);
+  line-height: 30px;
+}
+
+.code-input {
+  width: 100% !important;
+  margin: 20px auto 0 auto;
+}
+
+.code-input > div[class^='styles_react-code-input'] {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.code-input > div[class^='styles_react-code-input'] input {
+  border: 3px solid var(--primary-color) !important;
+  height: 50px !important;
+  width: 50px !important;
+  border-radius: 7px;
+  font-size: var(--font-large);
+  font-weight: 800;
+  /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.08); */
+}
+
+.code-input > div[class^='styles_react-code-input'] input:focus {
+  border: 3px solid var(--blue-color) !important;
+}
+
+.code-input > div[class^='styles_react-code-input'] input:first-child {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.code-input > div[class^='styles_react-code-input'] input:last-child {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.otp-code button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  height: 50px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-top: 40px;
+  font-size: var(--font-smaller);
+}
+
+.otp-code small {
+  text-align: center;
+  color: var(--red-tag-color);
+  margin-top: 15px;
+  display: block;
+  font-size: 11px;
+}
+
+.button-code-error {
+  background: var(--light-color) !important;
+  color: var(--primary-color) !important;
+  cursor: not-allowed !important;
+  font-weight: bold;
+}

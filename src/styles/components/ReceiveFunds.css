@@ -1,0 +1,57 @@
+.receive-funds {
+  padding: 20px;
+  width: 100% !important;
+}
+
+.receive-funds-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.receive-funds-top img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  border: 2px solid var(--primary-color);
+  object-fit: cover;
+}
+
+.receive-funds input {
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  font-size: var(--font-smaller);
+  color: var(--text-color);
+  border: 1px solid var(--light-color) !important;
+}
+
+.receive-funds select {
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  font-size: var(--font-smaller);
+  color: var(--text-color);
+  border: 1px solid var(--light-color);
+}
+
+.receive-funds button {
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: var(--font-smaller);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receive-funds .err {
+  font-size: 12px;
+  color: red;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}

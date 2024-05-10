@@ -1,0 +1,166 @@
+.withdraw {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+/* withdraw left */
+.withdraw-left {
+  width: 75%;
+  box-shadow: var(--shadoos);
+  background: var(--white-color);
+}
+
+.withdraw-left-img {
+  height: 200px;
+  width: 100%;
+}
+
+.withdraw-left-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.withdraw-center {
+  padding: 30px 40px;
+}
+
+.no-beneficiary {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.beneficiary-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.withdraw-name {
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.withdraw-name h2 {
+  font-size: var(--font-big);
+  font-weight: 700;
+  color: var(--primary-color);
+  padding-top: 10px;
+  text-transform: capitalize;
+}
+
+.withdraw-balance {
+  font-weight: 700;
+  font-size: var(--font-smaller);
+}
+
+.withdraw-center .arrow-left {
+  cursor: pointer;
+  font-size: var(--font-big);
+}
+
+.withdraw-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadoos);
+  padding: 0 15px;
+  margin-top: 30px;
+}
+
+.withdraw-div p {
+  color: var(--text-color);
+  font-size: 12px;
+  margin-top: 20px;
+  color: var(--blue-color);
+  font-weight: 700;
+}
+
+.withdraw-div button {
+  background: var(--primary-color);
+  color: var(--white-color);
+  font-size: 12px;
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/* The withdraw beneficiaries */
+.withdraw-beneficiaries {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.withdraw-card {
+  /* height: 150px; */
+  width: 300px;
+  /* border: 1px solid var(--light-color); */
+  box-shadow: var(--shadoos);
+  margin-bottom: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.withdraw-card h3 {
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.withdraw-card h3 span {
+  font-size: 12px;
+}
+
+.withdraw-card h1 {
+  font-size: 12px !important;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.withdraw-card h2 {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.withdraw-card p {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.withdraw-card p {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.withdraw-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.withdraw-card button {
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 11px;
+  border: none;
+  outline: none;
+  padding: 6px 13px;
+  font-weight: 600;
+  width: 30%;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 800;
+}

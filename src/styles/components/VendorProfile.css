@@ -1,0 +1,73 @@
+.vendor-profile {
+  padding: 10px 30px;
+}
+
+.vendor-brand {
+  border: 2px solid var(--blue-color);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadoos);
+  border-radius: 5px;
+  background: var(--white-color);
+}
+
+.vendor-brand-logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--blue-color);
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vendor-brand-logo img {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.vendor-brand-text h1 {
+  font-weight: 700;
+  font-family: 'Roboto';
+  color: var(--secondary-color);
+}
+
+.vendor-brand-text small {
+  display: block;
+  color: var(--text-color);
+}
+
+/* The section of the vendor form */
+.vendor-form {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.vendor-form .form-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+  width: 100%;
+}
+
+.vendor-form .form-group {
+  width: 45% !important;
+}
+
+.vendor-form .form-group label {
+  color: var(--text-color);
+}
+
+.vendor-form input {
+  border: 1px solid var(--light-color) !important;
+  padding: 10px;
+  outline: none;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  color: var(--text-color);
+  width: 100% !important;
+  background: var(--white-color);
+}

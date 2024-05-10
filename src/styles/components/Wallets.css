@@ -1,0 +1,168 @@
+.wallets {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+/* wallets left */
+.wallets-left {
+  width: 100%;
+  box-shadow: var(--shadoos);
+  background: var(--white-color);
+  border-radius: 5px;
+  /* border: 2px solid var(--blue-color); */
+}
+
+.wallets-left-img {
+  height: 200px;
+  width: 100%;
+}
+
+.wallets-left-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wallets-center {
+  padding: 30px 50px;
+}
+
+.wallets-center h2 {
+  margin-bottom: 30px;
+  font-size: var(--font-med);
+  font-weight: 700;
+  text-transform: capitalize;
+  color: var(--secondary-color);
+}
+
+.wallets-left-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.wallets-left-buttons button {
+  padding: 10px 25px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  background: rgba(255, 187, 187, 0.5);
+  color: #fa4646;
+  width: 160px;
+  margin-right: 25px;
+}
+
+.wallets-left-buttons button:first-child {
+  background: rgba(121, 205, 48, 0.281);
+  color: #79cd30;
+}
+
+.wallets-left-buttons button:last-child {
+  background: rgba(150, 213, 255, 0.5);
+  color: #008ae7;
+}
+
+.wallets-left-buttons .pay-from {
+  color: orangered;
+  background: rgba(252, 164, 0, 0.466);
+}
+
+.wallets-left-buttons .wallets-icon {
+  margin-right: 10px;
+  margin-top: -3px;
+  font-size: var(--font-mid);
+}
+
+.recent-transactions {
+  margin-top: 70px;
+}
+
+.recent-transactions h3 {
+  font-size: var(--font-med);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.transaction-loading {
+  margin-top: 70px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.recent-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.recent-div-left {
+  display: flex;
+  /* align-items: center; */
+  width: 100%;
+}
+
+.recent-blue-icon {
+  margin-right: 10px;
+  font-size: var(--font-med);
+  color: rgba(0, 0, 255, 0.685);
+}
+
+.recent-green-icon {
+  margin-right: 10px;
+  font-size: var(--font-med);
+  color: rgba(0, 128, 0, 0.699);
+}
+
+.recent-icon {
+  margin-right: 10px;
+  font-size: var(--font-med);
+  color: var(--red-tag-color);
+}
+
+.recent-count {
+  margin-right: 10px;
+  margin-top: -3px;
+  font-weight: 600;
+}
+
+.recent-div-left h3 {
+  font-size: var(--font-smaller);
+}
+
+.recent-div-left small {
+  margin-top: -15px;
+  display: inline-block;
+  font-size: 11px;
+}
+
+.recent-div-left span {
+  margin-left: 20px;
+  font-size: 11px;
+}
+
+.recent-div-right {
+  width: 10%;
+}
+
+.recent-div-right h3 {
+  font-size: var(--font-smaller);
+  font-weight: 700;
+}
+
+/* .transaction-price {
+  color: var(--green-tag-color);
+} */
+
+.recent-div-right small {
+  font-size: 12px;
+  font-weight: 600;
+  /* color: var(--white-color); */
+}

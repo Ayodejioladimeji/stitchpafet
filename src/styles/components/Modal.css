@@ -1,0 +1,46 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  /* background: url('./login-background.svg'); */
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 15, 15, 0.493);
+  overflow: auto;
+  z-index: 9999999999999999999999999999999999999999999999;
+}
+
+.modalContainer {
+  background: var(--white-color);
+  box-shadow: var(--shadoos);
+  animation: slideUp 0.6s ease-in-out 0.6s forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+  margin: 190px 0 80px 0;
+  height: 100%;
+  width: 70%;
+}
+
+/* ANIMATION SECTION */
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* The media query */
+/* @media screen and (min-width: 1000px) {
+  .modalContainer {
+    width: 90%;
+  }
+} */

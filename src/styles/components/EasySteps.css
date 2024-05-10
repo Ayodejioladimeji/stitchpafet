@@ -1,0 +1,46 @@
+.easy-steps {
+  padding: 130px 20px;
+}
+
+.easy-steps h2 {
+  text-align: center;
+  font-size: var(--font-large);
+  font-weight: bold;
+}
+
+.easy-steps p {
+  width: 50%;
+  margin: 0 auto 80px auto;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* The easy box section */
+.easy-box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+  padding: 0 50px;
+}
+
+.easy-card {
+  text-align: center;
+  padding: 35px 5px;
+  height: 320px;
+}
+
+.easy-card img {
+  height: 70px;
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.easy-card small {
+  display: block;
+  margin-bottom: 20px;
+  font-size: var(--font-smallest);
+}
+
+.card-down {
+  margin-top: 100px;
+}

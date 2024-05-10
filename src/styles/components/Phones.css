@@ -1,0 +1,40 @@
+.phones {
+  width: 90%;
+  margin: auto;
+}
+
+.phones-header {
+  height: 60px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phones-header .header {
+  font-size: var(--font-bigger);
+  font-weight: 800;
+  color: var(--secondary-color);
+  font-family: "Roboto";
+}
+
+.phones-header a {
+  color: var(--white-color);
+  font-weight: 600;
+  font-size: var(--font-smaller);
+}
+
+.chevron {
+  margin-left: 15px;
+  color: var(--white-color);
+  margin-top: -2px;
+}
+
+/* The new arrivals bottom */
+.phones-bottom {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 1rem;
+  grid-row-gap: 1.5rem;
+}

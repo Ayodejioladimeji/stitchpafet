@@ -1,0 +1,105 @@
+.testimonial {
+  /* background: var(--light-blue-color); */
+  padding: 120px 0px;
+}
+
+.testimonial h4 {
+  text-align: center;
+  font-weight: 800;
+  font-size: var(--font-biggest);
+  font-family: "Roboto";
+}
+
+.owl-carousel {
+  padding: 0 20px !important;
+}
+
+#customer-testimonials .item {
+  text-align: center;
+  opacity: 0.9;
+  transform: scale3d(0.8, 0.8, 1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  background: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 180px 0 150px 0;
+  background: var(--white-color);
+  padding: 30px;
+  height: 300px;
+  font-weight: 200 !important;
+  line-height: 30px;
+  box-shadow: var(--shadow);
+}
+
+#customer-testimonials .owl-item.active.center .item {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+  margin-top: 80px;
+  background: var(--primary-color);
+  font-size: var(--font-small) !important;
+}
+
+.item-card {
+  font-size: 14px;
+}
+
+#customer-testimonials .owl-item.active.center .item-card {
+  color: var(--white-color);
+  font-size: 13px;
+}
+
+#customer-testimonials .item-boxs {
+  position: absolute;
+  height: 120px;
+  bottom: -150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#customer-testimonials .items-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.item-boxs h4 {
+  font-size: var(--font-med);
+  margin-top: 10px;
+}
+
+.item-boxs p {
+  font-size: var(--font-mid);
+}
+
+.owl-carousel .owl-dots .owl-dot {
+  display: inline-block;
+}
+.owl-carousel .owl-dots {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.owl-carousel .owl-dots .owl-dot span {
+  background: var(--light-color);
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin: 0 2px 5px;
+  transform: translate3d(0px, -50%, 0px) scale(0.3);
+  transform-origin: 50% 50% 0;
+  transition: all 250ms ease-out 0s;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: var(--deep-color);
+  transform: translate3d(0px, -50%, 0px) scale(0.5);
+}

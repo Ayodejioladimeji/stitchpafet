@@ -1,0 +1,29 @@
+.add-beneficiary {
+  width: 80%;
+}
+
+.add-beneficiary h3 {
+  font-size: var(--font-mid);
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.add-beneficiary .form-group label {
+  margin-bottom: 5px;
+}
+
+.add-beneficiary .form-group input {
+  padding: 12px 25px;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--light-color);
+}
+
+.add-beneficiary button {
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  outline: none;
+  border: none;
+  width: 100%;
+}

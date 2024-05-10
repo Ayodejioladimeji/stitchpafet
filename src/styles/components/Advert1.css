@@ -1,0 +1,17 @@
+.advert-one {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.advert-box {
+  height: 280px;
+}
+
+.advert-box img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}

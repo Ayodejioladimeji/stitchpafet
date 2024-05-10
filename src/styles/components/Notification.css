@@ -1,0 +1,43 @@
+.notifications {
+  padding: 10px 30px;
+}
+
+.notifications h3 {
+  font-size: var(--font-big);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.notification-table {
+  margin-top: 30px;
+}
+
+.notification-table table th {
+  font-size: var(--font-smallest);
+  border: 1px solid var(--light-color);
+}
+
+.notification-table table tbody tr {
+  border: 1px solid transparent !important;
+}
+
+.notification-table table td {
+  text-transform: capitalize;
+  font-size: var(--font-smaller);
+  font-weight: 700;
+  border: 1px solid var(--light-color);
+}
+
+.toggle-style-on {
+  font-size: var(--font-large);
+  color: var(--blue-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.toggle-style-off {
+  font-size: var(--font-large);
+  cursor: pointer;
+  color: var(--light-color);
+  transition: all 9s ease-in-out;
+}

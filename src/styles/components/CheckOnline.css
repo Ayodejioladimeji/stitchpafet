@@ -1,0 +1,53 @@
+.online-check {
+  background: var(--primary-color);
+  height: 100vh;
+  width: 100%;
+}
+
+.online-nav {
+  /* height: 60px; */
+  width: 100%;
+  box-shadow: var(--shadoos);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+
+  padding: 20px;
+}
+
+.online-nav img {
+  width: 8%;
+  height: 8%;
+  object-fit: contain;
+}
+
+.check-online {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: var(--white-color);
+}
+
+.online {
+  text-align: center;
+  box-shadow: var(--shadoos);
+  border: 1px solid var(--blue-color);
+  width: 30%;
+  border-radius: 5px;
+  background: var(--secondary-color);
+  padding: 50px 20px;
+}
+
+.online .wifi {
+  font-size: var(--font-largest);
+  margin-bottom: 20px;
+}
+
+.online h2 {
+  font-size: var(--font-biggest);
+  font-family: 'Roboto';
+}

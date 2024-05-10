@@ -1,0 +1,43 @@
+.topup-wallet {
+  padding: 20px;
+  width: 100% !important;
+}
+
+.topup-wallet-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topup-wallet-top img {
+  height: 60px;
+  width: 60px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.topup-wallet input {
+  padding: 12px 25px;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--light-color) !important;
+}
+
+.topup-wallet span {
+  font-size: 10px;
+  color: red;
+  text-align: center;
+}
+
+.topup-wallet button {
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  outline: none;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
