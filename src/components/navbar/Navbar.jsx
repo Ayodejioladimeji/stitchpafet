@@ -19,6 +19,7 @@ import { GLOBALTYPES } from "./../../redux/actions/globalTypes";
 import Loading from "./../../common/alert/Loading";
 import { search_product } from "../../redux/actions/ProductAction";
 import Link from "next/link";
+import Image from "next/image";
 
 //
 const Navbar = () => {
@@ -93,10 +94,16 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid heading">
+      <div className="container heading">
         <Link href="/">
           <div className="logo-module">
-            <img src="/images/new-logo-light.png" alt="" className="logos" />
+            <Image
+              src="/images/logos.svg"
+              alt=""
+              unoptimized
+              width={100}
+              height={100}
+            />
           </div>
         </Link>
 

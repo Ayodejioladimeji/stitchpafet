@@ -19,27 +19,30 @@ const Transaction = () => {
             data-aos="fade-right"
             data-aos-once="true"
           >
-            <h5>ESCROW PAYMENT SYSTEM</h5>
-            <h1>Make Transactions Securely with our Escrow Payment Sysytem</h1>
+            <h5>Discover Our Exclusive Collections</h5>
+            <h1>
+              Explore a range of collections that reflect the creativity and
+              diversity of our local designers
+            </h1>
+
             <ul>
               <li>
                 {" "}
-                <FaCheck className="transaction-check-circle" /> No more what I
-                ordered vs what I got
-              </li>
-
-              <li>
-                <FaCheck className="transaction-check-circle" /> No more fake
-                transactions from customers
+                <b>Everyday Essentials:</b> Comfortable and stylish pieces for
+                daily wear.
               </li>
 
               <li>
                 {" "}
-                <FaCheck className="transaction-check-circle" />
-                No more payment on delivery issues
+                <b>Formal Elegance:</b> Sophisticated outfits for special
+                occasions.
+              </li>
+
+              <li>
+                <b>Seasonal Trends:</b> Keep up with the latest fashion, made
+                with a local twist.
               </li>
             </ul>
-            <button>Get Started</button>
           </div>
         </div>
 
