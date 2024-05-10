@@ -12,15 +12,17 @@ const BestSecurity = () => {
                 data-aos="fade-right"
                 data-aos-once="true"
               >
-                <h5>FLEXIBLE MARKETPLACE</h5>
-                <h1>Sell from anywhere at any time nationwide.</h1>
+                <h5>Trending Now</h5>
+                <h1>Stay in Style with Our Latest Arrivals</h1>
                 <p>
-                  There is no limitation as to where you can sell from and who
-                  can buy from you. We give you the visibility you have always
-                  wanted with sales on zero commision
+                  Keep up with the latest trends in Nigerian fashion. Check out
+                  our "Trending Now" section to see what's hot. From bold Ankara
+                  prints to elegant Aso-oke designs, find the fabrics that are
+                  making waves in the fashion world. Get inspired and start
+                  creating your unique look.
                 </p>
 
-                <button>Signup as a Vendor</button>
+                <button>View Products</button>
               </div>
             </div>
           </div>

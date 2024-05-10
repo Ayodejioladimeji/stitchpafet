@@ -55,7 +55,6 @@ const Footer = () => {
 
         <small className="footer-rights">
           copyright &copy; {new Date().getFullYear()} All rights reserved.
-          StitchPafet
         </small>
       </div>
     </div>

@@ -1,7 +1,7 @@
 .best-security {
   width: 100%;
   background: var(--white-color);
-  padding: 100px 0;
+  padding: 150px 0;
 }
 
 /* best-security-bottom left */
@@ -16,6 +16,7 @@
   color: var(--primary-color);
   font-weight: 800;
   font-size: var(--font-mid);
+  text-transform: uppercase;
 }
 
 .security-box h1 {

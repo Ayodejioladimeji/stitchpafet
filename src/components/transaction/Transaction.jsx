@@ -14,30 +14,17 @@ const Transaction = () => {
                 data-aos="fade-right"
                 data-aos-once="true"
               >
-                <h5>Discover Our Exclusive Collections</h5>
-                <h1>
-                  Explore a range of collections that reflect the creativity and
-                  diversity of our local designers
-                </h1>
+                <h5>Featured</h5>
+                <h1>Explore Our Exclusive Collections</h1>
 
-                <ul>
-                  <li>
-                    {" "}
-                    <b>Everyday Essentials:</b> Comfortable and stylish pieces
-                    for daily wear.
-                  </li>
-
-                  <li>
-                    {" "}
-                    <b>Formal Elegance:</b> Sophisticated outfits for special
-                    occasions.
-                  </li>
-
-                  <li>
-                    <b>Seasonal Trends:</b> Keep up with the latest fashion,
-                    made with a local twist.
-                  </li>
-                </ul>
+                <p>
+                  Browse our handpicked collections featuring the latest trends
+                  in Nigerian fashion. From bold prints to intricate patterns,
+                  our selection offers something for everyone. Choose from a
+                  variety of textiles to suit your style and taste. Whether
+                  you're dressing for a traditional event or creating everyday
+                  wear, we've got you covered.
+                </p>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 .transaction {
-  padding: 100px 0;
+  padding: 150px 0;
   width: 100%;
 }
 
@@ -15,22 +15,33 @@
   color: var(--primary-color);
   font-weight: 800;
   font-size: var(--font-mid);
+  text-transform: uppercase;
 }
 
 .transaction-box h1 {
   font-weight: 800;
-  font-size: var(--font-large);
+  font-size: 32px;
   line-height: 40px;
   color: var(--primary-color);
+  width: 80%;
+}
+
+.transaction-box p {
+  color: var(--text-color);
+  font-size: var(--font-mid);
+  width: 80%;
 }
 
 .transaction-box ul {
   padding: 0 !important;
+  width: 80%;
 }
 
 .transaction-box ul li {
   color: var(--text-color);
   font-size: var(--font-mid);
+  line-height: 25px;
+  margin-bottom: 10px;
 }
 
 .transaction-check-circle {
