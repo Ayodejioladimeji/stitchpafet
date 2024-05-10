@@ -1,36 +1,12 @@
 .transaction {
-  margin-top: 40px;
-}
-
-/* transaction top */
-.transaction-top {
-  text-align: center;
-  padding: 30px 10px;
-}
-
-.transaction-top h2 {
-  font-size: var(--font-biggest);
-  font-weight: bold;
-}
-
-.transaction-top p {
-  width: 40%;
-  margin: 0 auto;
-  color: var(--text-color);
-  margin-bottom: 20px;
-}
-
-/* transaction bottom */
-.transaction-bottom {
-  display: flex;
-  justify-content: space-around;
   padding: 100px 0;
   width: 100%;
 }
 
 /* transaction-bottom left */
 .transaction-bottom-left {
-  width: 40%;
+  display: flex;
+  height: 70vh;
   display: flex;
   align-items: center;
 }
@@ -80,17 +56,15 @@
 
 /* transaction-bottom right */
 .transaction-bottom-right {
-  width: 40%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  height: 70vh;
 }
 
 .transaction-bottom-right {
-  background: orange;
-
   .image-box {
-    height: 600px;
+    height: 100%;
     width: 100%;
 
     img {

@@ -9,75 +9,80 @@ const Hero = () => {
 
   return (
     <div className="hero container">
-      {/* Hero left */}
-      <div className="col hero-left">
-        <div className="hero-left-div">
-          <h1 className="escrow" data-aos="fade-up" data-aos-once="true">
-            Exquisite and Quality Materials just for you.
-          </h1>
-          <p>
-            Our carefully curated collection of clothing is designed and
-            produced by talented artisans from our community, bringing you
-            unique styles that are made with love and dedication.
-          </p>
+      <div className="row">
+        <div className="col">
+          <div className="hero-left ">
+            <div className="hero-left-div">
+              <h1 className="escrow" data-aos="fade-up" data-aos-once="true">
+                Exquisite and Quality Materials just for you.
+              </h1>
+              <p>
+                Our carefully curated collection of clothing is designed and
+                produced by talented artisans from our community, bringing you
+                unique styles that are made with love and dedication.
+              </p>
 
-          <div
-            className="hero-buttons"
-            data-aos="fade-down"
-            data-aos-once="true"
-          >
-            <button onClick={() => router.push("/market")}>
-              View Products
-            </button>
+              <div
+                className="hero-buttons"
+                data-aos="fade-down"
+                data-aos-once="true"
+              >
+                <button onClick={() => router.push("/market")}>
+                  View Products
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Hero right */}
-      <div className="col hero-right">
-        <div className="image-grid">
-          <div className="image-box">
-            <Image
-              height={100}
-              width={100}
-              unoptimized
-              src="/images/four.jpeg"
-              alt="Image 1"
-              className="image1"
-            />
-          </div>
+        {/* Hero right */}
+        <div className="col">
+          <div className="hero-right ">
+            <div className="image-grid">
+              <div className="image-box">
+                <Image
+                  height={100}
+                  width={100}
+                  unoptimized
+                  src="/images/four.jpeg"
+                  alt="Image 1"
+                  className="image1"
+                />
+              </div>
 
-          <div className="image-box">
-            <Image
-              height={100}
-              width={100}
-              unoptimized
-              src="/images/two.jpeg"
-              alt="Image 2"
-              className="image2"
-            />
-          </div>
+              <div className="image-box">
+                <Image
+                  height={100}
+                  width={100}
+                  unoptimized
+                  src="/images/two.jpeg"
+                  alt="Image 2"
+                  className="image2"
+                />
+              </div>
 
-          <div className="image-box">
-            <Image
-              height={100}
-              width={100}
-              unoptimized
-              src="/images/six.jpeg"
-              alt="Image 2"
-              className="image2"
-            />
-          </div>
+              <div className="image-box">
+                <Image
+                  height={100}
+                  width={100}
+                  unoptimized
+                  src="/images/six.jpeg"
+                  alt="Image 2"
+                  className="image2"
+                />
+              </div>
 
-          <div className="image-box">
-            <Image
-              height={100}
-              width={100}
-              unoptimized
-              src="/images/eight.jpeg"
-              alt="Image 2"
-              className="image2"
-            />
+              <div className="image-box">
+                <Image
+                  height={100}
+                  width={100}
+                  unoptimized
+                  src="/images/eight.jpeg"
+                  alt="Image 2"
+                  className="image2"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

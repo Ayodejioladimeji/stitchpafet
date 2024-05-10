@@ -1,7 +1,6 @@
 .hero {
   height: calc(100vh - 0px);
   width: 100%;
-  display: flex;
 }
 
 /* ------------------------------------- */
@@ -80,20 +79,18 @@
 /* ------------------------------------------- */
 /* The Hero right */
 .hero-right {
-  width: 50%;
   /* background: var(--black-color); */
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   margin-top: 50px;
 }
 
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 30px;
-  row-gap: 20px;
+  gap: 20px;
   /* width: 100%; */
 
   .image-box {

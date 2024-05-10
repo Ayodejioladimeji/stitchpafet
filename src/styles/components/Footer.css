@@ -1,19 +1,25 @@
 .footer {
   background: var(--black-color);
-  padding: 80px 10px 10px 10px;
+  padding: 100px 0 50px 0;
 }
 
 .footer-cards {
   text-align: center;
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
-}
 
-.footer-cards img {
-  height: 40%;
-  width: 40%;
-  margin-bottom: 10px;
-  object-fit: contain;
+  .footer-logo {
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+
+    img {
+      height: 100%;
+      width: 100%;
+      margin-bottom: 10px;
+      object-fit: contain;
+    }
+  }
 }
 
 .footer-cards p {
@@ -29,12 +35,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
 }
 
 .footer-social {
-  font-size: var(--font-bigger);
+  font-size: 30px;
   color: var(--primary-color);
   margin-right: 10px;
   cursor: pointer;

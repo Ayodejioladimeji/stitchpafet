@@ -1,21 +1,17 @@
 .best-offer {
-  display: flex;
-  justify-content: space-around;
-  height: 100vh;
   width: 100%;
   background: var(--light-blue-color);
+  padding: 100px 0;
 }
 
 /* best offer left */
 .best-offer-left {
-  width: 40%;
   display: flex;
   align-items: center;
-}
+  height: 70vh;
 
-.best-offer-left {
   .image-box {
-    height: 600px;
+    height: 100%;
     width: 100%;
 
     img {
@@ -29,10 +25,10 @@
 
 /* best offer right */
 .best-offer-right {
-  width: 40%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  height: 70vh;
 }
 
 .best-offer-box {
