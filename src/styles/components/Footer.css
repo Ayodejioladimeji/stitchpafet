@@ -41,10 +41,13 @@
 
 .footer-social {
   font-size: 30px;
-  color: var(--primary-color);
   margin-right: 10px;
   cursor: pointer;
   color: var(--white-color);
+  transition: var(--transitions);
+  &:hover {
+    color: var(--primary-color);
+  }
 }
 
 .footer-rights {
