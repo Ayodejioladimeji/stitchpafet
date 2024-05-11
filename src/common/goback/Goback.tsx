@@ -1,15 +1,14 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { CgArrowLongLeft } from "react-icons/cg";
+import { useRouter } from "next/router";
 //
 
 const Goback = () => {
-  const history = useHistory();
+  const router = useRouter();
   return (
-    <button className="goback" onClick={() => history.goBack()}>
+    <div onClick={() => router.back()}>
       <CgArrowLongLeft className="back-icon" />
-      <div>Go back</div>
-    </button>
+    </div>
   );
 };
 

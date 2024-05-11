@@ -8,32 +8,41 @@ import { FiSettings, FiGrid } from "react-icons/fi";
 import { BsCart4, BsUiChecksGrid, BsEyeSlash, BsEye } from "react-icons/bs";
 import { BiWalletAlt } from "react-icons/bi";
 import { MdOutlineSell } from "react-icons/md";
-import { addComma } from "comma-separator";
 
 // COMPONENTS
 import Dropdown from "../../common/dropdown/Dropdown";
 
-import { GLOBALTYPES } from "./../../redux/actions/globalTypes";
+import { GLOBALTYPES } from "../../redux/actions/globalTypes";
 
 //
-import Loading from "./../../common/alert/Loading";
+import Loading from "../../common/alert/Loading";
 import { search_product } from "../../redux/actions/ProductAction";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { formatMoney } from "@/utils/utils";
 
 //
 const Navbar = () => {
-  const { token, user, productcart, cart } = useSelector((state) => state.auth);
-  const { walletBalance } = useSelector((state) => state.wallet);
-  const { alert } = useSelector((state) => state);
-  const { get_categories } = useSelector((state) => state.product);
-  const { callback } = useSelector((state) => state.dashboard);
+  const { user, productcart, cart } = useSelector((state: any) => state.auth);
+  const { walletBalance } = useSelector((state: any) => state.wallet);
+  const { alert } = useSelector((state: any) => state);
+  const { get_categories } = useSelector((state: any) => state.product);
+  const { callback } = useSelector((state: any) => state.dashboard);
   const [click, setClick] = useState(false);
   const [selectDrop, setSelectDrop] = useState(false);
   const [show, setShow] = useState(false);
-  const clickRef = useRef();
+  const clickRef = useRef(null);
   const dispatch = useDispatch();
   const [values, setValues] = useState("");
+  const router = useRouter()
+  const { pathname } = router.query
+  const [token, setToken] = useState(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    setToken(token)
+  }, [])
 
   // Click outside side effect
   useEffect(() => {
@@ -59,7 +68,7 @@ const Navbar = () => {
     dispatch({ type: GLOBALTYPES.CART, payload: [] });
     dispatch({ type: GLOBALTYPES.DELETE_PRODUCT_CART, payload: [] });
     dispatch({ type: GLOBALTYPES.DELETE_DATA_CART, payload: [] });
-    history.push("/");
+    router.push("/");
   };
 
   // The handle search method
@@ -69,16 +78,16 @@ const Navbar = () => {
     const res = values?.replace(" ", "-");
     const result = res?.replace(" ", "-");
 
-    dispatch(search_product(values));
+    // dispatch(search_product(values));
     setValues("");
-    history.push(`/search/${result}`);
+    router.push(`/search/${result}`);
   };
 
   // cat navigate method
   const catNavigate = (response, id) => {
     dispatch({ type: GLOBALTYPES.CAT, payload: id });
     dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback });
-    history.push(`/${response}`);
+    router.push(`/${response}`);
   };
 
   // route change based on the last route
@@ -87,7 +96,7 @@ const Navbar = () => {
       type: GLOBALTYPES.REDIRECT_ROUTE,
       payload: pathname,
     });
-    history.push("/auth/login");
+    router.push("/auth/login");
   };
 
   //
@@ -170,7 +179,7 @@ const Navbar = () => {
           </div>
 
           <div className="nav-div">
-            {!token.token && (
+            {!token && (
               <div className="auth-div">
                 <Link href="/auth/register">
                   <button className="sign-up">Sign up</button>
@@ -180,7 +189,7 @@ const Navbar = () => {
               </div>
             )}
 
-            {token.token && (
+            {token && (
               <div className="user" onClick={() => setClick(!click)}>
                 <img
                   src={
@@ -191,7 +200,7 @@ const Navbar = () => {
                 <FaChevronDown className="user-dropdown" />
 
                 {click && (
-                  <Dropdown className="profile-dropdown">
+                  <Dropdown>
                     <div ref={clickRef}>
                       <Link href="/dashboard/overview">
                         <div className="user-div">
@@ -248,18 +257,18 @@ const Navbar = () => {
               </div>
             )}
 
-            <div className="cart" onClick={() => history.push("/cart")}>
+            <div className="cart" onClick={() => router.push("/cart")}>
               {/* <img src='/assets/cart.png' alt='cart' /> */}
               <BsCart4 />
               <div className="carting">Cart</div>
-              {token.token ? (
+              {token ? (
                 <div className="count">{cart?.length}</div>
               ) : (
                 <div className="count">{productcart?.length}</div>
               )}
             </div>
 
-            {token.token && (
+            {token && (
               <div className="balance">
                 {show ? (
                   <BsEye
@@ -278,7 +287,7 @@ const Navbar = () => {
                 ) : (
                   <h3>
                     {show ? (
-                      <b>₦{addComma(walletBalance)}</b>
+                      <b>₦{formatMoney(walletBalance)}</b>
                     ) : (
                       <b className="balance-hide">*****</b>
                     )}

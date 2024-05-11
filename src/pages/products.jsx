@@ -1,11 +1,11 @@
 import React from "react";
 import AllProductsBanner from "../components/allproducts/AllProductsBanner";
 import Search from "../components/search/Search";
-import AllProduct from "./../components/allproducts/AllProducts";
-import Layout from "./../common/Layout";
-import SEO from "./../common/SEO";
+import AllProduct from "../components/allproducts/AllProducts";
+import Layout from "../common/Layout";
+import SEO from "../common/SEO";
 
-const AllProducts = () => {
+const Products = () => {
   return (
     <Layout>
       {/* <SEO title="All Products" /> */}
@@ -16,4 +16,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default Products;

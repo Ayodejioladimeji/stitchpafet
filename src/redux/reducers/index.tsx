@@ -7,6 +7,7 @@ import wallet from "./walletReducer";
 import order from "./orderReducer";
 import product from "./productReducer";
 import other from "./otheralertReducer";
+import loading from "./loadingReducer";
 
 // =================
 export default combineReducers({
@@ -18,4 +19,5 @@ export default combineReducers({
   order,
   product,
   other,
+  loading,
 });

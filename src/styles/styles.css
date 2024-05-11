@@ -155,7 +155,7 @@ input::-webkit-inner-spin-button {
 @import './components/DeliveryInformation.css';
 /* @import './components/Details.css'; */
 /* @import './components/Discount.css'; */
-@import './components/ForgotPassword.css';
+/* @import './components/ForgotPassword.css'; */
 @import './components/Goback.css';
 @import './components/Heading.css';
 @import './components/Horizontalimg.css';
@@ -167,12 +167,12 @@ input::-webkit-inner-spin-button {
 @import './components/ProductHeros.css';
 @import './components/Recommended.css';
 @import './components/Register.css';
-@import './components/ResetPassword.css';
+/* @import './components/ResetPassword.css'; */
 @import './components/Scroll.css';
 @import './components/Search.css';
 @import './components/Securely.css';
 @import './components/Seller.css';
-@import './components/SellerLogin.css';
+/* @import './components/SellerLogin.css'; */
 @import './components/Tabs.css';
 @import './components/TermsConditions.css';
 /* @import './components/Testimonials.css'; */
