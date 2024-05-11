@@ -7,6 +7,7 @@ import Transaction from "../components/transaction/Transaction";
 import BestOffer from "../components/bestoffer/BestOffer";
 import BestSecurity from "../components/bestsecurity/BestSecurity";
 import Layout from "./../common/Layout";
+import Testimonial from "@/components/testimonial/Testimonial";
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
       <Transaction />
       <BestOffer />
       <BestSecurity />
-      {/* <Testimonial /> */}
+      <Testimonial />
     </Layout>
   );
 };
