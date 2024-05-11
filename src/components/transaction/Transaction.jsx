@@ -32,7 +32,7 @@ const Transaction = () => {
             <div className="col transaction-bottom-right">
               <div className="image-box">
                 <img
-                  src="/images/seven.jpeg"
+                  src="/images/1.jpeg"
                   alt="transaction-one"
                   data-aos="fade-down"
                   data-aos-once="true"

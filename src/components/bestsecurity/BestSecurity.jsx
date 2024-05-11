@@ -31,7 +31,7 @@ const BestSecurity = () => {
             <div className="best-security-right">
               <div className="image-box">
                 <img
-                  src="/images/five.jpeg"
+                  src="/images/2.jpeg"
                   alt="best-security"
                   data-aos="fade-down"
                   data-aos-once="true"

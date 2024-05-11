@@ -9,7 +9,7 @@ const BestOffer = () => {
             <div className="best-offer-left">
               <div className="image-box">
                 <img
-                  src="/images/four.jpeg"
+                  src="/images/3.jpeg"
                   alt="best-offer"
                   data-aos="fade-right"
                   data-aos-once="true"

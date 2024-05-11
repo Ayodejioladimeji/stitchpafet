@@ -44,7 +44,7 @@ const Hero = () => {
                   height={100}
                   width={100}
                   unoptimized
-                  src="/images/four.jpeg"
+                  src="/images/4.jpeg"
                   alt="Image 1"
                   className="image1"
                 />
@@ -55,7 +55,7 @@ const Hero = () => {
                   height={100}
                   width={100}
                   unoptimized
-                  src="/images/two.jpeg"
+                  src="/images/1.jpeg"
                   alt="Image 2"
                   className="image2"
                 />
@@ -66,7 +66,7 @@ const Hero = () => {
                   height={100}
                   width={100}
                   unoptimized
-                  src="/images/six.jpeg"
+                  src="/images/3.jpeg"
                   alt="Image 2"
                   className="image2"
                 />
@@ -77,7 +77,7 @@ const Hero = () => {
                   height={100}
                   width={100}
                   unoptimized
-                  src="/images/eight.jpeg"
+                  src="/images/2.jpeg"
                   alt="Image 2"
                   className="image2"
                 />
