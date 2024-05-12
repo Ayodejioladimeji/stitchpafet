@@ -27,7 +27,7 @@ const Hero = () => {
                 data-aos="fade-down"
                 data-aos-once="true"
               >
-                <button onClick={() => router.push("/market")}>
+                <button onClick={() => router.push("/products")}>
                   View Products
                 </button>
               </div>

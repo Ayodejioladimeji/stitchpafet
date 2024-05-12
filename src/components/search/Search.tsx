@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // COMPONENTS
-import { states } from "./../../utils/states";
+
 import { prices } from "../../constants/Prices";
 import { subCategories } from "../../redux/actions/ProductAction";
 
@@ -18,7 +18,7 @@ const initialState = {
 
 const Search = () => {
   const { get_categories, get_sub_categories } = useSelector(
-    (state) => state.product
+    (state: any) => state.product
   );
   const [values, setValues] = useState(initialState);
   const [error, setError] = useState("");
@@ -29,7 +29,7 @@ const Search = () => {
   // Get all sub categories
   useEffect(() => {
     if (category) {
-      dispatch(subCategories(category));
+      // dispatch(subCategories(category));
     }
   }, [dispatch, category]);
 
@@ -53,44 +53,27 @@ const Search = () => {
     <div className="search">
       <form onSubmit={handleSubmit}>
         <div className="search-box">
-          <div className="search-card">
-            <p>Country</p>
-            <select>
-              <option>Country</option>
-              <option>Nigeria</option>
-            </select>
-          </div>
 
           <div className="search-card">
-            <p>State</p>
-            <select onChange={handleChange} name="state" value={state}>
-              <option defaultValue>Select State</option>
-              {states.map((item, index) => (
-                <option key={index}>{item}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="search-card">
-            <p>Category</p>
-            <select onChange={handleChange} name="category" value={category}>
-              <option defaultValue>Select</option>
-              {get_categories.map((category) => (
+            <label>Category</label>
+            <select className="form-select" onChange={handleChange} name="category" value={category}>
+              <option defaultValue="">Select</option>
+              {/* {get_categories.map((category) => (
                 <option key={category._id} value={category._id}>
                   {category.name}
                 </option>
-              ))}
+              ))} */}
             </select>
           </div>
 
           <div className="search-card">
-            <p>Item type</p>
-            <select
+            <label>Ratings</label>
+            <select className="form-select"
               onChange={handleChange}
               name="subCategory"
               value={subCategory}
             >
-              <option defaultValue>Select</option>
+              <option defaultValue="">Select</option>
               {get_sub_categories.map((category) => (
                 <option key={category._id} value={category._id}>
                   {category.name}
@@ -100,32 +83,33 @@ const Search = () => {
           </div>
 
           <div className="search-card">
-            <p>price range</p>
-            <span className="d-flex">
-              <select
-                onChange={handleChange}
-                name="startPrice"
-                value={startPrice}
-              >
-                <option defaultValue>From</option>
-                {prices.map((item, index) => (
+            <label>price(From)</label>
+            <select className="form-select"
+              onChange={handleChange}
+              name="startPrice"
+              value={startPrice}
+            >
+              <option defaultValue="">From</option>
+              {prices.map((item, index) => (
+                <option key={index} value={item}>
+                  ₦{item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="search-card">
+            <label>price(To)</label>
+            <select className="form-select" onChange={handleChange} name="endPrice" value={endPrice}>
+              <option defaultValue="">To</option>
+              {prices
+                .filter((item) => item > 1000)
+                .map((item, index) => (
                   <option key={index} value={item}>
                     ₦{item}
                   </option>
                 ))}
-              </select>
-
-              <select onChange={handleChange} name="endPrice" value={endPrice}>
-                <option defaultValue>To</option>
-                {prices
-                  .filter((item) => item > 1000)
-                  .map((item, index) => (
-                    <option key={index} value={item}>
-                      ₦{item}
-                    </option>
-                  ))}
-              </select>
-            </span>
+            </select>
           </div>
 
           <div className="search-card">

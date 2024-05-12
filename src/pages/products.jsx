@@ -8,10 +8,12 @@ import SEO from "../common/SEO";
 const Products = () => {
   return (
     <Layout>
-      {/* <SEO title="All Products" /> */}
-      <AllProductsBanner />
-      <Search />
-      <AllProduct />
+      <div className="products">
+        <div className="container">
+          <Search />
+          <AllProduct />
+        </div>
+      </div>
     </Layout>
   );
 };

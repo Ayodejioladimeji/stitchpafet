@@ -1,5 +1,5 @@
 import React from "react";
-import Loading from "./../alert/Loading";
+import Loading from "../alert/Loading";
 
 const LoadMore = ({ load, showItems }) => {
   return (

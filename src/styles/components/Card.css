@@ -6,7 +6,7 @@
   cursor: pointer;
 
   .product-image {
-    height: 220px;
+    height: 200px;
     /* background: $section-color; */
     border-radius: 10px;
 
@@ -19,8 +19,8 @@
   }
 
   .product-body {
-    height: 150px;
-    padding: 24px;
+    height: 130px;
+    padding: 24px 10px;
     text-align: left;
 
     @media (max-width: 991px) {
@@ -48,7 +48,7 @@
     button {
       padding: 12px 10px;
       background: var(--light-color);
-      font-size: 16px;
+      font-size: 14px;
       color: var(--white-color);
       width: 50%;
       display: flex;
@@ -60,12 +60,12 @@
     button:first-child {
       background: var(--white-color);
       color: var(--black-color);
-      border-radius: 0 0 0 10px;
+      /* border-radius: 0 0 0 10px; */
     }
     button:last-child {
       background: var(--primary-color);
       color: var(--white-color);
-      border-radius: 0 0 10px 0;
+      /* border-radius: 0 0 10px 0; */
     }
   }
 }

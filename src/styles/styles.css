@@ -76,6 +76,12 @@ ul {
   list-style-type: none !important;
 }
 
+button,
+input,
+select {
+  outline: none !important;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -137,6 +143,7 @@ input::-webkit-inner-spin-button {
 @import './components/OTPCode.css';
 @import './components/Search.css';
 @import './components/AllProducts.css';
+@import './components/Products.css';
 @import './components/Tabs.css';
 @import './components/Cart.css';
 @import './components/Checkout.css';
