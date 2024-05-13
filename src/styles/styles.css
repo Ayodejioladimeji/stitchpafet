@@ -160,7 +160,7 @@ input::-webkit-inner-spin-button {
 @import './components/ConfirmCode.css';
 @import './components/ConfirmModal.css';
 @import './components/DeliveryInformation.css';
-/* @import './components/Details.css'; */
+@import './components/Detail.css';
 /* @import './components/Discount.css'; */
 /* @import './components/ForgotPassword.css'; */
 @import './components/Goback.css';

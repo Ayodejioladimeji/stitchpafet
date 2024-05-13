@@ -1,14 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrashAlt, FaMinus, FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { addComma } from "comma-separator";
-import { GLOBALTYPES } from "./../../redux/actions/globalTypes";
+import { GLOBALTYPES } from "../../redux/actions/globalTypes";
+import Link from "next/link";
+import { formatMoney } from "@/utils/utils";
 
 //
 
 const CartItems = ({ data, ...item }) => {
-  const { productcart } = useSelector((state) => state.auth);
+  const { productcart } = useSelector((state: any) => state.auth);
 
   const {
     _id,
@@ -105,7 +105,7 @@ const CartItems = ({ data, ...item }) => {
 
         <div className="item-details">
           <h5>{productname}</h5>
-          <Link to="/">
+          <Link href="/">
             <small>Add by Tohem ventures</small>
           </Link>
           {productcolors !== null && (
@@ -130,11 +130,11 @@ const CartItems = ({ data, ...item }) => {
       </div>
 
       <div className="item-right">
-        <h2>₦{addComma(Number(productamount * quantity))}</h2>
+        <h2>₦{formatMoney(Number(productamount * quantity))}</h2>
         {productoldamount === 0 || productoldamount === null ? (
           ""
         ) : (
-          <h3 className="old-price">₦{addComma(Number(productoldamount))}</h3>
+          <h3 className="old-price">₦{formatMoney(Number(productoldamount))}</h3>
         )}
 
         <div className="quantity">

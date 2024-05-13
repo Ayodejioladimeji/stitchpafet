@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 
 const Card = ({ item }) => {
   const [favorite, setFavorite] = useState(false);
+  const router = useRouter()
 
   return (
-    <div className="card">
+    <div className="card" onClick={() => router.push(`/products/${item.id}`)}>
       <div className="product-image">
         <Image src={item.image} alt="" width={100} height={100} unoptimized />
       </div>

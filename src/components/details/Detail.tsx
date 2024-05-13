@@ -1,38 +1,35 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useHistory, useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 //
 import Tabs from "../tab/Tabs";
-import LoadMore from "./../../common/loadmore/LoadMore";
-import { Link } from "react-router-dom";
-
+import LoadMore from "../../common/loadmore/LoadMore";
 import DetailsThumb from "./DetailsThumb";
-import { addComma } from "comma-separator";
-import Loading from "./../../common/Loading";
-import { GLOBALTYPES } from "./../../redux/actions/globalTypes";
-import { addCart } from "./../../redux/actions/ProductAction";
-import ProductCard from "./../../common/productcard/ProductCard";
+import Loading from "../../common/Loading";
+import { GLOBALTYPES } from "../../redux/actions/globalTypes";
+import { addCart } from "../../redux/actions/ProductAction";
+import ProductCard from "../../common/productcard/ProductCard";
 import { FaCartPlus } from "react-icons/fa";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { formatMoney } from "@/utils/utils";
 
 //
 
 const Detail = () => {
-  const { all_product, cartcallback } = useSelector((state) => state.product);
-  const { alert } = useSelector((state) => state);
+  const router = useRouter()
+  const { slug } = router.query
+  const { all_product, cartcallback } = useSelector((state: any) => state.product);
+  const { alert } = useSelector((state: any) => state);
   const { token, productcart, redirect_route } = useSelector(
-    (state) => state.auth
+    (state: any) => state.auth
   );
   const [productColor, setProductColor] = useState("");
   const [productSize, setProductSize] = useState("");
-  // const [count, setCount] = useState(1);
   const [index, setIndex] = useState(0);
-  const imgDiv = useRef();
-  const history = useHistory();
-  const { id } = useParams();
-  const { pathname } = useLocation();
+  const imgDiv = useRef(null);
   const dispatch = useDispatch();
-  const [detailProduct, setDetailProduct] = useState([]);
+  const [detailProduct, setDetailProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(12);
   const [load, setLoad] = useState(false);
@@ -47,14 +44,14 @@ const Detail = () => {
 
   //  get detail product
   useEffect(() => {
-    if (id) {
+    if (slug) {
       all_product.forEach((item) => {
-        if (item._id === id) {
+        if (item._id === slug) {
           setDetailProduct(item);
         }
       });
     }
-  }, [all_product, id]);
+  }, [all_product, slug]);
 
   const {
     _id,
@@ -130,7 +127,7 @@ const Detail = () => {
         },
       ];
 
-      dispatch(addCart(cartItems, token.token, cartcallback, setLoading));
+      // dispatch(addCart(cartItems, token.token, cartcallback, setLoading));
     } else {
       const check = productcart.every((item) => {
         return item._id !== _id;
@@ -185,10 +182,10 @@ const Detail = () => {
 
   // continue shopping method
   const continueBtn = () => {
-    if (redirect_route === pathname) {
-      history.push("/market");
+    if (redirect_route === router.pathname) {
+      router.push("/market");
     } else {
-      history.goBack();
+      router.back();
     }
   };
 
@@ -205,14 +202,14 @@ const Detail = () => {
             <div className="detail-one">
               <h2>{productname}</h2>
               <h1 className="detail-price">
-                ₦{addComma(Number(productamount))}
+                ₦{formatMoney(Number(productamount))}
               </h1>
               {productoldamount !== null && (
                 <h2 className="detail-old-price">
-                  ₦{addComma(Number(productoldamount))}
+                  ₦{formatMoney(Number(productoldamount))}
                 </h2>
               )}
-              <Link to={`/vendor/${vendor}`}>
+              <Link href={`/vendor/${vendor}`}>
                 <p>{vendor}</p>
               </Link>
 

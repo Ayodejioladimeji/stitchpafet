@@ -1,15 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTrashAlt, FaMinus, FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { addComma } from "comma-separator";
-import { addCart, removeCart } from "./../../redux/actions/ProductAction";
+import { addCart, removeCart } from "../../redux/actions/ProductAction";
+import Link from "next/link";
+import { formatMoney } from "@/utils/utils";
 
 //
 
 const CartItem = ({ data, ...item }) => {
-  const { token, cart } = useSelector((state) => state.auth);
-  const { cartcallback } = useSelector((state) => state.product);
+  const { token, cart } = useSelector((state: any) => state.auth);
+  const { cartcallback } = useSelector((state: any) => state.product);
   const { _id, quantity, color, size } = data;
   const { productname, productimages, productamount, productoldamount } = item;
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const CartItem = ({ data, ...item }) => {
       },
     ];
 
-    dispatch(addCart(newCart, token.token, cartcallback));
+    // dispatch(addCart(newCart, token.token, cartcallback));
   };
 
   // decrease cart items
@@ -53,13 +53,13 @@ const CartItem = ({ data, ...item }) => {
       },
     ];
 
-    dispatch(addCart(newCart, token.token, cartcallback));
+    // dispatch(addCart(newCart, token.token, cartcallback));
   };
 
   // remove cart item on delete
   const removeCartItem = (id) => {
     if (token.token) {
-      dispatch(removeCart(token.token, id, cartcallback));
+      // dispatch(removeCart(token.token, id, cartcallback));
     }
   };
 
@@ -72,7 +72,7 @@ const CartItem = ({ data, ...item }) => {
 
         <div className="item-details">
           <h5>{productname}</h5>
-          <Link to="/">
+          <Link href="/">
             <small>Add by Tohem ventures</small>
           </Link>
           {color !== null && (
@@ -97,11 +97,11 @@ const CartItem = ({ data, ...item }) => {
       </div>
 
       <div className="item-right">
-        <h2>₦{addComma(Number(productamount * quantity))}</h2>
+        <h2>₦{formatMoney(Number(productamount * quantity))}</h2>
         {productoldamount === 0 || productoldamount === null ? (
           ""
         ) : (
-          <h3 className="old-price">₦{addComma(Number(productoldamount))}</h3>
+          <h3 className="old-price">₦{formatMoney(Number(productoldamount))}</h3>
         )}
         <div className="quantity">
           <button className="calc" onClick={() => decrement(_id)}>
