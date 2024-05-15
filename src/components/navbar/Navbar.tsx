@@ -37,11 +37,11 @@ const Navbar = () => {
   const [values, setValues] = useState("");
   const router = useRouter()
   const { pathname } = router.query
-  const [token, setToken] = useState(null)
+  const [token, setToken] = useState("null")
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    setToken(token)
+    // setToken(token)
   }, [])
 
   // Click outside side effect
@@ -178,7 +178,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="nav-div">
+          <div className={`nav-div ${!token ? "no-auth" : ""}`}>
             {!token && (
               <div className="auth-div">
                 <Link href="/auth/register">
@@ -189,41 +189,54 @@ const Navbar = () => {
               </div>
             )}
 
-            {token && (
-              <div className="user" onClick={() => setClick(!click)}>
-                <img
-                  src={
-                    user.profile_pic ? user.profile_pic : "/images/avatar.jpg"
-                  }
-                  alt="user"
-                />
-                <FaChevronDown className="user-dropdown" />
 
-                {click && (
-                  <Dropdown>
-                    <div ref={clickRef}>
-                      <Link href="/dashboard/overview">
-                        <div className="user-div">
-                          <FiGrid className="user-div-icons" />
-                          <div className="link">Dashboard</div>
-                        </div>
-                      </Link>
+            <div className="d-flex align-item-center gap-4">
+              <div className="cart" onClick={() => router.push("/cart")}>
+                {/* <img src='/assets/cart.png' alt='cart' /> */}
+                <BsCart4 />
+                <div className="carting">Cart</div>
+                {token ? (
+                  <div className="count">{cart?.length}</div>
+                ) : (
+                  <div className="count">{productcart?.length}</div>
+                )}
+              </div>
 
-                      <Link href="/dashboard/profile">
-                        <div className="user-div">
-                          <FaRegUser className="user-div-icons" />
-                          <div className="link">My Profile</div>
-                        </div>
-                      </Link>
+              {token && (
+                <div className="user" onClick={() => setClick(!click)}>
+                  <img
+                    src={
+                      user.profile_pic ? user.profile_pic : "/images/avatar.jpg"
+                    }
+                    alt="user"
+                  />
+                  <FaChevronDown className="user-dropdown" />
 
-                      <Link href="/market">
-                        <div className="user-div">
-                          <MdOutlineSell className="user-div-icons seller" />
-                          <div className="link">Market Place</div>
-                        </div>
-                      </Link>
+                  {click && (
+                    <Dropdown>
+                      <div ref={clickRef}>
+                        <Link href="/dashboard/overview">
+                          <div className="user-div">
+                            <FiGrid className="user-div-icons" />
+                            <div className="link">Dashboard</div>
+                          </div>
+                        </Link>
 
-                      {/* {user.userType !== 'vendor' && (
+                        <Link href="/dashboard/profile">
+                          <div className="user-div">
+                            <FaRegUser className="user-div-icons" />
+                            <div className="link">My Profile</div>
+                          </div>
+                        </Link>
+
+                        <Link href="/market">
+                          <div className="user-div">
+                            <MdOutlineSell className="user-div-icons seller" />
+                            <div className="link">Market Place</div>
+                          </div>
+                        </Link>
+
+                        {/* {user.userType !== 'vendor' && (
                         <Link to='/register-vendor'>
                           <div className='user-div'>
                             <FiUserCheck className='user-div-icons seller' />
@@ -232,69 +245,31 @@ const Navbar = () => {
                         </Link>
                       )} */}
 
-                      <Link href="/dashboard/settings">
-                        <div className="user-div">
-                          <FiSettings className="user-div-icons" />
-                          <div className="link">Settings</div>
-                        </div>
-                      </Link>
+                        <Link href="/dashboard/settings">
+                          <div className="user-div">
+                            <FiSettings className="user-div-icons" />
+                            <div className="link">Settings</div>
+                          </div>
+                        </Link>
 
-                      <Link href="/dashboard/wallet">
-                        <div className="user-div">
-                          <BiWalletAlt className="user-div-icons" />
-                          <div className="link">My Wallet</div>
-                        </div>
-                      </Link>
+                        <Link href="/dashboard/wallet">
+                          <div className="user-div">
+                            <BiWalletAlt className="user-div-icons" />
+                            <div className="link">My Wallet</div>
+                          </div>
+                        </Link>
 
-                      <hr className="mb-3" />
-                      <div className="user-div" onClick={logoutUser}>
-                        <HiOutlineLogout className="user-div-icons logout" />
-                        <div className="link">Logout</div>
+                        <hr className="mb-3" />
+                        <div className="user-div" onClick={logoutUser}>
+                          <HiOutlineLogout className="user-div-icons logout" />
+                          <div className="link">Logout</div>
+                        </div>
                       </div>
-                    </div>
-                  </Dropdown>
-                )}
-              </div>
-            )}
-
-            <div className="cart" onClick={() => router.push("/cart")}>
-              {/* <img src='/assets/cart.png' alt='cart' /> */}
-              <BsCart4 />
-              <div className="carting">Cart</div>
-              {token ? (
-                <div className="count">{cart?.length}</div>
-              ) : (
-                <div className="count">{productcart?.length}</div>
+                    </Dropdown>
+                  )}
+                </div>
               )}
             </div>
-
-            {token && (
-              <div className="balance">
-                {show ? (
-                  <BsEye
-                    onClick={() => setShow(!show)}
-                    className="balance-eye"
-                  />
-                ) : (
-                  <BsEyeSlash
-                    onClick={() => setShow(!show)}
-                    className="balance-eye"
-                  />
-                )}
-                <h4>Balance:</h4> &nbsp;
-                {alert.loading ? (
-                  <Loading height="15px" width="15px" color="#351590" />
-                ) : (
-                  <h3>
-                    {show ? (
-                      <b>₦{formatMoney(walletBalance)}</b>
-                    ) : (
-                      <b className="balance-hide">*****</b>
-                    )}
-                  </h3>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </div>

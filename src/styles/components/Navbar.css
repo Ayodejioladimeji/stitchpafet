@@ -50,7 +50,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 15px;
 }
 
 .nav-box {
@@ -60,8 +59,11 @@
 .nav-div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 500px;
+  justify-content: flex-end;
+
+  &.no-auth {
+    column-gap: 60px;
+  }
 }
 
 /* ------------------------------- */

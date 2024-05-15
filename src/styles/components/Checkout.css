@@ -1,15 +1,14 @@
 .checkout {
-  padding: 130px 10px;
+  padding: 130px 0px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
   position: relative;
+  column-gap: 20px;
 }
 
 .checkout-left {
-  width: 67%;
+  width: 70%;
   background: var(--white-color);
   box-shadow: var(--shadoos);
   border-radius: 5px;

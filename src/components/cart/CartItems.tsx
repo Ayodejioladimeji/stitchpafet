@@ -7,21 +7,9 @@ import { formatMoney } from "@/utils/utils";
 
 //
 
-const CartItems = ({ data, ...item }) => {
+const CartItems = ({ item }) => {
   const { productcart } = useSelector((state: any) => state.auth);
 
-  const {
-    _id,
-    productname,
-    productimages,
-    productamount,
-    productcolors,
-    productsizes,
-    productdiscount,
-    productoldamount,
-    productdescription,
-    quantity,
-  } = item;
   const dispatch = useDispatch();
 
   // // increase cart items
@@ -34,24 +22,24 @@ const CartItems = ({ data, ...item }) => {
 
     const carting = productcart.filter((item) => item._id === id);
 
-    const cartData = {
-      _id: carting[0]._id,
-      productname,
-      productamount,
-      productimages,
-      productcolors,
-      productsizes,
-      productdiscount,
-      productdescription,
-      productoldamount,
-      quantity: carting[0].quantity,
-    };
+    // const cartData = {
+    //   _id: carting[0]._id,
+    //   productname,
+    //   productamount,
+    //   productimages,
+    //   productcolors,
+    //   productsizes,
+    //   productdiscount,
+    //   productdescription,
+    //   productoldamount,
+    //   quantity: carting[0].quantity,
+    // };
     const dataCart = {
       product_id: carting[0]._id,
       quantity: carting[0].quantity,
     };
 
-    dispatch({ type: GLOBALTYPES.UPDATE_PRODUCT_CART, payload: cartData });
+    // dispatch({ type: GLOBALTYPES.UPDATE_PRODUCT_CART, payload: cartData });
     dispatch({ type: GLOBALTYPES.DATA_CART, payload: dataCart });
   };
 
@@ -66,25 +54,25 @@ const CartItems = ({ data, ...item }) => {
 
     const carting = productcart.filter((item) => item._id === id);
 
-    const cartData = {
-      _id: carting[0]._id,
-      productname,
-      productamount,
-      productimages,
-      productcolors,
-      productsizes,
-      productdiscount,
-      productdescription,
-      productoldamount,
-      quantity: carting[0].quantity,
-    };
+    // const cartData = {
+    //   _id: carting[0]._id,
+    //   productname,
+    //   productamount,
+    //   productimages,
+    //   productcolors,
+    //   productsizes,
+    //   productdiscount,
+    //   productdescription,
+    //   productoldamount,
+    //   quantity: carting[0].quantity,
+    // };
 
     const dataCart = {
       product_id: carting[0]._id,
       quantity: carting[0].quantity,
     };
 
-    dispatch({ type: GLOBALTYPES.UPDATE_PRODUCT_CART, payload: cartData });
+    // dispatch({ type: GLOBALTYPES.UPDATE_PRODUCT_CART, payload: cartData });
     dispatch({ type: GLOBALTYPES.DATA_CART, payload: dataCart });
   };
 
@@ -100,49 +88,44 @@ const CartItems = ({ data, ...item }) => {
     <div className="cart-item">
       <div className="item-left">
         <div className="item-image">
-          <img src={productimages[0]} alt="" />
+          <img src={item?.images[0]} alt="" />
         </div>
 
         <div className="item-details">
-          <h5>{productname}</h5>
+          <h5>{item?.title}</h5>
           <Link href="/">
             <small>Add by Tohem ventures</small>
           </Link>
-          {productcolors !== null && (
+          {item?.colors !== null && (
             <small>
               color:{" "}
               <span
                 style={{
                   height: "20px",
                   width: "50px",
-                  background: productcolors,
+                  background: item?.colors,
                   display: "inline-block",
                   marginBottom: "-6px",
                 }}
               ></span>
             </small>
           )}
-          {productsizes !== null && <small>size: {productsizes}</small>}
-          <small className="remove" onClick={() => removeCartItem(_id)}>
+          <small className="remove" onClick={() => removeCartItem(item.id)}>
             <FaTrashAlt className="trash" /> Remove
           </small>
         </div>
       </div>
 
       <div className="item-right">
-        <h2>₦{formatMoney(Number(productamount * quantity))}</h2>
-        {productoldamount === 0 || productoldamount === null ? (
-          ""
-        ) : (
-          <h3 className="old-price">₦{formatMoney(Number(productoldamount))}</h3>
-        )}
+        <h2>₦{formatMoney(Number(item?.amount * 1))}</h2>
+
 
         <div className="quantity">
-          <button className="calc" onClick={() => decrement(_id)}>
+          <button className="calc" onClick={() => decrement(item?.id)}>
             <FaMinus />
           </button>
-          <div className="counts">{quantity}</div>
-          <button className="calc" onClick={() => increment(_id)}>
+          <div className="counts">{1}</div>
+          <button className="calc" onClick={() => increment(item?.id)}>
             <FaPlus />
           </button>
         </div>

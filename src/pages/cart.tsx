@@ -2,6 +2,7 @@ import Layout from "@/common/Layout";
 import Loading from "@/common/Loading";
 import CartItem from "@/components/cart/CartItem";
 import CartItems from "@/components/cart/CartItems";
+import { data } from "@/constants/SecureData";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
 import { formatMoney } from "@/utils/utils";
 import { useRouter } from "next/router";
@@ -12,20 +13,21 @@ import { useSelector, useDispatch } from "react-redux";
 //
 
 const Cart = () => {
-  const { token, productcart, cart } = useSelector((state: any) => state.auth);
+  const { productcart, cart } = useSelector((state: any) => state.auth);
   const { cartcallback } = useSelector((state: any) => state.product);
   const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState("one")
 
   const router = useRouter();
   const dispatch = useDispatch();
 
   const checkout = () => {
-    if (token.token) {
-      router.push("/checkout-product");
+    if (token) {
+      router.push("/checkout");
     } else {
       dispatch({
         type: GLOBALTYPES.REDIRECT_ROUTE,
-        payload: "/checkout-product",
+        payload: "/checkout",
       });
       router.push("/auth/login");
     }
@@ -56,8 +58,8 @@ const Cart = () => {
 
   // Clear all cart
   const clearCart = () => {
-    if (token.token) {
-      // dispatch(clearAllCart(token.token, cartcallback, setLoading));
+    if (token) {
+      // dispatch(clearAllCart(token, cartcallback, setLoading));
       dispatch({ type: GLOBALTYPES.DELETE_PRODUCT_CART, payload: [] });
     } else {
       dispatch({ type: GLOBALTYPES.DELETE_PRODUCT_CART, payload: [] });
@@ -68,118 +70,120 @@ const Cart = () => {
 
   return (
     <Layout>
-      <div className="main-cart">
-        <div className="main-cart-center">
-          {productcart?.length === 0 && cart?.length === 0 ? (
-            <div className="main-cart-empty">
-              <div className="cart-empty">
-                <div className="cart-bottom-box">
-                  <img src="/images/empty-cart.png" alt="" />
+      <div className="container">
+
+        <div className="main-cart">
+          <div className="main-cart-center">
+            {data?.length === 0 && data?.length === 0 ? (
+              <div className="main-cart-empty">
+                <div className="cart-empty">
+                  <div className="cart-bottom-box">
+                    <img src="/images/empty-cart.png" alt="" />
+                  </div>
+
+                  <h3>Your cart is empty</h3>
+                  <button
+                    onClick={() => router.push("/products")}
+                    className="start-shopping"
+                  >
+                    Start Shopping
+                  </button>
                 </div>
-
-                <h3>Your cart is empty</h3>
-                <button
-                  onClick={() => router.push("/products")}
-                  className="start-shopping"
-                >
-                  Start Shopping
-                </button>
               </div>
-            </div>
-          ) : (
-            <>
-              <div className="main-cart-left">
-                <h2>
-                  <FaChevronLeft
-                    onClick={() => router.back()}
-                    className="chevron-back"
-                  />{" "}
-                  Product Cart ({token.token ? cart.length : productcart.length})
-                </h2>
+            ) : (
+              <>
+                <div className="main-cart-left">
+                  <h2>
+                    <FaChevronLeft
+                      onClick={() => router.back()}
+                      className="chevron-back"
+                    />{" "}
+                    Product Cart ({token ? cart.length : productcart.length})
+                  </h2>
 
-                <hr />
+                  <hr />
 
-                {token.token ? (
-                  <div className="cart-bottom">
-                    {cart.map((item) => {
-                      console.log(item);
-                      return (
-                        <CartItem data={item} {...item.product} key={item._id} />
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="cart-bottom">
-                    {productcart.map((item) => {
-                      return <CartItems {...item} key={item._id} />;
-                    })}
-                  </div>
-                )}
-
-                {cart.length === 0 ? (
-                  ""
-                ) : (
-                  <button className="clear-cart" onClick={clearCart}>
-                    {loading ? (
-                      <Loading width="20px" height="20px" color="#fff" />
-                    ) : (
-                      " Clear cart"
-                    )}
-                  </button>
-                )}
-
-                {productcart.length === 0 ? (
-                  ""
-                ) : (
-                  <button className="clear-cart" onClick={clearCart}>
-                    {loading ? (
-                      <Loading width="20px" height="20px" color="#fff" />
-                    ) : (
-                      " Clear cart"
-                    )}
-                  </button>
-                )}
-              </div>
-
-              <div className="main-cart-right">
-                <h3>Order Summary</h3>
-                <hr />
-
-                <div className="order-details">
-                  <div>items: </div>
-                  {token.token ? (
-                    <div className="sub-total">{calculateItems} Items</div>
+                  {token ? (
+                    <div className="cart-bottom">
+                      {cart.map((item) => {
+                        return (
+                          <CartItem data={item} {...item.product} key={item._id} />
+                        );
+                      })}
+                    </div>
                   ) : (
-                    <div className="sub-total">{calculateItem} Items</div>
+                    <div className="cart-bottom">
+                      {data?.map((item) => {
+                        return <CartItems item={item} key={item._id} />;
+                      })}
+                    </div>
+                  )}
+
+                  {cart.length === 0 ? (
+                    ""
+                  ) : (
+                    <button className="clear-cart" onClick={clearCart}>
+                      {loading ? (
+                        <Loading width="20px" height="20px" color="#fff" />
+                      ) : (
+                        " Clear cart"
+                      )}
+                    </button>
+                  )}
+
+                  {productcart.length === 0 ? (
+                    ""
+                  ) : (
+                    <button className="clear-cart" onClick={clearCart}>
+                      {loading ? (
+                        <Loading width="20px" height="20px" color="#fff" />
+                      ) : (
+                        " Clear cart"
+                      )}
+                    </button>
                   )}
                 </div>
 
-                <hr />
+                <div className="main-cart-right">
+                  <h3>Order Summary</h3>
+                  <hr />
 
-                <div className="order-details">
-                  <div>Sub-total: </div>
+                  <div className="order-details">
+                    <div>items: </div>
+                    {token ? (
+                      <div className="sub-total">{calculateItems} Items</div>
+                    ) : (
+                      <div className="sub-total">{calculateItem} Items</div>
+                    )}
+                  </div>
 
-                  {token.token ? (
-                    <div className="sub-total">₦ {formatMoney(subTotal)}</div>
+                  <hr />
+
+                  <div className="order-details">
+                    <div>Sub-total: </div>
+
+                    {token ? (
+                      <div className="sub-total">₦ {formatMoney(subTotal)}</div>
+                    ) : (
+                      <div className="sub-total">₦ {formatMoney(subtotal)}</div>
+                    )}
+                  </div>
+
+                  <hr />
+
+                  {token ? (
+                    <button onClick={checkout}>
+                      Checkout ( ₦ {formatMoney(subTotal)} )
+                    </button>
                   ) : (
-                    <div className="sub-total">₦ {formatMoney(subtotal)}</div>
+                    <button onClick={checkout}>
+                      Checkout ( ₦ {formatMoney(subtotal)} )
+                    </button>
                   )}
                 </div>
-
-                <hr />
-
-                {token.token ? (
-                  <button onClick={checkout}>
-                    Checkout ( ₦ {formatMoney(subTotal)} )
-                  </button>
-                ) : (
-                  <button onClick={checkout}>
-                    Checkout ( ₦ {formatMoney(subtotal)} )
-                  </button>
-                )}
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </Layout>
