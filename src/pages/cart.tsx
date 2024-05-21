@@ -74,7 +74,7 @@ const Cart = () => {
 
         <div className="main-cart">
           <div className="main-cart-center">
-            {data?.length === 0 && data?.length === 0 ? (
+            {data?.length === 0 ? (
               <div className="main-cart-empty">
                 <div className="cart-empty">
                   <div className="cart-bottom-box">
@@ -103,7 +103,7 @@ const Cart = () => {
 
                   <hr />
 
-                  {token ? (
+                  {!token ? (
                     <div className="cart-bottom">
                       {cart.map((item) => {
                         return (

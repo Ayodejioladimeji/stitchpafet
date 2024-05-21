@@ -245,34 +245,6 @@
   padding-top: 2px;
 }
 
-/* The balance section */
-.balance {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--black-color);
-  height: 40px;
-  margin-top: 4px;
-}
-
-.balance h3,
-.balance h4 {
-  font-size: 12px;
-  margin-top: 7px;
-}
-
-.balance-eye {
-  font-size: var(--font-mid);
-  margin-right: 8px;
-  margin-top: -2px;
-  cursor: pointer;
-}
-
-.balance-hide {
-  margin-top: 5px;
-  display: block;
-}
-
 /* ================================================== */
 @media screen and (max-width: 990px) {
   .display-menu {

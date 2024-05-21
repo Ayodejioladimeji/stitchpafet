@@ -5,7 +5,7 @@
   width: 230px;
   position: absolute;
   top: 60px;
-  left: -135%;
+  right: -50%;
   border: 1px solid var(--border-color);
   padding: 15px;
 }

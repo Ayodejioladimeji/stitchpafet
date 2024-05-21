@@ -16,13 +16,21 @@
   border: 1px solid var(--light-color);
 }
 
-.checkout-left .checkout-address h2 {
-  padding: 10px 0;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: -10px;
-  color: var(--black-color);
-  text-transform: uppercase;
+.checkout-address {
+  h2 {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: -10px;
+    color: var(--black-color);
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--light-color);
+    font-weight: 400;
+  }
 }
 
 .address-box {
@@ -33,76 +41,47 @@
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 20px;
-}
 
-.address-box span b {
-  text-transform: capitalize;
-}
+  span {
+    text-transform: capitalize;
+  }
 
-.checkout-address small {
-  display: block;
-  color: var(--light-color);
-  line-height: 25px;
-}
+  small {
+    display: block;
+    color: var(--light-color);
+    line-height: 25px;
+  }
 
-.checkout-address button {
-  background: var(--black-color);
-  border: none;
-  color: var(--white-color);
-  padding: 8px 20px;
-  font-size: var(--font-smaller);
-  cursor: pointer;
-  outline: none;
+  button {
+    background: var(--black-color);
+    border: none;
+    color: var(--white-color);
+    padding: 8px 20px;
+    font-size: var(--font-smaller);
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
 
-  &:hover {
-    background: var(--secondary-color);
+    &:hover {
+      background: var(--secondary-color);
+    }
   }
 }
 
-.checkout-left .address-details {
+.address-details {
   padding: 20px 0;
   font-size: var(--font-mid);
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/*  */
-
-.another-address {
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 2px solid var(--blue-color);
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.address-icon {
-  font-size: var(--font-bigger);
-  color: var(--secondary-color);
-  margin-right: 5px;
-}
-
-.address-icons {
-  font-size: var(--font-bigger);
-  color: var(--secondary-color);
-  margin-right: 5px;
-  cursor: pointer;
-  margin-left: 30px;
-}
-
 /* checkout form section */
 
 .shipping-info {
-  border: 2px solid var(--blue-color);
-  padding: 45px 45px;
+  padding: 20px;
   border-radius: 5px;
   margin-bottom: 30px;
   box-shadow: var(--shadoos);
-}
-
-.accordion-button {
-  background: transparent !important;
-  border: none !important;
 }
 
 .checkout-form .form-group {
@@ -129,38 +108,28 @@
 }
 
 .pay-buttons {
-  display: flex;
-  align-items: center;
-  margin-top: 50px !important;
-}
-
-.form-group button {
-  width: 30%;
-  padding: 15px;
-  color: var(--white-color);
-  border: none;
-  outline: none;
-  background: var(--secondary-color);
-  text-transform: uppercase;
-  font-size: var(--font-smaller);
-  margin-right: 10px;
-  border-radius: 5px;
-}
-
-.pay-buttons button:last-child {
-  background: var(--primary-color);
+  button {
+    padding: 15px 35px;
+    color: var(--white-color);
+    border: none;
+    outline: none;
+    background: var(--black-color);
+    text-transform: uppercase;
+    font-size: var(--font-smaller);
+    margin-right: 10px;
+    border-radius: 5px;
+  }
 }
 
 /* checkout right */
 .checkout-right {
   width: 30%;
   background: var(--white-color);
-  box-shadow: var(--shadoos);
   position: sticky;
   top: 130px;
   padding: 20px;
   border-radius: 5px;
-  border: 2px solid var(--blue-color);
+  border: 1px solid var(--light-color);
 }
 
 .checkout-right h3 {
@@ -185,7 +154,7 @@
 }
 
 .order-sect::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 .order-sect::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px var(--light-color);
@@ -206,7 +175,6 @@
 .order-image {
   height: 100px;
   width: 100px;
-  border: 1px solid var(--black-color);
   margin-right: 10px;
 }
 
@@ -227,9 +195,10 @@
   color: var(--text-color);
   font-size: var(--font-smaller);
   margin-top: -3px;
+  font-weight: 600;
 }
 
-.order-detail p b {
+.order-detail p {
   color: var(--black-color);
 }
 
@@ -251,7 +220,6 @@
 .order-calculation h4 {
   text-align: center;
   color: var(--primary-color);
-  font-weight: 700;
   font-size: var(--font-smallest);
   padding-top: 4px;
   cursor: pointer;

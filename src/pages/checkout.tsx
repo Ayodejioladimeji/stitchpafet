@@ -91,24 +91,13 @@ const Checkout = () => {
 
             {/* <hr /> */}
 
-            <div>
-              <h5
-                className="another-address"
-                onClick={() => setOpenAddress(!openAddress)}
-              >
-                Use another address
-              </h5>
-
-              {openAddress && (
-                <div className="shipping-info">
-                  <h2 className="address-details">Shipping Information</h2>
-                  <CheckoutForm />
-                </div>
-              )}
+            <div className="shipping-info">
+              <h2 className="address-details">User another address</h2>
+              <CheckoutForm />
             </div>
 
+
             <div className="form-group pay-buttons">
-              <button>Pay from wallet</button>
               <button>Pay with card</button>
             </div>
           </div>
@@ -137,7 +126,7 @@ const Checkout = () => {
                       <div className="order-detail">
                         <h5>{title}</h5>
                         <p>
-                          <b>₦{price}</b>
+                          ₦{price}
                         </p>
                         <p>Qty: {2}</p>
                       </div>
@@ -154,7 +143,7 @@ const Checkout = () => {
               <div className="calculate">
                 <small>Subtotal</small>
                 <small>
-                  <b>₦3,134</b>
+                  ₦3,134
                 </small>
               </div>
 
@@ -163,7 +152,7 @@ const Checkout = () => {
               <div className="calculate">
                 <small>Total</small>
                 <small>
-                  <strong>₦3,134</strong>
+                  ₦3,134
                 </small>
               </div>
 
