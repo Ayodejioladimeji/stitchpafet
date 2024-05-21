@@ -14,7 +14,7 @@ const LatestCollection = () => {
         />
 
         <div className="secure-box">
-          {data?.slice(0, 4)?.map((item, key) => {
+          {data?.slice(0, 5)?.map((item, key) => {
             return <Card item={item} key={key} />;
           })}
         </div>

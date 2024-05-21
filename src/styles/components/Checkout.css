@@ -10,7 +10,6 @@
 .checkout-left {
   width: 70%;
   background: var(--white-color);
-  box-shadow: var(--shadoos);
   border-radius: 5px;
   padding-bottom: 40px;
   padding: 10px 30px;
@@ -19,23 +18,17 @@
 
 .checkout-left .checkout-address h2 {
   padding: 10px 0;
-  font-size: var(--font-medium);
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: -10px;
-  color: var(--secondary-color);
+  color: var(--black-color);
   text-transform: uppercase;
-  color: var(--primary-color);
-}
-
-.checkout-address .check {
-  margin-top: -5px;
 }
 
 .address-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid var(--blue-color);
   box-shadow: var(--shadoos);
   border-radius: 5px;
   padding: 15px;
@@ -48,18 +41,22 @@
 
 .checkout-address small {
   display: block;
-  color: var(--primary-color);
+  color: var(--light-color);
   line-height: 25px;
 }
 
 .checkout-address button {
-  background: var(--secondary-color);
+  background: var(--black-color);
   border: none;
   color: var(--white-color);
   padding: 8px 20px;
   font-size: var(--font-smaller);
   cursor: pointer;
   outline: none;
+
+  &:hover {
+    background: var(--secondary-color);
+  }
 }
 
 .checkout-left .address-details {
@@ -67,31 +64,13 @@
   font-size: var(--font-mid);
   font-weight: bold;
   text-transform: uppercase;
-  color: var(--primary-color);
 }
 
 /*  */
 
-.checkout-delivery {
-  border: 2px solid var(--blue-color);
-  display: flex;
-  align-items: center;
-  padding: 30px 40px;
-  border-radius: 5px;
-  box-shadow: var(--shadoos);
-  margin-bottom: 30px;
-}
-
-.checkout-truck {
-  font-size: 40px;
-  margin-right: 15px;
-  color: var(--secondary-color);
-}
-
 .another-address {
   margin-bottom: 20px;
   padding: 20px;
-  /* padding-left: 0; */
   border: 2px solid var(--blue-color);
   border-radius: 5px;
   cursor: pointer;

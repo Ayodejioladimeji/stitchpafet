@@ -14,13 +14,9 @@ import Dropdown from "../../common/dropdown/Dropdown";
 
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
 
-//
-import Loading from "../../common/alert/Loading";
-import { search_product } from "../../redux/actions/ProductAction";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { formatMoney } from "@/utils/utils";
 
 //
 const Navbar = () => {

@@ -6,9 +6,17 @@
   cursor: pointer;
 
   .product-image {
-    height: 200px;
+    height: 150px;
     /* background: $section-color; */
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+
+    &:hover {
+      img {
+        transform: scale(1.2);
+        transition: var(--transition);
+      }
+    }
 
     img {
       width: 100%;

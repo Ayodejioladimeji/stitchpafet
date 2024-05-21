@@ -65,22 +65,22 @@ const Checkout = () => {
           <div className="checkout-left">
             <div className="checkout-address">
               <h2>
-                <FaCheckCircle className="check" /> Checkout Order
+                Checkout Order
               </h2>
               <hr />
 
-              <h5>
-                <FaUserAlt className="address-icon" /> Profile Address
-              </h5>
+              <p>Delivery outside Lagos will take place between 3 to 5 working days</p>
+
+
               <div className="address-box">
                 <div>
                   <span>
                     <b>
-                      {user?.first_name} {user?.last_name}
+                      {"Ayodeji"} {"Oladimeji"}
                     </b>
                   </span>
-                  <small>{user?.address}</small>
-                  <small>{user?.phone}</small>
+                  <small>{"22b iwalesin street mosalashi alagbado lagos state"}</small>
+                  <small>{"08053838074"}</small>
                 </div>
 
                 <button onClick={chooseAddress} className="checkout-use">
@@ -89,30 +89,14 @@ const Checkout = () => {
               </div>
             </div>
 
-            <div className="checkout-delivery">
-              <FaTruck className="checkout-truck" />
-              Delivery outside Lagos will take place between 3 to 5 working days
-            </div>
-
             {/* <hr /> */}
 
-            <div className="">
+            <div>
               <h5
                 className="another-address"
                 onClick={() => setOpenAddress(!openAddress)}
               >
-                <FaRegAddressCard className="address-icon" /> Use another address{" "}
-                {!openAddress ? (
-                  <FaPlus
-                    onClick={() => setOpenAddress(true)}
-                    className="address-icons"
-                  />
-                ) : (
-                  <FaMinus
-                    onClick={() => setOpenAddress(false)}
-                    className="address-icons"
-                  />
-                )}
+                Use another address
               </h5>
 
               {openAddress && (

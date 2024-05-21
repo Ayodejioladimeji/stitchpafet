@@ -61,7 +61,7 @@ body {
 
   --shadoos: 0px 0px 7px rgba(65, 111, 65, 0.2);
   --shadow: 15px 15px 25px #ddd;
-  --transition: all 0.3s linear;
+  --transition: all 0.3s ease-in-out;
   --transitions: all 0.01s linear;
 
 }
