@@ -84,27 +84,39 @@
   box-shadow: var(--shadoos);
 }
 
-.checkout-form .form-group {
-  width: 100% !important;
-  margin-bottom: 20px !important;
-}
+.checkout-form {
+  .form-group {
+    margin-bottom: 20px !important;
+  }
 
-.form-group input {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid var(--light-color) !important;
-  outline: none;
-  font-size: var(--font-smaller);
-  color: var(--text-color) !important;
-}
+  input {
+    padding: 13px;
+    border: 1px solid var(--light-color) !important;
+    outline: none;
+    font-size: var(--font-smaller);
+    color: var(--text-color) !important;
+    border-radius: 5px;
+    width: 100%;
+  }
 
-.form-group .input {
-  width: 100%;
-  padding: 13px;
-  border: 1px solid var(--light-color) !important;
-  color: var(--text-color) !important;
-  outline: none;
-  font-size: var(--font-smaller) !important;
+  .input {
+    padding: 13px;
+    border: 1px solid var(--light-color) !important;
+    color: var(--text-color) !important;
+    outline: none;
+    font-size: var(--font-smaller) !important;
+    border-radius: 5px;
+    width: 100%;
+  }
+  select {
+    padding: 13px;
+    border: 1px solid var(--light-color) !important;
+    color: var(--text-color) !important;
+    outline: none;
+    font-size: var(--font-smaller) !important;
+    border-radius: 5px;
+    width: 100%;
+  }
 }
 
 .pay-buttons {
