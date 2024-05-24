@@ -53,10 +53,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <small className="footer-rights">
-          copyright &copy; {new Date().getFullYear()} All rights reserved.
-        </small>
       </div>
+      <small className="footer-rights">
+        copyright &copy; {new Date().getFullYear()} All rights reserved.
+      </small>
     </div>
   );
 };
