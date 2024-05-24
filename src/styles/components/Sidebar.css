@@ -4,6 +4,7 @@
   width: 230px;
   height: 100vh;
   box-sizing: border-box;
+  background: orange;
 }
 
 .sidebar-logos {

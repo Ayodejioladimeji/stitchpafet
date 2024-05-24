@@ -9,6 +9,7 @@ import BestSecurity from "../components/bestsecurity/BestSecurity";
 import Layout from "./../common/Layout";
 import Testimonial from "@/components/testimonial/Testimonial";
 import LatestCollection from "@/components/securely/LatestCollection";
+import PopularCategory from "@/components/PopularCategory";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Hero />
       <Securely />
       <Transaction />
+      <PopularCategory />
       <BestOffer />
       <LatestCollection />
       <BestSecurity />

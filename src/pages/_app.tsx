@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import DataProvider from "../redux/store"
-import "../styles/styles.css"
+import "../styles/styles.scss"
 import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {

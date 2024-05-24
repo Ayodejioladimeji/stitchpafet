@@ -1,0 +1,116 @@
+@import "react-phone-number-input/style.css";
+@import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+@import 'react-responsive-carousel/lib/styles/carousel.min.css';
+@import 'owl.carousel/dist/assets/owl.carousel.css';
+@import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+// global import
+@import "./global/__reset.scss";
+@import "./global/__colors.scss";
+@import "./global/__mixins.scss";
+
+
+
+
+/* imports components */
+@import './components/Navbar.css';
+@import './components/Hero.css';
+@import './components/ProductHero.css';
+@import './components/Securely.css';
+@import './components/Transaction.css';
+@import './components/BestOffer.css';
+@import './components/BestSecurity.css';
+@import './components/EasySteps.css';
+@import './components/Testimonial.css';
+@import './components/Newsletter.css';
+@import './components/FooterFaqs.css';
+@import './components/Footer.css';
+@import './components/Categories.css';
+@import './components/NewArrivals.css';
+@import './components/Advert1.css';
+@import './components/Login.css';
+@import './components/OTPCode.css';
+@import './components/Search.css';
+@import './components/AllProducts.css';
+@import './components/Products.css';
+@import './components/Tabs.css';
+@import './components/Cart.css';
+@import './components/Checkout.css';
+@import './components/RegisterVendor.css';
+@import './components/Dropdown.css';
+@import './components/Card.css';
+@import './components/LoadMore.css';
+@import './components/Modal.css';
+@import './components/AlertModal.css';
+@import './components/Faqs.css';
+@import './components/Accordion.css';
+@import './components/Questions.css';
+@import './components/Breadcumb.css';
+@import './components/ConfirmCode.css';
+@import './components/ConfirmModal.css';
+@import './components/DeliveryInformation.css';
+@import './components/Detail.css';
+/* @import './components/Discount.css'; */
+/* @import './components/ForgotPassword.css'; */
+@import './components/Goback.css';
+@import './components/Heading.css';
+@import './components/Horizontalimg.css';
+@import './components/loading.css';
+@import './components/PaymentOptions.css';
+@import './components/Phones.css';
+@import './components/PrivacyPolicy.css';
+@import './components/ProductCard.css';
+@import './components/ProductHeros.css';
+@import './components/Recommended.css';
+@import './components/Register.css';
+/* @import './components/ResetPassword.css'; */
+@import './components/Scroll.css';
+@import './components/Search.css';
+@import './components/Securely.css';
+@import './components/Seller.css';
+/* @import './components/SellerLogin.css'; */
+@import './components/Tabs.css';
+@import './components/TermsConditions.css';
+/* @import './components/Testimonials.css'; */
+@import './components/Toast.css';
+@import './components/TopbarDropdown.css';
+@import './components/Transaction.css';
+@import './components/Vendor.css';
+@import './components/Invoice.css';
+@import './components/CameraModal.css';
+@import './components/WalletsModal.css';
+@import './components/AddBeneficiary.css';
+@import './components/Topbar.css';
+@import './components/AddProduct.css';
+@import './components/BankAccount.css';
+@import './components/Becomevendor.css';
+@import './components/Camera.css';
+@import './components/CreateOrder.css';
+@import './components/CreateProduct.css';
+@import './components/DeliverStates.css';
+@import './components/Graph.css';
+@import './components/MyOrders.css';
+@import './components/MyOrdersDetails.css';
+@import './components/MyProducts.css';
+@import './components/MyProfile.css';
+@import './components/MyTransactions.css';
+@import './components/Notification.css';
+@import './components/Orderdispute.css';
+@import './components/OrderProcessing.css';
+@import './components/OverviewPage.css';
+@import './components/Processing.css';
+@import './components/Receivefunds.css';
+@import './components/Referral.css';
+@import './components/Security.css';
+@import './components/SendFunds.css';
+@import './components/ServiceDetails.css';
+/* @import './components/Settings.css'; */
+@import './components/Sidebar.css';
+@import './components/Topbar.css';
+@import './components/Topupwallet.css';
+@import './components/VendorProfile.css';
+@import './components/Verification.css';
+@import './components/Wallets.css';
+@import './components/Watch.css';
+@import './components/Withdraw.css';
+@import './components/popular-category.scss';

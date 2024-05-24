@@ -23,6 +23,7 @@
   font-size: 52px;
   margin-top: -3px;
   color: var(--black-color);
+  font-family: "Helvetica Bold";
   /* -webkit-text-stroke: 2px var(--black-color); */
 }
 

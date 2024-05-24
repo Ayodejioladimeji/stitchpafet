@@ -1,13 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
 
 const Navlink = ({ to, children }) => {
-  const { pathname } = useLocation();
+  const router = useRouter();
+  const { pathname } = router.query;
+
+  //
   return (
     <Link
-      to={to}
-      className={pathname === to ? 'menu-item active' : 'menu-item'}
+      href={to}
+      className={pathname === to ? "menu-item active" : "menu-item"}
     >
       {children}
     </Link>

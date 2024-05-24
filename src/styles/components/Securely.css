@@ -31,7 +31,7 @@
   text-transform: uppercase;
   color: var(--secondary-color);
   font-weight: 600;
-  font-family: "Roboto";
+  font-family: "Helvetica Light";
 }
 
 .secure-card p {
