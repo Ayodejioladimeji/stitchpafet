@@ -20,7 +20,7 @@ const Card = ({ item }) => {
         <small>₦{item.price}</small>
         <span
         ><svg
-          width="120"
+          width="90"
           height="20"
           viewBox="0 0 120 20"
           fill="none"

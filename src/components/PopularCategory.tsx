@@ -10,9 +10,7 @@ const PopularCategory = (props: Props) => {
     return (
         <div className="popular-category">
             <div className="container">
-                <Heading
-                    heading="Popular Category"
-                />
+                <h1>Popular Category</h1>
 
                 <div className="category-container">
                     <div className="category-card">

@@ -10,9 +10,9 @@ import { BiWalletAlt } from "react-icons/bi";
 import { MdOutlineSell } from "react-icons/md";
 
 // COMPONENTS
-import Dropdown from "../../common/dropdown/Dropdown";
+import Dropdown from "../common/dropdown/Dropdown";
 
-import { GLOBALTYPES } from "../../redux/actions/globalTypes";
+import { GLOBALTYPES } from "../redux/actions/globalTypes";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -33,7 +33,7 @@ const Navbar = () => {
   const [values, setValues] = useState("");
   const router = useRouter()
   const { pathname } = router.query
-  const [token, setToken] = useState("null")
+  const [token, setToken] = useState(null)
 
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -188,7 +188,6 @@ const Navbar = () => {
 
             <div className="d-flex align-item-center gap-4">
               <div className="cart" onClick={() => router.push("/cart")}>
-                {/* <img src='/assets/cart.png' alt='cart' /> */}
                 <BsCart4 />
                 <div className="carting">Cart</div>
                 {token ? (
@@ -206,63 +205,7 @@ const Navbar = () => {
                     }
                     alt="user"
                   />
-                  <FaChevronDown className="user-dropdown" />
 
-                  {click && (
-                    <Dropdown>
-                      <div ref={clickRef}>
-                        <Link href="/dashboard/overview">
-                          <div className="user-div">
-                            <FiGrid className="user-div-icons" />
-                            <div className="link">Dashboard</div>
-                          </div>
-                        </Link>
-
-                        <Link href="/dashboard/profile">
-                          <div className="user-div">
-                            <FaRegUser className="user-div-icons" />
-                            <div className="link">My Profile</div>
-                          </div>
-                        </Link>
-
-                        <Link href="/market">
-                          <div className="user-div">
-                            <MdOutlineSell className="user-div-icons seller" />
-                            <div className="link">Market Place</div>
-                          </div>
-                        </Link>
-
-                        {/* {user.userType !== 'vendor' && (
-                        <Link to='/register-vendor'>
-                          <div className='user-div'>
-                            <FiUserCheck className='user-div-icons seller' />
-                            <div className='link'>Become a vendor</div>
-                          </div>
-                        </Link>
-                      )} */}
-
-                        <Link href="/dashboard/settings">
-                          <div className="user-div">
-                            <FiSettings className="user-div-icons" />
-                            <div className="link">Settings</div>
-                          </div>
-                        </Link>
-
-                        <Link href="/dashboard/wallet">
-                          <div className="user-div">
-                            <BiWalletAlt className="user-div-icons" />
-                            <div className="link">My Wallet</div>
-                          </div>
-                        </Link>
-
-                        <hr className="mb-3" />
-                        <div className="user-div" onClick={logoutUser}>
-                          <HiOutlineLogout className="user-div-icons logout" />
-                          <div className="link">Logout</div>
-                        </div>
-                      </div>
-                    </Dropdown>
-                  )}
                 </div>
               )}
             </div>
