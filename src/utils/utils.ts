@@ -177,3 +177,24 @@ export const removeComma = (data) => {
   return result;
 };
 
+export function sortCart(cartItems) {
+  // Create a map to keep track of items by their id
+  const itemMap = new Map();
+
+  // Iterate over each item in the cart
+  cartItems.forEach(item => {
+    const { id } = item;
+
+    // Check if the item already exists in the map
+    if (itemMap.has(id)) {
+      // If exists, increment the quantity
+      itemMap.get(id).quantity += 1;
+    } else {
+      // If not exists, set the quantity to 1 and add to the map
+      itemMap.set(id, { ...item, quantity: 1 });
+    }
+  });
+
+  // Convert the map values to an array and return
+  return Array.from(itemMap.values());
+}

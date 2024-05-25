@@ -7,10 +7,11 @@ import CartItem from "@/components/cart/CartItem";
 import CartItems from "@/components/cart/CartItems";
 import { data } from "@/constants/SecureData";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
-import { formatMoney } from "@/utils/utils";
+import { formatMoney, sortCart } from "@/utils/utils";
+import cogoToast from "cogo-toast";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaChevronLeft, FaTrashAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,12 +19,18 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Cart = () => {
   const { productcart, cart } = useSelector((state: any) => state.auth);
-  const { cartcallback } = useSelector((state: any) => state.product);
-  const [loading, setLoading] = useState(false);
+  const { datacart, cartcallback } = useSelector((state: any) => state.product);
+  const [loading, setLoading] = useState(true);
   const [token, setToken] = useState("one")
-
   const router = useRouter();
   const dispatch = useDispatch();
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    const res = sortCart(datacart)
+    setData(res)
+    setLoading(false)
+  }, [])
 
   const checkout = () => {
     if (token) {
@@ -39,26 +46,26 @@ const Cart = () => {
 
   // --------------when logged in----------------
   // Calculate the number of items bought
-  const calculateItems = cart.reduce((prev, item) => {
-    return prev + item.quantity;
-  }, 0);
+  // const calculateItems = cart.reduce((prev, item) => {
+  //   return prev + item.quantity;
+  // }, 0);
 
-  // calculate total{
-  const total = cart.reduce((prev, item) => {
-    return prev + item.product.productamount * item.quantity;
-  }, 0);
+  // // calculate total{
+  // const total = cart.reduce((prev, item) => {
+  //   return prev + item.product.productamount * item.quantity;
+  // }, 0);
   // --------------------------------------------------------
 
   // -----------------------when not logged in---------------------
   // Calculate the number of items bought
-  const calculateItem = productcart.reduce((prev, item) => {
-    return prev + item.quantity;
-  }, 0);
+  // const calculateItem = productcart.reduce((prev, item) => {
+  //   return prev + item.quantity;
+  // }, 0);
 
-  // calculate total{
-  const subtotal = productcart.reduce((prev, item) => {
-    return prev + item.productamount * item.quantity;
-  }, 0);
+  // // calculate total{
+  // const subtotal = productcart.reduce((prev, item) => {
+  //   return prev + item.productamount * item.quantity;
+  // }, 0);
 
   // Clear all cart
   const clearCart = () => {
@@ -70,6 +77,13 @@ const Cart = () => {
     }
   };
 
+  // handle delete method
+  const removeCartItem = (id) => {
+    const newData = datacart.filter((item) => item.id !== id);
+    dispatch({ type: GLOBALTYPES.DELETE_DATA_CART, payload: newData });
+    cogoToast.success("Item removed successfully")
+  };
+
   //
 
   return (
@@ -78,7 +92,7 @@ const Cart = () => {
         <Breadcumb title="Shopping Cart" />
         <div className="container">
           <div className="main-cart-center">
-            {data?.length === 0 ? (
+            {datacart?.length === 0 ? (
               <div className="main-cart-empty">
                 <div className="cart-empty">
                   <div className="cart-bottom-box">
@@ -108,10 +122,10 @@ const Cart = () => {
                       </tr>
                     </thead>
                     {loading ? (
-                      <CustomTable row={10} col={8} />
+                      <CustomTable row={5} col={5} />
                     ) : (
                       <tbody>
-                        {data?.map((item: any, i: number) => {
+                        {sortCart(datacart)?.map((item: any, i: number) => {
                           return (
                             <tr key={i}>
                               <td>
@@ -128,7 +142,7 @@ const Cart = () => {
                                   <div className="d-flex gap-2">
                                     <small>Color: </small> {" "}
 
-                                    <div className="color" style={{ background: item?.colors[0] }}></div>
+                                    {/* <div className="color" style={{ background: item?.colors[0] }}></div> */}
                                   </div>
                                 </div>
                               </td>
@@ -144,7 +158,7 @@ const Cart = () => {
                               </td>
                               <td>N 50,000</td>
                               <td>
-                                <FaTrashAlt className="trash" />
+                                <FaTrashAlt className="trash" onClick={() => removeCartItem(item.id)} />
                               </td>
                             </tr>
                           );
@@ -154,7 +168,7 @@ const Cart = () => {
                       </tbody>
                     )}
 
-                    <tfoot>
+                    {!loading && data?.length !== 0 && <tfoot>
                       <tr>
                         <td scope="row"></td>
                         <td scope="row"></td>
@@ -166,7 +180,7 @@ const Cart = () => {
                         </td>
                         <td scope="row"></td>
                       </tr>
-                    </tfoot>
+                    </tfoot>}
                   </table>
 
                   <div className="table-footer">

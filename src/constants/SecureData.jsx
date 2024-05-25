@@ -4,7 +4,7 @@ export const data = [
   {
     id: uuidv4(),
     image: "/images/one.jpeg",
-    title: "Vintage Crepe",
+    title: "Cotton",
     price: 2500,
     discount: "-15",
     ratings: "3",
@@ -22,7 +22,7 @@ export const data = [
   {
     id: uuidv4(),
     image: "/images/two.jpeg",
-    title: "Vintage Crepe",
+    title: "Linen",
     price: 2500,
     discount: "-15",
     ratings: "3",
@@ -40,7 +40,7 @@ export const data = [
   {
     id: uuidv4(),
     image: "/images/three.jpeg",
-    title: "Vintage Crepe",
+    title: "Silk",
     price: 2500,
     discount: "-15",
     ratings: "3",

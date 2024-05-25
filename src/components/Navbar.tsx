@@ -20,9 +20,8 @@ import { useRouter } from "next/router";
 
 //
 const Navbar = () => {
-  const { user, productcart, cart } = useSelector((state: any) => state.auth);
+  const { user, productcart } = useSelector((state: any) => state.auth);
   const { walletBalance } = useSelector((state: any) => state.wallet);
-  const { alert } = useSelector((state: any) => state);
   const { datacart, get_categories } = useSelector((state: any) => state.product);
   const { callback } = useSelector((state: any) => state.dashboard);
   const [click, setClick] = useState(false);
@@ -34,24 +33,11 @@ const Navbar = () => {
   const router = useRouter()
   const { pathname } = router.query
   const [token, setToken] = useState(null)
+  const [cart, setCart] = useState(0)
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    // setToken(token)
-  }, [])
-
-  // Click outside side effect
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  //   The handleClick outside function
-  const handleClickOutside = (e) => {
-    if (clickRef.current && !clickRef.current.contains(e.target)) {
-      setClick(false);
-      setSelectDrop(false);
-    }
-  };
+    setCart(datacart?.length)
+  }, [datacart])
 
   //Logout User
   const logoutUser = () => {
@@ -94,6 +80,7 @@ const Navbar = () => {
     });
     router.push("/auth/login");
   };
+
 
   //
 
@@ -185,11 +172,9 @@ const Navbar = () => {
               <div className="cart" onClick={() => router.push("/cart")}>
                 <BsCart4 />
                 <div className="carting">Cart</div>
-                {token ? (
-                  <div className="count">{0}</div>
-                ) : (
-                  <div className="count">{datacart?.length}</div>
-                )}
+
+                <small className="count">{cart}</small>
+
               </div>
 
               {token && (
