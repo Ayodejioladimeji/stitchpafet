@@ -23,7 +23,7 @@ const Navbar = () => {
   const { user, productcart, cart } = useSelector((state: any) => state.auth);
   const { walletBalance } = useSelector((state: any) => state.wallet);
   const { alert } = useSelector((state: any) => state);
-  const { get_categories } = useSelector((state: any) => state.product);
+  const { datacart, get_categories } = useSelector((state: any) => state.product);
   const { callback } = useSelector((state: any) => state.dashboard);
   const [click, setClick] = useState(false);
   const [selectDrop, setSelectDrop] = useState(false);
@@ -100,17 +100,15 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container heading">
-        <Link href="/">
-          <div className="logo-module">
-            <Image
-              src="/images/logos.svg"
-              alt=""
-              unoptimized
-              width={100}
-              height={100}
-            />
-          </div>
-        </Link>
+        <div className="logo-module" onClick={() => router.push("/")}>
+          <Image
+            src="/images/logos.svg"
+            alt=""
+            unoptimized
+            width={100}
+            height={100}
+          />
+        </div>
 
         <div className="display-menu">
           <button
@@ -145,7 +143,7 @@ const Navbar = () => {
                       const response = result.replace(" ", "");
 
                       return (
-                        // <  to=`}>
+
                         <div
                           onClick={() => catNavigate(response, category._id)}
                           key={category._id}
@@ -154,7 +152,7 @@ const Navbar = () => {
                           <BsUiChecksGrid className="category-icon" />{" "}
                           {category.name}
                         </div>
-                        // </>
+
                       );
                     })}
                 </div>
@@ -177,10 +175,7 @@ const Navbar = () => {
           <div className={`nav-div ${!token ? "no-auth" : ""}`}>
             {!token && (
               <div className="auth-div">
-                <Link href="/auth/register">
-                  <button className="sign-up">Sign up</button>
-                </Link>
-
+                <button className="sign-up" onClick={() => router.push("/auth/register")}>Sign up</button>
                 <button onClick={routeChange}>Sign in</button>
               </div>
             )}
@@ -191,9 +186,9 @@ const Navbar = () => {
                 <BsCart4 />
                 <div className="carting">Cart</div>
                 {token ? (
-                  <div className="count">{cart?.length}</div>
+                  <div className="count">{0}</div>
                 ) : (
-                  <div className="count">{productcart?.length}</div>
+                  <div className="count">{datacart?.length}</div>
                 )}
               </div>
 

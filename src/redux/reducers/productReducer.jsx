@@ -8,39 +8,26 @@ const initialState = {
   vendor_product: [],
   search: [],
   cartcallback: false,
+  productcart: [],
+  datacart: [],
+  cart: [],
+  cat: "",
 };
 
 const productReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GLOBALTYPES.CREATE_PRODUCT_MODAL:
-      return {
-        ...state,
-        product_modal: payload,
-      };
-
     case GLOBALTYPES.GET_CATEGORIES:
       return {
         ...state,
         get_categories: payload,
       };
 
-    case GLOBALTYPES.SUB_CATEGORIES:
-      return {
-        ...state,
-        get_sub_categories: payload,
-      };
-
     case GLOBALTYPES.ALL_PRODUCT:
       return {
         ...state,
         all_product: payload,
-      };
-    case GLOBALTYPES.VENDOR_PRODUCT:
-      return {
-        ...state,
-        vendor_product: payload,
       };
 
     case GLOBALTYPES.SEARCH:
@@ -53,6 +40,42 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         cartcallback: payload,
+      };
+
+    case GLOBALTYPES.PRODUCT_CART:
+      return {
+        ...state,
+        productcart: [payload, ...state.productcart],
+      };
+
+    case GLOBALTYPES.UPDATE_PRODUCT_CART:
+      return {
+        ...state,
+        productcart: [...state.productcart],
+      };
+
+    case GLOBALTYPES.DELETE_PRODUCT_CART:
+      return {
+        ...state,
+        productcart: payload,
+      };
+
+    case GLOBALTYPES.DATA_CART:
+      return {
+        ...state,
+        datacart: [payload, ...state.datacart],
+      };
+
+    case GLOBALTYPES.DELETE_DATA_CART:
+      return {
+        ...state,
+        datacart: payload,
+      };
+
+    case GLOBALTYPES.CART:
+      return {
+        ...state,
+        cart: payload,
       };
 
     default:

@@ -6,10 +6,6 @@ const initialState = {
   user: {},
   order_id: "",
   redirect_route: "",
-  productcart: [],
-  datacart: [],
-  cart: [],
-  cat: "",
 };
 
 const authReducer = (state = initialState, action) => {
@@ -28,12 +24,6 @@ const authReducer = (state = initialState, action) => {
         token: payload,
       };
 
-    case GLOBALTYPES.ORDER_ID:
-      return {
-        ...state,
-        order_id: payload,
-      };
-
     case GLOBALTYPES.GET_USER:
       return {
         ...state,
@@ -43,43 +33,6 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         redirect_route: payload,
-      };
-
-    case GLOBALTYPES.PRODUCT_CART:
-      return {
-        ...state,
-        productcart: [payload, ...state.productcart],
-      };
-    case GLOBALTYPES.UPDATE_PRODUCT_CART:
-      return {
-        ...state,
-        productcart: [...state.productcart],
-      };
-    case GLOBALTYPES.DELETE_PRODUCT_CART:
-      return {
-        ...state,
-        productcart: payload,
-      };
-    case GLOBALTYPES.DATA_CART:
-      return {
-        ...state,
-        datacart: [payload, ...state.datacart],
-      };
-
-    case GLOBALTYPES.DELETE_DATA_CART:
-      return {
-        ...state,
-        datacart: payload,
-      };
-    case GLOBALTYPES.CART:
-      return {
-        ...state,
-        cart: payload,
-      };
-    case GLOBALTYPES.CAT:
-      return {
-        ...state,
-        cat: payload,
       };
 
     default:

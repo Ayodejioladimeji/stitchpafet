@@ -63,17 +63,16 @@
       align-items: center;
       justify-content: center;
       border: none;
+      cursor: pointer;
     }
 
     button:first-child {
       background: var(--white-color);
       color: var(--black-color);
-      /* border-radius: 0 0 0 10px; */
     }
     button:last-child {
       background: var(--primary-color);
       color: var(--white-color);
-      /* border-radius: 0 0 10px 0; */
     }
   }
 }
