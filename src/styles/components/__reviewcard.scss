@@ -1,0 +1,43 @@
+.review-card {
+    background: $off-white;
+    display: flex;
+    column-gap: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    .image-box {
+        height: 80px;
+        min-width: 80px;
+        border-radius: 50%;
+        border: 1px solid $border-color;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+    .content-box {
+        h2 {
+            font-family: "Helvetica Bold";
+            font-size: 18px;
+        }
+
+        small {
+            display: block;
+        }
+
+        span {
+            font-size: 13px;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    }
+}

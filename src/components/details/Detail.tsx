@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 //
-import Tabs from "../tab/Tabs";
+import Tabs from "../Tabs";
 import LoadMore from "../../common/loadmore/LoadMore";
 import DetailsThumb from "./DetailsThumb";
 import Loading from "../../common/Loading";

@@ -274,8 +274,6 @@
 /* ================================ */
 /* Description section */
 .description {
-  background: var(--white-color);
-  box-shadow: var(--shadoos);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -283,20 +281,26 @@
   width: 100%;
   margin: 60px auto;
   position: relative;
-  border: 1px solid var(--light-color);
+  border: 1px solid $border-color;
+}
+
+.rule {
+  height: 2px;
+  width: 100%;
+  background: $border-color;
 }
 
 /* =============================== */
 /* more products */
 .more-products {
   width: 100%;
-  margin: 250px auto 100px auto;
+  margin: 100px auto 100px auto;
 }
 
 .more-products h3 {
-  font-weight: 700;
-  margin-bottom: 20px;
-  font-size: var(--font-medium);
+  font-family: "Helvetica Bold";
+  margin-bottom: 30px;
+  font-size: 30px;
 }
 
 .more-products-center {

@@ -33,7 +33,6 @@
 @import './components/Search.css';
 @import './components/AllProducts.css';
 @import './components/Products.css';
-@import './components/Tabs.css';
 @import './components/Cart.css';
 @import './components/Checkout.css';
 @import './components/RegisterVendor.css';
@@ -69,7 +68,7 @@
 @import './components/Securely.css';
 @import './components/Seller.css';
 /* @import './components/SellerLogin.css'; */
-@import './components/Tabs.css';
+@import './components/__Tabs.scss';
 @import './components/TermsConditions.css';
 /* @import './components/Testimonials.css'; */
 @import './components/Toast.css';
@@ -113,5 +112,6 @@
 @import './components/Wallets.css';
 @import './components/Watch.css';
 @import './components/Withdraw.css';
-@import './components/popular-category.scss';
+@import './components/__popular-category.scss';
 @import './components/__breadcumb.scss';
+@import './components/__reviewcard.scss';

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Loading from "./../../common/Loading";
+import Loading from "../common/Loading";
+import ReviewCard from "@/common/ReviewCard";
 
 const Tabs = ({ productdescription }) => {
   const links = [
@@ -10,20 +11,15 @@ const Tabs = ({ productdescription }) => {
       content: productdescription,
     },
     {
-      title: "Delivery Fee",
-      link: "delivery",
-      content: "Delivery Fee",
-    },
-    {
-      title: `Reviews (0)`,
+      title: `Reviews (10)`,
       link: "reviews",
-      content: "Review not available",
-      //   content: <Reviewsystem product={product} />,
+      // content: "Review not available",
+      content: <ReviewCard />,
     },
   ];
 
   const [activetab, setActivetab] = useState(links[0].link);
-  const { alert } = useSelector((state) => state);
+  const { alert } = useSelector((state: any) => state);
 
   const linksrow = links?.map((link, index) => {
     return (
@@ -42,9 +38,8 @@ const Tabs = ({ productdescription }) => {
       return (
         <div className={`tabs`} key={index}>
           <div
-            className={`${
-              content.link === activetab ? "tab-enter-done" : ""
-            } tab`}
+            className={`${content.link === activetab ? "tab-enter-done" : ""
+              } tab`}
           >
             <div className="tabcont">
               {alert.loading ? (

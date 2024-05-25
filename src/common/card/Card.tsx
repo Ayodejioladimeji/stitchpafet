@@ -19,13 +19,14 @@ const Card = ({ item }) => {
         <p>{item.title}</p>
         <small>₦{item.price}</small>
         <span
-        ><svg
-          width="90"
-          height="20"
-          viewBox="0 0 120 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
         >
+          <svg
+            width="90"
+            height="20"
+            viewBox="0 0 120 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <g opacity="0.5">
               <path
                 fill-rule="evenodd"
@@ -84,8 +85,9 @@ const Card = ({ item }) => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-            </g></svg
-          ></span>
+            </g>
+          </svg>
+        </span>
       </div>
 
       <div className="card-footer">

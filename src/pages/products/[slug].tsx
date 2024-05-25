@@ -15,7 +15,7 @@ import { colors } from "@/constants/colors";
 import { RatingsIcon } from "@/assets/svg";
 import Card from "@/common/card/Card";
 import Breadcumb from "@/components/Breadcumb";
-import Tabs from "@/components/tab/Tabs";
+import Tabs from "@/components/Tabs";
 
 //
 
@@ -278,8 +278,12 @@ const ProductDetail = () => {
 
                     {/* description section */}
                     <div className="description">
-                        <Tabs productdescription="buy one today to receive two" />
+                        <Tabs productdescription={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis purus sit amet volutpat consequat mauris nunc. Sed viverra tellus in hac. Sodales neque sodales ut etiam. Sed blandit libero volutpat sed. Enim facilisis gravida neque convallis a. Faucibus a pellentesque sit amet porttitor eget dolor morbi non. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Vulputate mi sit amet mauris commodo quis. Nulla facilisi cras fermentum odio eu. Tincidunt dui ut ornare lectus sit amet. Ac turpis egestas maecenas pharetra convallis. Amet commodo nulla facilisi nullam vehicula ipsum. Orci a scelerisque purus semper eget duis at tellus at. Nisi vitae suscipit tellus mauris a. Ipsum a arcu cursus vitae congue mauris rhoncus. In eu mi bibendum neque.
+Tincidunt ornare massa eget egestas purus viverra accumsan in. Mattis enim ut tellus elementum sagittis vitae. Varius vel pharetra vel turpis nunc. Pretium viverra suspendisse potenti nullam ac. Quisque egestas diam in arcu cursus euismod quis viverra. Suspendisse in est ante in nibh mauris. Fames ac turpis egestas integer eget. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Egestas egestas fringilla phasellus faucibus scelerisque. Gravida cum sociis natoque penatibus et magnis dis. Interdum velit laoreet id donec ultrices tincidunt. Morbi tincidunt ornare massa eget egestas. Vulputate odio ut enim blandit. Lectus urna duis convallis convallis tellus id interdum. Proin libero nunc consequat interdum varius sit amet mattis vulputate. Tellus molestie nunc non blandit massa enim nec.
+Gravida in fermentum et sollicitudin ac orci. Porttitor eget dolor morbi non. Elementum nibh tellus molestie nunc non blandit massa enim nec. Id cursus metus aliquam eleifend mi in nulla posuere. Mauris pharetra et ultrices neque ornare aenean euismod elementum. Et netus et malesuada fames ac. Enim blandit volutpat maecenas volutpat blandit. Egestas erat imperdiet sed euismod nisi porta lorem mollis. Consequat interdum varius sit amet mattis. Blandit libero volutpat sed cras.`} />
                     </div>
+
+                    <div className="rule" />
 
                     {/* more products section */}
                     <div className="more-products">
