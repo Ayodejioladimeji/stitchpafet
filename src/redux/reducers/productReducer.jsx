@@ -66,6 +66,12 @@ const productReducer = (state = initialState, action) => {
         datacart: [payload, ...state.datacart],
       };
 
+    case GLOBALTYPES.UPDATE_DATA_CART:
+      return {
+        ...state,
+        datacart: [...state.datacart],
+      };
+
     case GLOBALTYPES.DELETE_DATA_CART:
       return {
         ...state,

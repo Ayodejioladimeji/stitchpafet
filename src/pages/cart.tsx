@@ -28,6 +28,7 @@ const Cart = () => {
 
   useEffect(() => {
     const res = sortCart(datacart)
+    console.log(res)
     setData(res)
     setLoading(false)
   }, [])
@@ -84,6 +85,56 @@ const Cart = () => {
     cogoToast.success("Item removed successfully")
   };
 
+  // // increase cart items
+  const increment = (data) => {
+    datacart.forEach((item) => {
+      if (item.id === data?.id) {
+        item.quantity += 1;
+      }
+    });
+
+    const carting = datacart.find((item) => item.id === data?.id);
+
+    const cartData = {
+      ...data,
+      quantity: carting?.quantity,
+    };
+
+    // const dataCart = {
+    //   product_id: carting[0]._id,
+    //   quantity: carting[0].quantity,
+    // };
+
+    dispatch({ type: GLOBALTYPES.UPDATE_DATA_CART, payload: cartData });
+    // dispatch({ type: GLOBALTYPES.DATA_CART, payload: dataCart });
+  };
+
+  // // decrease cart items
+  const decrement = (data) => {
+    datacart.forEach((item) => {
+      if (item.id === data.id) {
+        if (item.quantity === 1) return;
+        item.quantity -= 1;
+      }
+    });
+
+    const carting = datacart.find((item) => item.id === data.id);
+
+    const cartData = {
+      ...data,
+      quantity: carting?.quantity,
+    };
+
+    // const dataCart = {
+    //   product_id: carting[0]._id,
+    //   quantity: carting[0].quantity,
+    // };
+
+    dispatch({ type: GLOBALTYPES.UPDATE_DATA_CART, payload: cartData });
+    // dispatch({ type: GLOBALTYPES.DATA_CART, payload: dataCart });
+  };
+
+
   //
 
   return (
@@ -125,7 +176,7 @@ const Cart = () => {
                       <CustomTable row={5} col={5} />
                     ) : (
                       <tbody>
-                        {sortCart(datacart)?.map((item: any, i: number) => {
+                        {datacart?.map((item: any, i: number) => {
                           return (
                             <tr key={i}>
                               <td>
@@ -148,11 +199,11 @@ const Cart = () => {
                               </td>
                               <td>
                                 <div className="quantities">
-                                  <p>01</p>
+                                  <p>{item.quantity}</p>
 
                                   <div>
-                                    <i className="bi bi-chevron-up"></i>
-                                    <i className="bi bi-chevron-down"></i>
+                                    <i className="bi bi-chevron-up" onClick={() => increment(item)}></i>
+                                    <i className="bi bi-chevron-down" onClick={() => decrement(item)}></i>
                                   </div>
                                 </div>
                               </td>

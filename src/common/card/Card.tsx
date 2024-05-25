@@ -1,22 +1,58 @@
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
+import { sortCart } from "@/utils/utils";
+import cogoToast from "cogo-toast";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Card = ({ item }) => {
   const [favorite, setFavorite] = useState(false);
   const router = useRouter()
   const dispatch = useDispatch()
+  const { datacart } = useSelector((state: any) => state?.product)
+  const { id } = item
 
-  // add to cart
+
+  // add to cart function
   const handleCart = () => {
-    dispatch({ type: GLOBALTYPES.DATA_CART, payload: item })
-  }
 
+
+    // check if the color and size is selected
+    // if (token.token) {
+    //   const cartItems = [
+    //     {
+    //       product_id: _id,
+    //       quantity: 1,
+    //     },
+    //   ];
+
+    //   dispatch(addCart(cartItems, token.token, cartcallback, setLoading));
+    // } 
+    // else {
+    const check = datacart.every((item) => {
+      return item.id !== id;
+    });
+
+    if (check) {
+      const cartData = {
+        ...item,
+        quantity: 1,
+      };
+
+      dispatch({
+        type: GLOBALTYPES.ALERT,
+        payload: { success: "Item added to cart" },
+      });
+      dispatch({ type: GLOBALTYPES.DATA_CART, payload: cartData });
+    } else {
+      cogoToast.error("Item already in your cart")
+    }
+    // }
+  };
 
 
   return (
