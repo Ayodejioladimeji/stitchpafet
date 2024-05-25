@@ -1,21 +1,15 @@
 .search {
   overflow-x: auto;
-  margin: 20px auto;
-  /* border-radius: 15px; */
+  margin: 30px auto;
 }
 
 .search-box {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-  /* display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 1rem; */
-  /* border-radius: 15px; */
   background: var(--white-color);
-  box-shadow: var(--shadoos);
   padding: 15px 10px 5px 10px;
-  border: 1px solid var(--border-color);
+  border: 1px solid $primary;
 }
 
 .search-card {

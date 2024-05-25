@@ -117,8 +117,6 @@ const Search = () => {
           </div>
         </div>
       </form>
-
-      <small className="search-error">{error}</small>
     </div>
   );
 };

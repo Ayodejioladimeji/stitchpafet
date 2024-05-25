@@ -15,35 +15,35 @@ const PopularCategory = (props: Props) => {
                 <div className="category-container">
                     <div className="category-card">
                         <div className="category-image">
-                            <Image src="/images/one.jpeg" alt="" width={100} height={100} />
+                            <Image src="/images/one.jpeg" alt="" width={100} height={100} unoptimized />
                         </div>
 
                         <h4>Cotton Wool</h4>
                     </div>
                     <div className="category-card">
                         <div className="category-image">
-                            <Image src="/images/two.jpeg" alt="" width={100} height={100} />
+                            <Image src="/images/two.jpeg" alt="" width={100} height={100} unoptimized />
                         </div>
 
                         <h4>Cotton Wool</h4>
                     </div>
                     <div className="category-card">
                         <div className="category-image">
-                            <Image src="/images/three.jpeg" alt="" width={100} height={100} />
+                            <Image src="/images/three.jpeg" alt="" width={100} height={100} unoptimized />
                         </div>
 
                         <h4>Cotton Wool</h4>
                     </div>
                     <div className="category-card">
                         <div className="category-image">
-                            <Image src="/images/four.jpeg" alt="" width={100} height={100} />
+                            <Image src="/images/four.jpeg" alt="" width={100} height={100} unoptimized />
                         </div>
 
                         <h4>Cotton Wool</h4>
                     </div>
                     <div className="category-card">
                         <div className="category-image">
-                            <Image src="/images/five.jpeg" alt="" width={100} height={100} />
+                            <Image src="/images/five.jpeg" alt="" width={100} height={100} unoptimized />
                         </div>
 
                         <h4>Cotton Wool</h4>

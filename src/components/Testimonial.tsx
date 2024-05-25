@@ -1,9 +1,6 @@
 import React from "react";
-import TestimonialDetails from "./TestimonialDetails";
-import OwlCarousel from "react-owl-carousel";
-import Heading from "../heading/Heading";
-import { testimonials } from "../../constants/testimonials";
-import Swiper from "../Swiper";
+import Heading from "./heading/Heading";
+import Swiper from "./Swiper";
 
 const Testimonial = () => {
   //

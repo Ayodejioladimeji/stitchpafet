@@ -7,7 +7,7 @@ import Transaction from "../components/transaction/Transaction";
 import BestOffer from "../components/bestoffer/BestOffer";
 import BestSecurity from "../components/bestsecurity/BestSecurity";
 import Layout from "./../common/Layout";
-import Testimonial from "@/components/testimonial/Testimonial";
+import Testimonial from "@/components/Testimonial";
 import LatestCollection from "@/components/securely/LatestCollection";
 import PopularCategory from "@/components/PopularCategory";
 
