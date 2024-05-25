@@ -1,13 +1,17 @@
+import { RatingsIcon } from "@/assets/svg";
 import Layout from "@/common/Layout";
 import Loading from "@/common/Loading";
+import CustomTable from "@/common/customTable";
+import Breadcumb from "@/components/Breadcumb";
 import CartItem from "@/components/cart/CartItem";
 import CartItems from "@/components/cart/CartItems";
 import { data } from "@/constants/SecureData";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
 import { formatMoney } from "@/utils/utils";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronLeft, FaTrashAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 
 //
@@ -40,7 +44,7 @@ const Cart = () => {
   }, 0);
 
   // calculate total{
-  const subTotal = cart.reduce((prev, item) => {
+  const total = cart.reduce((prev, item) => {
     return prev + item.product.productamount * item.quantity;
   }, 0);
   // --------------------------------------------------------
@@ -70,9 +74,9 @@ const Cart = () => {
 
   return (
     <Layout>
-      <div className="container">
-
-        <div className="main-cart">
+      <div className="main-cart">
+        <Breadcumb title="Shopping Cart" />
+        <div className="container">
           <div className="main-cart-center">
             {data?.length === 0 ? (
               <div className="main-cart-empty">
@@ -92,94 +96,83 @@ const Cart = () => {
               </div>
             ) : (
               <>
-                <div className="main-cart-left">
-                  <h2>
-                    <FaChevronLeft
-                      onClick={() => router.back()}
-                      className="chevron-back"
-                    />{" "}
-                    Product Cart ({token ? cart.length : productcart.length})
-                  </h2>
-
-                  <hr />
-
-                  {!token ? (
-                    <div className="cart-bottom">
-                      {cart.map((item) => {
-                        return (
-                          <CartItem data={item} {...item.product} key={item._id} />
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <div className="cart-bottom">
-                      {data?.map((item) => {
-                        return <CartItems item={item} key={item._id} />;
-                      })}
-                    </div>
-                  )}
-
-                  {cart.length === 0 ? (
-                    ""
-                  ) : (
-                    <button className="clear-cart" onClick={clearCart}>
-                      {loading ? (
-                        <Loading width="20px" height="20px" color="#fff" />
-                      ) : (
-                        " Clear cart"
-                      )}
-                    </button>
-                  )}
-
-                  {productcart.length === 0 ? (
-                    ""
-                  ) : (
-                    <button className="clear-cart" onClick={clearCart}>
-                      {loading ? (
-                        <Loading width="20px" height="20px" color="#fff" />
-                      ) : (
-                        " Clear cart"
-                      )}
-                    </button>
-                  )}
-                </div>
-
-                <div className="main-cart-right">
-                  <h3>Order Summary</h3>
-                  <hr />
-
-                  <div className="order-details">
-                    <div>items: </div>
-                    {token ? (
-                      <div className="sub-total">{calculateItems} Items</div>
+                <div className="cart-table">
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th scope="col">Product Information</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    {loading ? (
+                      <CustomTable row={10} col={8} />
                     ) : (
-                      <div className="sub-total">{calculateItem} Items</div>
+                      <tbody>
+                        {data?.map((item: any, i: number) => {
+                          return (
+                            <tr key={i}>
+                              <td>
+                                <div className="table-image">
+                                  <Image src={item.image} alt="" width={100} height={100} unoptimized />
+                                </div>
+                              </td>
+                              <td>
+                                <div className="infor">
+                                  <h4>{item.title}</h4>
+                                  <RatingsIcon />
+                                  <p>N{item.price}</p>
+
+                                  <div className="d-flex gap-2">
+                                    <small>Color: </small> {" "}
+
+                                    <div className="color" style={{ background: item?.colors[0] }}></div>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <div className="quantities">
+                                  <p>01</p>
+
+                                  <div>
+                                    <i className="bi bi-chevron-up"></i>
+                                    <i className="bi bi-chevron-down"></i>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>N 50,000</td>
+                              <td>
+                                <FaTrashAlt className="trash" />
+                              </td>
+                            </tr>
+                          );
+                        })}
+
+
+                      </tbody>
                     )}
+
+                    <tfoot>
+                      <tr>
+                        <td scope="row"></td>
+                        <td scope="row"></td>
+                        <td scope="row"></td>
+
+                        <td>
+                          Total:{" "}
+                          <b>N50,000</b>
+                        </td>
+                        <td scope="row"></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+
+                  <div className="table-footer">
+                    <button onClick={() => router.push("/products")}><i className="bi bi-arrow-left"></i>Continue shopping</button>
+                    <button onClick={() => router.push("/checkout")}>Checkout</button>
                   </div>
-
-                  <hr />
-
-                  <div className="order-details">
-                    <div>Sub-total: </div>
-
-                    {token ? (
-                      <div className="sub-total">₦ {formatMoney(subTotal)}</div>
-                    ) : (
-                      <div className="sub-total">₦ {formatMoney(subtotal)}</div>
-                    )}
-                  </div>
-
-                  <hr />
-
-                  {token ? (
-                    <button onClick={checkout}>
-                      Checkout ( ₦ {formatMoney(subTotal)} )
-                    </button>
-                  ) : (
-                    <button onClick={checkout}>
-                      Checkout ( ₦ {formatMoney(subtotal)} )
-                    </button>
-                  )}
                 </div>
               </>
             )}

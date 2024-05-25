@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=Roboto:wght@300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
 
 @font-face {
   font-family: 'Helvetica Bold';
@@ -21,12 +21,12 @@
 }
 
 body {
-  font-family: 'Nunito Sans';
+  font-family: 'Nunito Sans' !important;
   scroll-behavior: smooth;
   /* background:var(--lighter-color) */
 }
 
-
+$transitions: all 0.3s linear;
 
 /* THE SECTION OF THE GLOBAL VARIABLES */
 :root {
@@ -51,13 +51,8 @@ body {
   --text-color: #7E7E7E;
 
 
-  /* THE FONT-FAMILIES */
-  --poppins: 'Poppins';
-  --lobster: "Lobster";
-  --inter: "Inter"
-
-    /* FONT SIZES */
-    --font-small: 11px;
+  /* FONT SIZES */
+  --font-small: 11px;
   --font-smaller: 13px;
   --font-smallest: 15px;
   --font-mid: 16px;
