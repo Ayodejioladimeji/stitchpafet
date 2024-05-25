@@ -14,6 +14,8 @@ import Layout from "@/common/Layout";
 import { colors } from "@/constants/colors";
 import { RatingsIcon } from "@/assets/svg";
 import Card from "@/common/card/Card";
+import Breadcumb from "@/components/Breadcumb";
+import Tabs from "@/components/tab/Tabs";
 
 //
 
@@ -165,6 +167,7 @@ const ProductDetail = () => {
     return (
         <Layout>
             <div className="product-detail">
+                <Breadcumb title={product?.title} />
                 <div className="container">
 
                     {alert.loading ? (
@@ -178,15 +181,15 @@ const ProductDetail = () => {
                                 <div className="detail-left">
                                     <div
                                         className="detail-image"
-                                        onMouseMove={handleMouseMove}
+                                        // onMouseMove={handleMouseMove}
                                         style={{
                                             backgroundImage:
                                                 product?.images && `url(${product?.images[index]})`,
                                         }}
-                                        ref={imgDiv}
-                                        onMouseLeave={() =>
-                                            (imgDiv.current.style.backgroundPosition = `center`)
-                                        }
+                                    // ref={imgDiv}
+                                    // onMouseLeave={() =>
+                                    //     (imgDiv.current.style.backgroundPosition = `center`)
+                                    // }
                                     />
 
 
@@ -205,14 +208,17 @@ const ProductDetail = () => {
                             <div className="col">
 
                                 <div className="detail-right">
-                                    <p>{product?.title}</p>
+                                    <p>Category: {product?.category}</p>
+                                    <h2>{product?.title}</h2>
                                     <h1 className="detail-price">
                                         ₦{formatMoney(Number(product?.price))}
                                     </h1>
 
                                     <RatingsIcon />
 
-                                    <hr />
+                                    <p className="desc">This is the category for the item you just ordered, the order can get to you today or tomorrow</p>
+
+                                    <div className="ruler" />
 
                                     {colors?.length !== 0 && (
                                         <div className="colors-section">
@@ -255,7 +261,7 @@ const ProductDetail = () => {
                                                 <Loading width="20px" height="20px" color="#fff" />
                                             ) : (
                                                 <>
-                                                    <FaCartPlus className="cart-plus" /> Add to cart
+                                                    Add to cart
                                                 </>
                                             )}
                                         </button>
@@ -271,9 +277,9 @@ const ProductDetail = () => {
 
 
                     {/* description section */}
-                    {/* <div className="description">
-                        <Tabs productdescription={productdescription} />
-                    </div> */}
+                    <div className="description">
+                        <Tabs productdescription="buy one today to receive two" />
+                    </div>
 
                     {/* more products section */}
                     <div className="more-products">

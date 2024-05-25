@@ -2,7 +2,7 @@ export const RatingsIcon = () => {
     return (
 
         <svg
-            width="120"
+            width="100"
             height="20"
             viewBox="0 0 120 20"
             fill="none"
