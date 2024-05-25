@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import { useRouter } from "next/router";
 import Layout from "@/common/Layout";
+import Breadcumb from "@/components/Breadcumb";
+import { data } from "@/constants/SecureData";
 
 const orderItems = [
   {
@@ -60,104 +62,104 @@ const Checkout = () => {
 
   return (
     <Layout>
-      <div className="container">
-        <div className="checkout">
-          <div className="checkout-left">
-            <div className="checkout-address">
-              <h2>
-                Checkout Order
-              </h2>
-              <hr />
+      <div className="checkout">
+        <Breadcumb title="Checkout" />
+        <div className="container">
+          <div className="row mt-5">
+            <div className="col">
+              <div className="checkout-left">
+                <div className="checkout-address">
+                  <h2>
+                    Delivery Information
+                  </h2>
+                  <hr />
 
-              <p>Delivery outside Lagos will take place between 3 to 5 working days</p>
+                  <div className="address-box">
+                    <div>
+                      <span>
+                        <b>
+                          {"Ayodeji"} {"Oladimeji"}
+                        </b>
+                      </span>
+                      <small>{"22b iwalesin street mosalashi alagbado lagos state"}</small>
+                      <small>{"08053838074"}</small>
+                    </div>
 
-
-              <div className="address-box">
-                <div>
-                  <span>
-                    <b>
-                      {"Ayodeji"} {"Oladimeji"}
-                    </b>
-                  </span>
-                  <small>{"22b iwalesin street mosalashi alagbado lagos state"}</small>
-                  <small>{"08053838074"}</small>
+                    <button onClick={chooseAddress} className="checkout-use">
+                      Use Address
+                    </button>
+                  </div>
                 </div>
 
-                <button onClick={chooseAddress} className="checkout-use">
-                  Use Address
-                </button>
+                {/* <hr /> */}
+
+                <div className="shipping-info">
+                  <h2 className="address-details">User another address</h2>
+                  <CheckoutForm />
+                </div>
               </div>
             </div>
 
-            {/* <hr /> */}
+            {/* checkout right */}
+            <div className="col">
+              <div className="checkout-right">
+                <h3>
+                  Your order{" "}
+                  <span>
+                    ({orderItems.length} {orderItems.length > 1 ? "items" : "item"})
+                  </span>
+                </h3>
+                <hr />
 
-            <div className="shipping-info">
-              <h2 className="address-details">User another address</h2>
-              <CheckoutForm />
-            </div>
+                <div className={orderItems.length > 1 ? "order-sect" : "order-section"}>
 
+                  {data?.map((item) => {
+                    const { id, image, title, price } = item;
+                    return (
+                      <React.Fragment key={id}>
+                        <div className="orders">
+                          <div className="order-image">
+                            <img src={image} alt="" />
+                          </div>
 
-            <div className="form-group pay-buttons">
-              <button>Pay with card</button>
-            </div>
-          </div>
+                          <div className="order-detail">
+                            <h5>{title}</h5>
+                            <p>
+                              ₦{price}
+                            </p>
+                            <p>Qty: {2}</p>
+                          </div>
+                        </div>
+                        {/* {data?.length > 1 && <hr />} */}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
 
-          {/* checkout right */}
-          <div className="checkout-right">
-            <h3>
-              Your order{" "}
-              <span>
-                ({orderItems.length} {orderItems.length > 1 ? "items" : "item"})
-              </span>
-            </h3>
-            <hr />
+                <div className="rule my-3" />
 
-            <div className={orderItems.length > 1 ? "order-sect" : "order-section"}>
+                <div className="order-calculation">
+                  <div className="calculate">
+                    <small>Subtotal</small>
+                    <small>
+                      ₦3,134
+                    </small>
+                  </div>
 
-              {orderItems.map((item) => {
-                const { id, icon, title, price } = item;
-                return (
-                  <React.Fragment key={id}>
-                    <div className="orders">
-                      <div className="order-image">
-                        <img src={icon} alt="" />
-                      </div>
+                  <div className="rule my-3" />
 
-                      <div className="order-detail">
-                        <h5>{title}</h5>
-                        <p>
-                          ₦{price}
-                        </p>
-                        <p>Qty: {2}</p>
-                      </div>
-                    </div>
-                    {orderItems.length > 1 && <hr />}
-                  </React.Fragment>
-                );
-              })}
-            </div>
+                  <div className="calculate">
+                    <small>Total</small>
+                    <small>
+                      ₦3,134
+                    </small>
+                  </div>
 
-            <hr />
+                  <div className="rule my-3" />
 
-            <div className="order-calculation">
-              <div className="calculate">
-                <small>Subtotal</small>
-                <small>
-                  ₦3,134
-                </small>
+                  <button className="modify-cart" onClick={() => router.push("/cart")}>Modify cart</button>
+                </div>
               </div>
-
-              <hr />
-
-              <div className="calculate">
-                <small>Total</small>
-                <small>
-                  ₦3,134
-                </small>
-              </div>
-
-              <hr />
-              <h4 onClick={() => router.push("/cart")}>MODIFY CART</h4>
             </div>
           </div>
         </div>

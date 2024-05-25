@@ -1,29 +1,26 @@
 .checkout {
-  padding: 130px 0px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  padding: 100px 0px;
   position: relative;
-  column-gap: 20px;
 }
 
+
 .checkout-left {
-  width: 70%;
   background: var(--white-color);
   border-radius: 5px;
   padding-bottom: 40px;
-  padding: 10px 30px;
-  border: 1px solid var(--light-color);
+  padding: 10px 20px;
+  border: 1px solid $primary;
+  border-radius: 10px;
 }
 
 .checkout-address {
   h2 {
     padding: 10px 0;
     font-size: 16px;
-    font-weight: bold;
     margin-bottom: -10px;
     color: var(--black-color);
     text-transform: uppercase;
+    font-family: 'Helvetica Bold'
   }
 
   p {
@@ -37,10 +34,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: var(--shadoos);
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 20px;
+  border: 1px solid $primary;
 
   span {
     text-transform: capitalize;
@@ -53,14 +50,15 @@
   }
 
   button {
-    background: var(--black-color);
+    background: $black;
     border: none;
-    color: var(--white-color);
+    color: $white;
     padding: 8px 20px;
-    font-size: var(--font-smaller);
+    font-size: 13px;
     cursor: pointer;
     outline: none;
-    border-radius: 5px;
+    border-radius: 35px;
+    transition: $transitions;
 
     &:hover {
       background: var(--secondary-color);
@@ -69,7 +67,6 @@
 }
 
 .address-details {
-  padding: 20px 0;
   font-size: var(--font-mid);
   font-weight: bold;
   text-transform: uppercase;
@@ -79,9 +76,8 @@
 
 .shipping-info {
   padding: 20px;
-  border-radius: 5px;
-  margin-bottom: 30px;
-  box-shadow: var(--shadoos);
+  border-radius: 10px;
+  border: 1px solid $primary;
 }
 
 .checkout-form {
@@ -95,7 +91,7 @@
     outline: none;
     font-size: var(--font-smaller);
     color: var(--text-color) !important;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 100%;
   }
 
@@ -105,49 +101,70 @@
     color: var(--text-color) !important;
     outline: none;
     font-size: var(--font-smaller) !important;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 100%;
   }
+
   select {
     padding: 13px;
     border: 1px solid var(--light-color) !important;
     color: var(--text-color) !important;
     outline: none;
     font-size: var(--font-smaller) !important;
-    border-radius: 5px;
+    border-radius: 25px;
     width: 100%;
   }
 }
 
 .pay-buttons {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   button {
     padding: 15px 35px;
     color: var(--white-color);
     border: none;
     outline: none;
     background: var(--black-color);
-    text-transform: uppercase;
     font-size: var(--font-smaller);
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 25px;
+    transition: $transitions;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+
+
+    &:first-child {
+      background: transparent;
+      color: $black;
+      border: 1px solid $primary;
+    }
+
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
   }
 }
 
 /* checkout right */
 .checkout-right {
-  width: 30%;
-  background: var(--white-color);
-  position: sticky;
-  top: 130px;
+  // position: sticky;
+  // top: 130px;
   padding: 20px;
   border-radius: 5px;
-  border: 1px solid var(--light-color);
+  border: 1px solid $primary;
+  height: 620px;
 }
 
 .checkout-right h3 {
   font-size: var(--font-smallest);
-  font-weight: 700;
   text-transform: uppercase;
+  font-family: 'Helvetica Bold';
 }
 
 .checkout-right h3 span {
@@ -162,16 +179,18 @@
 
 .order-sect {
   overflow-y: auto;
-  height: 250px;
+  height: 320px;
 }
 
 .order-sect::-webkit-scrollbar {
   width: 6px;
 }
+
 .order-sect::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px var(--light-color);
   border-radius: 10px;
 }
+
 .order-sect::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   border-radius: 10px;
@@ -182,12 +201,20 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+
+  &:last-child {
+    border: none;
+  }
 }
 
 .order-image {
   height: 100px;
   width: 100px;
   margin-right: 10px;
+  border-radius: 10px;
 }
 
 .order-image img {
@@ -235,4 +262,13 @@
   font-size: var(--font-smallest);
   padding-top: 4px;
   cursor: pointer;
+}
+
+.modify-cart {
+  border: none;
+  border-radius: 25px;
+  background: $primary-color;
+  padding: 10px 25px;
+  margin: 0 auto;
+  display: block;
 }

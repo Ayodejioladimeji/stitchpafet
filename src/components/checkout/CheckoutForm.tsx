@@ -88,7 +88,7 @@ const CheckoutForm = () => {
           <div className="form-group">
             <input
               type="text"
-              placeholder="Phone number*"
+              placeholder="Phone : 08022222222"
               value={values.phone}
               name="phone"
               onChange={handleChange}
@@ -100,7 +100,7 @@ const CheckoutForm = () => {
           <div className="form-group">
             <input
               type="text"
-              placeholder="City*"
+              placeholder="Landmark"
               value={values.city}
               name="city"
               onChange={handleChange}
@@ -108,25 +108,13 @@ const CheckoutForm = () => {
           </div>
         </div>
 
-        <div className="col-6">
+        <div className="col-12">
           <div className="form-group">
             <input
               type="text"
               placeholder="Street address*"
               value={values.address}
               name="address"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="col-6">
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Postalcode*"
-              value={values.postalcode}
-              name="postalcode"
               onChange={handleChange}
             />
           </div>
@@ -176,6 +164,15 @@ const CheckoutForm = () => {
           )}
         </div>
       </form>
+
+      <div className="pay-buttons">
+        <button>
+          <i className="bi bi-arrow-left"></i>
+          Continue Shopping</button>
+
+        <button>Make Payment</button>
+      </div>
+
     </div>
   );
 };
