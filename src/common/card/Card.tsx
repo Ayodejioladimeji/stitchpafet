@@ -132,13 +132,8 @@ const Card = ({ item }) => {
             />
           </g>
         </svg>
-
       </div>
 
-      <div className="card-footer">
-        <button onClick={handleCart}>Add to cart</button>
-        <button>Buy now</button>
-      </div>
     </div>
   );
 };

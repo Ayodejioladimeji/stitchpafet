@@ -4,17 +4,20 @@
   margin-bottom: 10px;
   border: none;
   cursor: pointer;
+  padding: 20px;
+
 
   .product-image {
-    height: 150px;
+    height: 180px;
     /* background: $section-color; */
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
     overflow: hidden;
+
+
 
     &:hover {
       img {
         transform: scale(1.2);
-        transition: var(--transition);
       }
     }
 
@@ -23,12 +26,13 @@
       height: 100%;
       object-fit: cover;
       border-radius: 10px 10px 0 0;
+      transition: $transitions;
     }
   }
 
   .product-body {
-    height: 130px;
-    padding: 24px 10px;
+    height: 100px;
+    padding: 14px 10px;
     text-align: left;
 
     @media (max-width: 991px) {
@@ -70,6 +74,7 @@
       background: var(--white-color);
       color: var(--black-color);
     }
+
     button:last-child {
       background: var(--primary-color);
       color: var(--white-color);

@@ -7,7 +7,7 @@ import CartItem from "@/components/cart/CartItem";
 import CartItems from "@/components/cart/CartItems";
 import { data } from "@/constants/SecureData";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
-import { formatMoney, sortCart } from "@/utils/utils";
+import { calculateTotal, formatMoney, sortCart } from "@/utils/utils";
 import cogoToast from "cogo-toast";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -193,7 +193,7 @@ const Cart = () => {
                                   <div className="d-flex gap-2">
                                     <small>Color: </small> {" "}
 
-                                    {/* <div className="color" style={{ background: item?.colors[0] }}></div> */}
+                                    <div className="color" style={{ background: item?.colors }}></div>
                                   </div>
                                 </div>
                               </td>
@@ -207,15 +207,13 @@ const Cart = () => {
                                   </div>
                                 </div>
                               </td>
-                              <td>N 50,000</td>
+                              <td>N{formatMoney(Number(item.price) * item.quantity)}</td>
                               <td>
                                 <FaTrashAlt className="trash" onClick={() => removeCartItem(item.id)} />
                               </td>
                             </tr>
                           );
                         })}
-
-
                       </tbody>
                     )}
 
@@ -227,7 +225,7 @@ const Cart = () => {
 
                         <td>
                           Total:{" "}
-                          <b>N50,000</b>
+                          <b>N{formatMoney(Number(calculateTotal(datacart)))}</b>
                         </td>
                         <td scope="row"></td>
                       </tr>

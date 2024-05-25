@@ -198,3 +198,10 @@ export function sortCart(cartItems) {
   // Convert the map values to an array and return
   return Array.from(itemMap.values());
 }
+
+export const calculateTotal = (data) => {
+  const subtotal = data.reduce((prev, item) => {
+    return prev + Number(item.price) * item.quantity;
+  }, 0);
+  return subtotal;
+}

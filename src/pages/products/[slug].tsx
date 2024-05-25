@@ -16,13 +16,14 @@ import { RatingsIcon } from "@/assets/svg";
 import Card from "@/common/card/Card";
 import Breadcumb from "@/components/Breadcumb";
 import Tabs from "@/components/Tabs";
+import cogoToast from "cogo-toast";
 
 //
 
 const ProductDetail = () => {
     const router = useRouter()
     const { slug } = router.query
-    const { all_product, cartcallback } = useSelector((state: any) => state.product);
+    const { all_product, datacart, cartcallback } = useSelector((state: any) => state.product);
     const { alert } = useSelector((state: any) => state);
     const { token, productcart, redirect_route } = useSelector(
         (state: any) => state.auth
@@ -33,7 +34,8 @@ const ProductDetail = () => {
     const imgDiv = useRef(null);
     const dispatch = useDispatch();
     const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [buttonloading, setButtonloading] = useState(false);
     const [visible, setVisible] = useState(10);
     const [load, setLoad] = useState(false);
 
@@ -48,13 +50,13 @@ const ProductDetail = () => {
 
     //  get detail product
     useEffect(() => {
-
         if (slug) {
-            data.forEach((item) => {
+            data.find((item) => {
 
                 if (item.id === slug) {
                     setProduct(item);
                     console.log(item)
+                    setLoading(false)
                 }
             });
         }
@@ -64,15 +66,7 @@ const ProductDetail = () => {
     // setColor method
     const setColor = (color) => {
         setProductColor(color);
-    };
-
-    //   Handle mouse move
-    const handleMouseMove = (e) => {
-        const { left, top, width, height } = e.target.getBoundingClientRect();
-        const x = ((e.pageX - left) / width) * 100;
-        const y = ((e.pageY - top) / height) * 100;
-        imgDiv.current.style.backgroundPosition = `${x}% ${y}%`;
-    };
+    }
 
     // add to cart function
     const addToCart = (e) => {
@@ -80,17 +74,7 @@ const ProductDetail = () => {
 
         // check if the color and size is selected
         if (product?.colors?.length >= 1 && productColor === "") {
-            dispatch({
-                type: GLOBALTYPES.ALERT,
-                payload: { error: "Select the product color of your choice" },
-            });
-
-            setTimeout(() => {
-                dispatch({
-                    type: GLOBALTYPES.ALERT,
-                    payload: {},
-                });
-            }, 3000);
+            cogoToast.error("Select the fabric color of your choice")
             return;
         }
 
@@ -104,47 +88,30 @@ const ProductDetail = () => {
 
             // dispatch(addCart(cartItems, token.token, cartcallback, setLoading));
         } else {
-            const check = productcart.every((item) => {
-                return item._id !== product?.id;
+            const check = datacart.every((item) => {
+                return item.id !== product?.id;
             });
 
             if (check) {
                 setLoading(true);
                 const cartData = {
-                    id: product?.id,
-                    productname: product?.title,
-                    productamount: product?.price,
-                    productimages: product?.images,
-                    productcolors: productColor,
-                    productsizes: productSize,
-                    productdiscount: product?.discount,
-                    productdescription: product?.description,
+                    ...product,
+                    colors: productColor,
                     quantity: 1,
                 };
 
-                const dataCart = {
-                    product_id: product?.id,
-                    quantity: 1,
-                };
+                // const dataCart = {
+                //     product_id: product?.id,
+                //     quantity: 1,
+                // };
 
-                dispatch({
-                    type: GLOBALTYPES.ALERT,
-                    payload: { success: "Item added to cart" },
-                });
-                dispatch({ type: GLOBALTYPES.PRODUCT_CART, payload: cartData });
-                dispatch({ type: GLOBALTYPES.DATA_CART, payload: dataCart });
-                setTimeout(() => {
-                    setLoading(false);
-                    dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
-                }, 2500);
+                cogoToast.success("Item added to cart")
+                // dispatch({ type: GLOBALTYPES.PRODUCT_CART, payload: cartData });
+                dispatch({ type: GLOBALTYPES.DATA_CART, payload: cartData });
+                setLoading(false)
+
             } else {
-                dispatch({
-                    type: GLOBALTYPES.ALERT,
-                    payload: { error: "This item already exist in cart" },
-                });
-                setTimeout(() => {
-                    dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
-                }, 2500);
+                cogoToast.error("This item already exist in cart")
             }
         }
     };
@@ -162,6 +129,8 @@ const ProductDetail = () => {
             router.back();
         }
     };
+
+    if (loading) return;
     // 
 
     return (
@@ -257,7 +226,7 @@ const ProductDetail = () => {
 
                                     <div className="d-flex align-items-center gap-3">
                                         <button onClick={addToCart} className="add-cart">
-                                            {loading ? (
+                                            {buttonloading ? (
                                                 <Loading width="20px" height="20px" color="#fff" />
                                             ) : (
                                                 <>

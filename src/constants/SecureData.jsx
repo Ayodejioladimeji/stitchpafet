@@ -30,8 +30,8 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
       "/images/two.jpeg",
+      "/images/one.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
       "/images/five.jpeg",
@@ -48,9 +48,9 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/three.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
-      "/images/three.jpeg",
       "/images/four.jpeg",
       "/images/five.jpeg",
     ],
@@ -66,10 +66,10 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/four.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
-      "/images/four.jpeg",
       "/images/five.jpeg",
     ],
   },
@@ -84,11 +84,11 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/five.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
-      "/images/five.jpeg",
     ],
   },
   {
@@ -102,7 +102,7 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
+      "/images/six.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
@@ -120,7 +120,7 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
+      "/images/seven.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
@@ -138,7 +138,7 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
+      "/images/eight.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
@@ -156,7 +156,7 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
+      "/images/nine.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
@@ -174,8 +174,8 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
       "/images/two.jpeg",
+      "/images/one.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
       "/images/five.jpeg",
@@ -192,9 +192,9 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/three.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
-      "/images/three.jpeg",
       "/images/four.jpeg",
       "/images/five.jpeg",
     ],
@@ -210,10 +210,10 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/four.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
-      "/images/four.jpeg",
       "/images/five.jpeg",
     ],
   },
@@ -228,11 +228,11 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/five.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
-      "/images/five.jpeg",
     ],
   },
   {
@@ -264,8 +264,8 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
-      "/images/one.jpeg",
       "/images/two.jpeg",
+      "/images/one.jpeg",
       "/images/three.jpeg",
       "/images/four.jpeg",
       "/images/five.jpeg",
@@ -282,9 +282,9 @@ export const data = [
     categories: "vintage crepe",
     colors: ["yellow", "red", "orange", "blue", "violet"],
     images: [
+      "/images/three.jpeg",
       "/images/one.jpeg",
       "/images/two.jpeg",
-      "/images/three.jpeg",
       "/images/four.jpeg",
       "/images/five.jpeg",
     ],
