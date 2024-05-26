@@ -10,6 +10,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Goback from "@/common/goback/Goback";
 import { CgArrowLongLeft } from "react-icons/cg";
+import { PostRequest } from "@/utils/request";
+import cogoToast from "cogo-toast";
 
 // VALIDATION REGEX
 const passwordUpper = /(?=.*[A-Z])/;
@@ -25,7 +27,15 @@ const Register = () => {
   const router = useRouter();
 
 
+  // handle submit
+  const handleSubmit = async (payload) => {
+    const res = await PostRequest("/auth/register", payload)
 
+    if (res?.status === 200) {
+      cogoToast.success(res.data.msg)
+      router.push('/auth/login')
+    }
+  }
 
   return (
     <Formik
@@ -42,6 +52,8 @@ const Register = () => {
           email: email.toLowerCase(),
           password: password,
         };
+
+        handleSubmit(newData)
 
         setTimeout(async () => {
           setSubmitting(false);
@@ -68,14 +80,6 @@ const Register = () => {
           errors.password = "Password is Required";
         } else if (values.password.length < 8) {
           errors.password = "Password must be 8 characters long.";
-        } else if (!passwordUpper.test(values.password)) {
-          errors.password = "Password must contain one UpperCase letter";
-        } else if (!passwordLower.test(values.password)) {
-          errors.password = "Password must contain one LowerCase letter";
-        } else if (!passwordRegex.test(values.password)) {
-          errors.password = "password Must contain one number";
-        } else if (!passwordSpecial.test(values.password)) {
-          errors.password = "password Must contain one special character";
         }
 
         return errors;
@@ -169,7 +173,7 @@ const Register = () => {
 
                   <div className="form_group">
                     <button type="submit" disabled={isSubmitting}>
-                      {alert.authloading === true ? (
+                      {isSubmitting ? (
                         <Loading width="25px" height="25px" color="#fff" />
                       ) : (
                         "Create an account"

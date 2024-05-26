@@ -21,9 +21,7 @@ export const PostRequest = async (url: string, data?: any, token?: string) => {
 
     return res;
   } catch (error) {
-    cogoToast.error(error?.response?.data?.msg);
-    // console.log(error.response.response?.data?.msg);
-
+    cogoToast.error(error?.response?.data?.err);
     return error;
   }
 };
@@ -69,7 +67,7 @@ export const PatchRequest = async (url: string, data?: any, token?: string) => {
 
     return res;
   } catch (error) {
-    cogoToast.error(error?.response?.data?.msg);
+    cogoToast.error(error?.response?.data?.err);
 
     return error;
   }
