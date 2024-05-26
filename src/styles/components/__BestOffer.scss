@@ -58,16 +58,16 @@
 }
 
 .best-offer-box button {
-  background: var(--secondary-color);
-  color: var(--white-color);
+  background: black;
+  color: $white;
   padding: 12px 30px;
   border: none;
   outline: none;
   border-radius: 5px;
   font-size: var(--font-smallest);
-  transition: var(--transition);
+  transition: $transitions;
 }
 
 .best-offer-box button:hover {
-  background: var(--blue-color);
+  background: $primary-color;
 }

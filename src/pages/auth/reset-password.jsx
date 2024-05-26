@@ -1,14 +1,14 @@
 import React from "react";
-import AlertModal from "../../../common/alertmodal/AlertModal";
+import AlertModal from "../../common/alertmodal/AlertModal";
 import { useSelector, useDispatch } from "react-redux";
 import { FaTimes } from "react-icons/fa";
 
 import { Formik } from "formik";
 
 // COMPONENTS
-import Loading from "../../../common/Loading";
-import { changePassword } from "../../../redux/actions/authAction";
-import { resetpasswordModal } from "./../../../redux/actions/authAction";
+import Loading from "../../common/Loading";
+import { changePassword } from "../../redux/actions/authAction";
+import { resetpasswordModal } from "../../redux/actions/authAction";
 
 // VALIDATION REGEX
 const passwordUpper = /(?=.*[A-Z])/;

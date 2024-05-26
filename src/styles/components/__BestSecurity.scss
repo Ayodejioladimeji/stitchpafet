@@ -33,18 +33,18 @@
 }
 
 .security-box button {
-  background: var(--secondary-color);
-  color: var(--white-color);
+  background: $black;
+  color: $white;
   padding: 12px 30px;
   border: none;
   outline: none;
   border-radius: 5px;
   font-size: var(--font-smallest);
-  transition: var(--transition);
+  transition: $transitions;
 }
 
 .security-box button:hover {
-  background: var(--blue-color);
+  background: $primary-color;
 }
 
 /* best-security-bottom right */

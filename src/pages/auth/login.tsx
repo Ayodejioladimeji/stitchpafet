@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as EmailValidator from "email-validator";
 
 // COMPONENTS
-import Loading from "../../../common/Loading";
+import Loading from "../../common/Loading";
 import Link from "next/link";
 import { CgArrowLongLeft } from "react-icons/cg";
 import { useRouter } from "next/router";
@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 // VALIDATION REGEX
 
 const Login = () => {
-  const { loading } = useSelector((state: any) => state)
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
 
   //
@@ -134,7 +134,7 @@ const Login = () => {
 
                   <div className="form_group">
                     <button type="submit" disabled={isSubmitting}>
-                      {loading.authloading === true ? (
+                      {loading ? (
                         <Loading width="25px" height="25px" color="#fff" />
                       ) : (
                         "Login"

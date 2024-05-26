@@ -1,6 +1,8 @@
 import statesData from "@/constants/statesdata";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+import { useSelector } from "react-redux";
 
 const initialStates = {
   firstname: "",
@@ -16,6 +18,9 @@ const initialStates = {
 const CheckoutForm = () => {
   const [values, setValues] = useState(initialStates);
   const [cities, setCities] = useState(null)
+  const router = useRouter()
+  const { user, token } = useSelector((state: any) => state.auth);
+
 
   // get cities
   useEffect(() => {
@@ -28,19 +33,6 @@ const CheckoutForm = () => {
     setCities(response);
   }, [values?.state]);
 
-  const selectCountry = (val) => {
-    setValues((prevState) => ({
-      ...prevState,
-      country: val,
-    }));
-  };
-
-  const selectRegion = (val) => {
-    setValues((prevState) => ({
-      ...prevState,
-      region: val,
-    }));
-  };
 
   // onChange method
   const handleChange = (e) => {
@@ -51,15 +43,20 @@ const CheckoutForm = () => {
     });
   };
 
-  // handlesubmit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(values);
-  };
+
+
+  // make payment
+  const handlePayment = () => {
+    console.log(token)
+    // check if user is logged in
+    if (!token) {
+      router.push("/auth/login")
+    }
+  }
 
   return (
     <div className="checkout-form">
-      <form className="row" onSubmit={handleSubmit}>
+      <form className="row">
         <div className="col-6">
           <div className="form-group">
             <input
@@ -166,11 +163,11 @@ const CheckoutForm = () => {
       </form>
 
       <div className="pay-buttons">
-        <button>
+        <button onClick={() => router.push("/products")}>
           <i className="bi bi-arrow-left"></i>
           Continue Shopping</button>
 
-        <button>Make Payment</button>
+        <button onClick={handlePayment}>Make Payment</button>
       </div>
 
     </div>

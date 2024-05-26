@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import CheckoutForm from "../components/checkout/CheckoutForm";
+import CheckoutForm from "../components/CheckoutForm";
 import { GLOBALTYPES } from "../redux/actions/globalTypes";
 import {
   FaCheckCircle,
@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import Layout from "@/common/Layout";
 import Breadcumb from "@/components/Breadcumb";
 import { data } from "@/constants/SecureData";
+import { calculateTotal } from "@/utils/utils";
 
 const orderItems = [
   {
@@ -40,26 +41,14 @@ const orderItems = [
 ];
 
 const Checkout = () => {
-  const { user } = useSelector((state: any) => state.auth);
+  const { user, token } = useSelector((state: any) => state.auth);
   const { datacart } = useSelector((state: any) => state?.product)
   const router = useRouter();
   const dispatch = useDispatch();
   const [openAddress, setOpenAddress] = useState(false);
 
-  // choose address section
-  const chooseAddress = () => {
-    dispatch({
-      type: GLOBALTYPES.ALERT,
-      payload: { success: "Profile address selected for checkout" },
-    });
 
-    setTimeout(() => {
-      dispatch({
-        type: GLOBALTYPES.ALERT,
-        payload: {},
-      });
-    }, 3000);
-  };
+  // 
 
   return (
     <Layout>
@@ -74,22 +63,6 @@ const Checkout = () => {
                     Delivery Information
                   </h2>
                   <hr />
-
-                  {/* <div className="address-box">
-                    <div>
-                      <span>
-                        <b>
-                          {"Ayodeji"} {"Oladimeji"}
-                        </b>
-                      </span>
-                      <small>{"22b iwalesin street mosalashi alagbado lagos state"}</small>
-                      <small>{"08053838074"}</small>
-                    </div>
-
-                    <button onClick={chooseAddress} className="checkout-use">
-                      Use Address
-                    </button>
-                  </div> */}
                 </div>
 
                 {/* <hr /> */}
@@ -107,9 +80,8 @@ const Checkout = () => {
               <div className="checkout-right">
                 <h3>
                   Your order{" "}
-                  <span>
-                    ({datacart?.length} {datacart?.length > 1 ? "items" : "item"})
-                  </span>
+                  ({datacart?.length} {datacart?.length > 1 ? "items" : "item"})
+
                 </h3>
                 <hr />
 
@@ -142,18 +114,9 @@ const Checkout = () => {
 
                 <div className="order-calculation">
                   <div className="calculate">
-                    <small>Subtotal</small>
-                    <small>
-                      ₦3,134
-                    </small>
-                  </div>
-
-                  <div className="rule my-3" />
-
-                  <div className="calculate">
                     <small>Total</small>
                     <small>
-                      ₦3,134
+                      ₦{calculateTotal(datacart)}
                     </small>
                   </div>
 

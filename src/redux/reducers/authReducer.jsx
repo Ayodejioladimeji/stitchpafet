@@ -2,7 +2,7 @@ import { GLOBALTYPES } from "../actions/globalTypes";
 
 const initialState = {
   auth_state: {},
-  token: {},
+  token: null,
   user: {},
   order_id: "",
   redirect_route: "",

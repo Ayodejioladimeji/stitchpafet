@@ -4,11 +4,11 @@ import { Link, useHistory } from "react-router-dom";
 import ReactCodeInput from "react-verification-code-input";
 
 // COMPONENTS
-import Loading from "../../../common/Loading";
+import Loading from "../../common/Loading";
 
 //
-import { confirmCode, resendCode } from "../../../redux/actions/authAction";
-import SEO from "./../../../common/SEO";
+import { confirmCode, resendCode } from "../../redux/actions/authAction";
+import SEO from "../../common/SEO";
 
 const email = sessionStorage.getItem("email");
 
