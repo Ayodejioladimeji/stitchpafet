@@ -41,6 +41,7 @@ const orderItems = [
 
 const Checkout = () => {
   const { user } = useSelector((state: any) => state.auth);
+  const { datacart } = useSelector((state: any) => state?.product)
   const router = useRouter();
   const dispatch = useDispatch();
   const [openAddress, setOpenAddress] = useState(false);
@@ -66,7 +67,7 @@ const Checkout = () => {
         <Breadcumb title="Checkout" />
         <div className="container">
           <div className="row mt-5">
-            <div className="col">
+            <div className="col-7">
               <div className="checkout-left">
                 <div className="checkout-address">
                   <h2>
@@ -74,7 +75,7 @@ const Checkout = () => {
                   </h2>
                   <hr />
 
-                  <div className="address-box">
+                  {/* <div className="address-box">
                     <div>
                       <span>
                         <b>
@@ -88,32 +89,33 @@ const Checkout = () => {
                     <button onClick={chooseAddress} className="checkout-use">
                       Use Address
                     </button>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* <hr /> */}
 
                 <div className="shipping-info">
-                  <h2 className="address-details">User another address</h2>
+                  {/* <h2 className="address-details">User another address</h2> */}
+                  <h2 className="address-details">Provide address</h2>
                   <CheckoutForm />
                 </div>
               </div>
             </div>
 
             {/* checkout right */}
-            <div className="col">
+            <div className="col-5">
               <div className="checkout-right">
                 <h3>
                   Your order{" "}
                   <span>
-                    ({orderItems.length} {orderItems.length > 1 ? "items" : "item"})
+                    ({datacart?.length} {datacart?.length > 1 ? "items" : "item"})
                   </span>
                 </h3>
                 <hr />
 
                 <div className={orderItems.length > 1 ? "order-sect" : "order-section"}>
 
-                  {data?.map((item) => {
+                  {datacart?.map((item) => {
                     const { id, image, title, price } = item;
                     return (
                       <React.Fragment key={id}>
@@ -127,7 +129,7 @@ const Checkout = () => {
                             <p>
                               ₦{price}
                             </p>
-                            <p>Qty: {2}</p>
+                            <p>Qty: {item.quantity}</p>
                           </div>
                         </div>
                         {/* {data?.length > 1 && <hr />} */}

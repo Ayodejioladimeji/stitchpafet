@@ -172,9 +172,7 @@ const Navbar = () => {
               <div className="cart" onClick={() => router.push("/cart")}>
                 <BsCart4 />
                 <div className="carting">Cart</div>
-
                 <small className="count">{cart}</small>
-
               </div>
 
               {token && (

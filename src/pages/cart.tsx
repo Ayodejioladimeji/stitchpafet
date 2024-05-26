@@ -146,7 +146,7 @@ const Cart = () => {
             {datacart?.length === 0 ? (
               <div className="main-cart-empty">
                 <div className="cart-empty">
-                  <div className="cart-bottom-box">
+                  <div className="image-box">
                     <img src="/images/empty-cart.png" alt="" />
                   </div>
 
