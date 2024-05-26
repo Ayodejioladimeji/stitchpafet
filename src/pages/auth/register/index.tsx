@@ -24,45 +24,37 @@ const Register = () => {
   const [phoneError, setPhoneError] = useState("");
   const router = useRouter();
 
-  // const [typePass, setTypePass] = useState(false);
-  // const [typePassword, setTypePassword] = useState(false);
-  // const history = useHistory();
 
-  useEffect(() => {
-    if (auth.token.token) {
-      router.push("/");
-    }
-  }, [auth.token.token]);
+
 
   return (
     <Formik
       initialValues={{
+        name: "",
         email: "",
         password: "",
-        password2: "",
       }}
       onSubmit={(values, { setSubmitting }) => {
-        const { email, password } = values;
+        const { name, email, password } = values;
 
         const newData = {
+          name: name.toLowerCase(),
           email: email.toLowerCase(),
-          phone: phoneNumber?.toString(),
           password: password,
         };
 
         setTimeout(async () => {
-          if (!phoneNumber) {
-            setPhoneError("Phone number is required");
-          } else {
-            // dispatch(register(newData));
-          }
-
           setSubmitting(false);
         }, 500);
       }}
       //   HANDLING VALIDATION MESSAGES
       validate={(values) => {
-        let errors = null;
+        let errors: any = {};
+
+        // NAME SECTION
+        if (!values.name) {
+          errors.name = "Your name is Required";
+        }
 
         // EMAIL SECTION
         if (!values.email) {
@@ -84,13 +76,6 @@ const Register = () => {
           errors.password = "password Must contain one number";
         } else if (!passwordSpecial.test(values.password)) {
           errors.password = "password Must contain one special character";
-        }
-
-        // THE CONFIRM PASSWORD
-        if (!values.password2) {
-          errors.password2 = "Confirm your password";
-        } else if (values.password !== values.password2) {
-          errors.password2 = "Password does not match";
         }
 
         return errors;
@@ -133,6 +118,21 @@ const Register = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div className="form_group">
+                    <label htmlFor="email">FullName</label>
+                    <input
+                      name="name"
+                      type="text"
+                      placeholder="Yemi Alonso"
+                      value={values.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                    {errors.name && touched.name && (
+                      <div className="input_feedback">{errors.name}</div>
+                    )}
+                  </div>
+
+                  <div className="form_group">
                     <label htmlFor="email">Email</label>
                     <input
                       name="email"
@@ -165,31 +165,6 @@ const Register = () => {
                       <div className="input_feedback">{errors.password}</div>
                     )}
 
-                  </div>
-
-                  <div className="form_group">
-                    <label htmlFor="password">Confirm Password</label>
-                    <input
-                      name="password2"
-                      type="password"
-                      placeholder="Enter your password"
-                      value={values.password2}
-                      autoComplete="on"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={
-                        errors.password2 && touched.password2 && "error"
-                      }
-                    />
-                    {errors.password2 && touched.password2 && (
-                      <div className="input_feedback">{errors.password2}</div>
-                    )}
-                    {/* <div
-                              className={errors.password2 ? 'eye' : 'eyes'}
-                              onClick={() => setTypePassword(!typePassword)}
-                            >
-                              {typePassword ? <FaEyeSlash /> : <FaEye />}
-                            </div> */}
                   </div>
 
                   <div className="form_group">

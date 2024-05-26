@@ -3,6 +3,8 @@ import cogoToast from "cogo-toast";
 
 const endpoint = process.env.NEXT_PUBLIC_BASE_URL;
 
+console.log(endpoint)
+
 // ==============
 export const PostRequest = async (url: string, data?: any, token?: string) => {
   try {
@@ -101,18 +103,6 @@ export const GetRequest = async (url: string, token?: string) => {
         localStorage.clear();
         window.location.href = "/";
       }, 2000);
-    }
-  }
-};
-
-export const Getrequest = async (url: string, data?: any) => {
-  try {
-    const res = await axios.get(endpoint + url, data);
-
-    return res;
-  } catch (error) {
-    if (error?.code === "ERR_NETWORK") {
-      cogoToast.error("Something went wrong", { hideAfter: 5 });
     }
   }
 };
