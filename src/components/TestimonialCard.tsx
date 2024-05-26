@@ -9,7 +9,7 @@ interface Props {
 }
 
 const TestimonialCard = (props: Props) => {
-    console.log(props.index, Math.floor(testimonials?.length / 3))
+    // 
     return (
         <div className={`testimonial-card`}>
             <h3>{props.name}</h3>

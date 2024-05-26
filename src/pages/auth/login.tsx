@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as EmailValidator from "email-validator";
 
@@ -8,12 +8,41 @@ import Loading from "../../common/Loading";
 import Link from "next/link";
 import { CgArrowLongLeft } from "react-icons/cg";
 import { useRouter } from "next/router";
+import { PostRequest } from "@/utils/request";
+import cogoToast from "cogo-toast";
+import { GLOBALTYPES } from "@/redux/actions/globalTypes";
 
 // VALIDATION REGEX
 
 const Login = () => {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const dispatch = useDispatch()
+
+
+  // handle submit
+  const handleSubmit = async (payload) => {
+    const res = await PostRequest("/auth/login", payload)
+
+    if (res?.status === 200) {
+      cogoToast.success(res.data.msg)
+      dispatch({ type: GLOBALTYPES.TOKEN, payload: res.data.access_token });
+      router.push('/')
+
+      // setTimeout(() => {
+
+      //   dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: false } });
+
+      //   if (redirect_route === "/") {
+      //     // window.location.href = '/dashboard/overview';
+      //     history.push("/dashboard/overview");
+      //   } else {
+      //     // window.location.href = redirect_route;
+      //     history.push(redirect_route);
+      //   }
+      // }, 2000);
+    }
+  }
 
   //
 
@@ -25,16 +54,14 @@ const Login = () => {
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(async () => {
-          // dispatch(
-          //   login(values, history, redirect_route, datacart, cartcallback)
-          // );
+          handleSubmit(values)
 
           setSubmitting(false);
         }, 500);
       }}
       //   HANDLING VALIDATION MESSAGES
       validate={(values) => {
-        let errors = null;
+        let errors: any = {};
 
         // EMAIL SECTION
         if (!values.email) {
@@ -118,23 +145,12 @@ const Login = () => {
                     <Link href="/auth/forgot-password">
                       <div className="password-forgot">forgot password?</div>
                     </Link>
-                    {/* <div
-                              className={
-                                errors.password
-                                  ? 'ey'
-                                  : !errors.password
-                                  ? 'eyee'
-                                  : 'eyees'
-                              }
-                              onClick={() => setTypePass(!typePass)}
-                            >
-                              {typePass ? <FaEyeSlash /> : <FaEye />}
-                            </div> */}
+
                   </div>
 
                   <div className="form_group">
                     <button type="submit" disabled={isSubmitting}>
-                      {loading ? (
+                      {isSubmitting ? (
                         <Loading width="25px" height="25px" color="#fff" />
                       ) : (
                         "Login"
