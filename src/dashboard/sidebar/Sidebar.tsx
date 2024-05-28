@@ -15,7 +15,6 @@ import { FiSettings } from "react-icons/fi";
 
 // ASSETS
 
-import Navlink from "../common/Navlink";
 import Link from "next/link";
 
 const Sidebar = () => {
@@ -27,19 +26,10 @@ const Sidebar = () => {
       <div className={topbar_toggle ? "side-menu inactive" : "side-menu"}>
         {/* THE MAIN MENU SECTION  */}
         <div className="main-menu">
-          <Link href="/">
-            <div className="sidebar-logos">
-              {topbar_toggle && (
-                <img src="/assets/fav.png" alt="" className="log" />
-              )}
 
-              <img src="/assets/new-logo-light.png" alt="" className="logos" />
-            </div>
-          </Link>
-          {/* <div className='account_id'>Account ID: D431633H98</div> */}
           <ul>
             <li>
-              <Link href="/dashboard/overview">
+              <Link href="/dashboard/overview" className="menu-item active">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsUiChecksGrid className="sidebar-icon" />
                 </div>
@@ -48,7 +38,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link href="/dashboard/my-orders">
+              <Link href="/dashboard/my-orders" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCartCheck className="sidebar-icon" />
                 </div>
@@ -57,7 +47,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link href="/dashboard/create-order">
+              <Link href="/dashboard/create-order" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCart className="sidebar-icon" />
                 </div>
@@ -66,7 +56,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link href="/market">
+              <Link href="/market" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsBagPlus className="sidebar-icon" />
                 </div>
@@ -76,7 +66,7 @@ const Sidebar = () => {
 
             {user.usertype === "vendor" && (
               <li>
-                <Link href="/dashboard/my-products">
+                <Link href="/dashboard/my-products" className="menu-item ">
                   <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                     <BsBagCheck className="sidebar-icon" />
                   </div>
@@ -86,7 +76,7 @@ const Sidebar = () => {
             )}
 
             <li>
-              <Link href="/dashboard/transactions">
+              <Link href="/dashboard/transactions" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCreditCard className="sidebar-icon" />
                 </div>
@@ -95,7 +85,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link href="/dashboard/payment-disputes">
+              <Link href="/dashboard/payment-disputes" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <GiTakeMyMoney className="sidebar-icon" />
                 </div>
@@ -104,7 +94,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link href="/dashboard/wallet">
+              <Link href="/dashboard/wallet" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <FaRegMoneyBillAlt className="sidebar-icon" />
                 </div>
@@ -113,7 +103,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link href="/dashboard/settings">
+              <Link href="/dashboard/settings" className="menu-item ">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <FiSettings className="sidebar-icon" />
                 </div>

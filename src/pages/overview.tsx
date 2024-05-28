@@ -10,9 +10,7 @@ const Overview = () => {
 
   return (
     <Layout>
-      <div id={topbar_toggle ? "response" : "responsive"}>
-        <OverviewPage />
-      </div>
+      <OverviewPage />
     </Layout>
   );
 };

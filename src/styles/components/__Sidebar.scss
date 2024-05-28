@@ -1,10 +1,10 @@
 .side-menu {
-  position: fixed;
   background: var(--white-color);
   width: 230px;
   height: 100vh;
   box-sizing: border-box;
-  background: orange;
+  position: fixed;
+  top: 17%;
 }
 
 .sidebar-logos {
@@ -51,7 +51,7 @@
 }
 
 .side-menu .main-menu .menu-item {
-  color: var(--secondary-color);
+  color: $black;
   text-decoration: none;
   font-size: 13px;
   display: flex;
@@ -64,13 +64,13 @@
 }
 
 .side-menu .main-menu .menu-item:hover {
-  color: var(--blue-color);
-  transition: var(--transition);
+  color: $primary-color;
+  transition: $transitions;
 }
 
 .side-menu .main-menu .active {
-  background: #e9ecff !important;
-  color: var(--blue-color);
+  background: $primary-color;
+  color: $white;
 }
 
 .menu-item .menu-icon {

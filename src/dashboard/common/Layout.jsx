@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Topbar from '../topbar/Topbar';
-import Sidebar from '../sidebar/Sidebar';
+import React from "react";
+import PropTypes from "prop-types";
+import Sidebar from "../sidebar/Sidebar";
+import Navbar from "@/components/Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <Topbar />
+    <div className="container-fluid p-0">
+      <Navbar />
       <Sidebar />
       {children}
-    </>
+    </div>
   );
 };
 

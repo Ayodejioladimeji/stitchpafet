@@ -94,7 +94,7 @@
 @import './components/Notification.css';
 @import './components/Orderdispute.css';
 @import './components/OrderProcessing.css';
-@import './components/OverviewPage.css';
+@import './components/__OverviewPage.scss';
 @import './components/Processing.css';
 @import './components/Receivefunds.css';
 @import './components/Referral.css';
@@ -102,7 +102,7 @@
 @import './components/SendFunds.css';
 @import './components/ServiceDetails.css';
 /* @import './components/Settings.css'; */
-@import './components/Sidebar.css';
+@import './components/__Sidebar.scss';
 @import './components/Topbar.css';
 @import './components/Topupwallet.css';
 @import './components/VendorProfile.css';

@@ -188,14 +188,14 @@ const Navbar = () => {
                   {click && (
                     <Dropdown>
                       <div ref={clickRef}>
-                        <Link href='/dashboard/overview'>
+                        <Link href='/overview'>
                           <div className='user-div'>
                             <FiGrid className='user-div-icons' />
                             <div className='link'>Dashboard</div>
                           </div>
                         </Link>
 
-                        <Link href='/dashboard/profile'>
+                        <Link href='/profile'>
                           <div className='user-div'>
                             <FaRegUser className='user-div-icons' />
                             <div className='link'>My Profile</div>
@@ -218,14 +218,14 @@ const Navbar = () => {
                         </Link>
                       )} */}
 
-                        <Link href='/dashboard/settings'>
+                        <Link href='/settings'>
                           <div className='user-div'>
                             <FiSettings className='user-div-icons' />
                             <div className='link'>Settings</div>
                           </div>
                         </Link>
 
-                        <Link href='/dashboard/wallet'>
+                        <Link href='/wallet'>
                           <div className='user-div'>
                             <BiWalletAlt className='user-div-icons' />
                             <div className='link'>My Wallet</div>

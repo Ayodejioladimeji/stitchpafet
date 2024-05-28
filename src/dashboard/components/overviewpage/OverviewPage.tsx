@@ -105,7 +105,7 @@ const OverviewPage = () => {
         <div
           // className="overview-left"
           className={
-            token.userType === "vendor" ? "overview-left" : "overview-lefts"
+            "overview-left"
           }
         >
           <div className="overview-box">
