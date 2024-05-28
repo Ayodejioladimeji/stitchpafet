@@ -16,6 +16,7 @@ import { GLOBALTYPES } from "@/redux/actions/globalTypes";
 
 const Login = () => {
   const [loading, setLoading] = useState(false)
+  const { redirect_route } = useSelector((state: any) => state.auth)
   const router = useRouter()
   const dispatch = useDispatch()
 
@@ -29,18 +30,16 @@ const Login = () => {
       dispatch({ type: GLOBALTYPES.TOKEN, payload: res.data.access_token });
       router.push('/')
 
-      // setTimeout(() => {
+      setTimeout(() => {
 
-      //   dispatch({ type: GLOBALTYPES.ALERT, payload: { authloading: false } });
-
-      //   if (redirect_route === "/") {
-      //     // window.location.href = '/dashboard/overview';
-      //     history.push("/dashboard/overview");
-      //   } else {
-      //     // window.location.href = redirect_route;
-      //     history.push(redirect_route);
-      //   }
-      // }, 2000);
+        if (redirect_route === "/") {
+          // window.location.href = '/dashboard/overview';
+          router.push("/");
+        } else {
+          // window.location.href = redirect_route;
+          router.push(redirect_route);
+        }
+      }, 2000);
     }
   }
 

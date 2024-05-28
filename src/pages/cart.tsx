@@ -18,10 +18,9 @@ import { useSelector, useDispatch } from "react-redux";
 //
 
 const Cart = () => {
-  const { productcart, cart } = useSelector((state: any) => state.auth);
+  const { token, productcart, cart } = useSelector((state: any) => state.auth);
   const { datacart, cartcallback } = useSelector((state: any) => state.product);
   const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState("one")
   const router = useRouter();
   const dispatch = useDispatch();
   const [data, setData] = useState(null)
@@ -33,7 +32,7 @@ const Cart = () => {
     setLoading(false)
   }, [])
 
-  const checkout = () => {
+  const handleCheckout = () => {
     if (token) {
       router.push("/checkout");
     } else {
@@ -44,29 +43,6 @@ const Cart = () => {
       router.push("/auth/login");
     }
   };
-
-  // --------------when logged in----------------
-  // Calculate the number of items bought
-  // const calculateItems = cart.reduce((prev, item) => {
-  //   return prev + item.quantity;
-  // }, 0);
-
-  // // calculate total{
-  // const total = cart.reduce((prev, item) => {
-  //   return prev + item.product.productamount * item.quantity;
-  // }, 0);
-  // --------------------------------------------------------
-
-  // -----------------------when not logged in---------------------
-  // Calculate the number of items bought
-  // const calculateItem = productcart.reduce((prev, item) => {
-  //   return prev + item.quantity;
-  // }, 0);
-
-  // // calculate total{
-  // const subtotal = productcart.reduce((prev, item) => {
-  //   return prev + item.productamount * item.quantity;
-  // }, 0);
 
   // Clear all cart
   const clearCart = () => {
@@ -133,7 +109,6 @@ const Cart = () => {
     dispatch({ type: GLOBALTYPES.UPDATE_DATA_CART, payload: cartData });
     // dispatch({ type: GLOBALTYPES.DATA_CART, payload: dataCart });
   };
-
 
   //
 
@@ -234,7 +209,7 @@ const Cart = () => {
 
                   <div className="table-footer">
                     <button onClick={() => router.push("/products")}><i className="bi bi-arrow-left"></i>Continue shopping</button>
-                    <button onClick={() => router.push("/checkout")}>Checkout</button>
+                    <button onClick={handleCheckout}>Checkout</button>
                   </div>
                 </div>
               </>

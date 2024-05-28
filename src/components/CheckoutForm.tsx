@@ -49,9 +49,7 @@ const CheckoutForm = () => {
   const handlePayment = () => {
     console.log(token)
     // check if user is logged in
-    if (!token) {
-      router.push("/auth/login")
-    }
+
   }
 
   return (
