@@ -179,6 +179,7 @@
 .user-div {
   display: flex;
   align-items: center;
+  column-gap: 10px;
   padding: 8px;
   border-radius: 5px;
   /* margin-bottom: 8px; */
@@ -190,9 +191,8 @@
 }
 
 .user-div-icons {
-  font-size: var(--font-med);
-  margin-right: 15px;
   color: var(--black-color);
+  margin-top: -4px;
 }
 
 .seller {

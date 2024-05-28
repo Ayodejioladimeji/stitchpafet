@@ -78,7 +78,7 @@ const ProductDetail = () => {
             return;
         }
 
-        if (token.token) {
+        if (token) {
             const cartItems = [
                 {
                     product_id: product?.id,

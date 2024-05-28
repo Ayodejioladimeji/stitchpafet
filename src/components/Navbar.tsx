@@ -50,14 +50,8 @@ const Navbar = () => {
   //Logout User
   const logoutUser = () => {
     // window.localStorage.clear();
-    dispatch({ type: GLOBALTYPES.TOKEN, payload: {} });
-    dispatch({ type: GLOBALTYPES.GET_USER, payload: {} });
-    dispatch({ type: GLOBALTYPES.ORDER_ID, payload: "" });
-    dispatch({ type: GLOBALTYPES.GET_WALLET_BALANCE, payload: "" });
+    dispatch({ type: GLOBALTYPES.TOKEN, payload: null });
     dispatch({ type: GLOBALTYPES.REDIRECT_ROUTE, payload: "" });
-    dispatch({ type: GLOBALTYPES.CART, payload: [] });
-    dispatch({ type: GLOBALTYPES.DELETE_PRODUCT_CART, payload: [] });
-    dispatch({ type: GLOBALTYPES.DELETE_DATA_CART, payload: [] });
     router.push("/");
   };
 
