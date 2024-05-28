@@ -11,7 +11,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const persistConfig = {
   key: "auth",
   storage: storage,
-  whitelist: ["product"],
+  whitelist: ["auth", "product"],
   // blacklist: ["auth"],
 };
 

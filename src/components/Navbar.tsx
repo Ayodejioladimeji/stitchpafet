@@ -20,8 +20,7 @@ import { useRouter } from "next/router";
 
 //
 const Navbar = () => {
-  const { user, productcart } = useSelector((state: any) => state.auth);
-  const { walletBalance } = useSelector((state: any) => state.wallet);
+  const { token, user, productcart } = useSelector((state: any) => state.auth);
   const { datacart, get_categories } = useSelector((state: any) => state.product);
   const { callback } = useSelector((state: any) => state.dashboard);
   const [click, setClick] = useState(false);
@@ -32,12 +31,21 @@ const Navbar = () => {
   const [values, setValues] = useState("");
   const router = useRouter()
   const { pathname } = router.query
-  const [token, setToken] = useState(null)
-  const [cart, setCart] = useState(0)
 
+
+  // Click outside side effect
   useEffect(() => {
-    setCart(datacart?.length)
-  }, [datacart])
+    document.addEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  //   The handleClick outside function
+  const handleClickOutside = (e) => {
+    if (clickRef.current && !clickRef.current.contains(e.target)) {
+      setClick(false);
+      setSelectDrop(false);
+    }
+  };
+
 
   //Logout User
   const logoutUser = () => {
@@ -85,7 +93,7 @@ const Navbar = () => {
   //
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <div className="navbar navbar-expand-lg">
       <div className="container heading">
         <div className="logo-module" onClick={() => router.push("/")}>
           <Image
@@ -172,25 +180,79 @@ const Navbar = () => {
               <div className="cart" onClick={() => router.push("/cart")}>
                 <BsCart4 />
                 <div className="carting">Cart</div>
-                <small className="count">{cart}</small>
+                <small className="count">{datacart?.length || 0}</small>
               </div>
 
               {token && (
-                <div className="user" onClick={() => setClick(!click)}>
+                <div className='user' onClick={() => setClick(!click)}>
                   <img
-                    src={
-                      user.profile_pic ? user.profile_pic : "/images/avatar.jpg"
-                    }
-                    alt="user"
+                    src={user.profile_pic ? user.profile_pic : "/images/avatar.jpg"}
+                    alt='user'
                   />
+                  <FaChevronDown className='user-dropdown' />
 
+                  {click && (
+                    <Dropdown>
+                      <div ref={clickRef}>
+                        <Link href='/dashboard/overview'>
+                          <div className='user-div'>
+                            <FiGrid className='user-div-icons' />
+                            <div className='link'>Dashboard</div>
+                          </div>
+                        </Link>
+
+                        <Link href='/dashboard/profile'>
+                          <div className='user-div'>
+                            <FaRegUser className='user-div-icons' />
+                            <div className='link'>My Profile</div>
+                          </div>
+                        </Link>
+
+                        <Link href='/market'>
+                          <div className='user-div'>
+                            <MdOutlineSell className='user-div-icons seller' />
+                            <div className='link'>Market Place</div>
+                          </div>
+                        </Link>
+
+                        {/* {user.userType !== 'vendor' && (
+                        <Link href='/register-vendor'>
+                          <div className='user-div'>
+                            <FiUserCheck className='user-div-icons seller' />
+                            <div className='link'>Become a vendor</div>
+                          </div>
+                        </Link>
+                      )} */}
+
+                        <Link href='/dashboard/settings'>
+                          <div className='user-div'>
+                            <FiSettings className='user-div-icons' />
+                            <div className='link'>Settings</div>
+                          </div>
+                        </Link>
+
+                        <Link href='/dashboard/wallet'>
+                          <div className='user-div'>
+                            <BiWalletAlt className='user-div-icons' />
+                            <div className='link'>My Wallet</div>
+                          </div>
+                        </Link>
+
+                        <hr className='mb-3' />
+                        <div className='user-div' onClick={logoutUser}>
+                          <HiOutlineLogout className='user-div-icons logout' />
+                          <div className='link'>Logout</div>
+                        </div>
+                      </div>
+                    </Dropdown>
+                  )}
                 </div>
               )}
             </div>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

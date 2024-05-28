@@ -22,11 +22,11 @@ export default () => {
             slidesPerView={3}
             navigation
             pagination={{ clickable: true }}
-            onSwiper={(swiper) => console.log("")}
+            // onSwiper={(swiper) => console.log("")}
             onSlideChange={(item) => console.log(item.realIndex)}
         >
-            {testimonials?.map((item, key) => <SwiperSlide>
-                <TestimonialCard {...item} key={key} index={key} />
+            {testimonials?.map((item, key) => <SwiperSlide key={key} >
+                <TestimonialCard {...item} index={key} />
             </SwiperSlide>)}
         </Swiper>
     );

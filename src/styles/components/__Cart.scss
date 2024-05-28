@@ -169,8 +169,8 @@
   margin: 0 auto;
 
   .image-box {
-    height: 300px;
-    width: 300px;
+    height: 100px;
+    width: 100px;
 
     img {
       width: 100%;
@@ -182,13 +182,12 @@
 
 .cart-empty h3 {
   font-size: var(--font-med);
-  font-family: "Inter";
-  color: var(--primary-color);
+  margin-top: 20px;
 }
 
 .start-shopping {
   padding: 10px 25px;
-  background: var(--secondary-color);
+  background: $black;
   color: var(--white-color);
   border-radius: 5px;
   border: none;

@@ -1,6 +1,6 @@
 .hero {
-  height: calc(100vh - 0px);
   width: 100%;
+  padding-top: 50px;
 }
 
 /* ------------------------------------- */
@@ -12,10 +12,6 @@
   align-items: flex-end;
   justify-content: center;
   align-items: center;
-}
-
-.hero-left-div {
-  margin-top: 70px;
 }
 
 .hero-left-div h1 {
@@ -41,8 +37,8 @@
 }
 
 .hero-left-div button {
-  background: var(--secondary-color);
-  color: var(--white-color);
+  background: $black;
+  color: $white;
   padding: 10px;
   width: 150px;
   border-radius: 5px;
@@ -53,7 +49,7 @@
   justify-content: space-around;
   height: 55px;
   font-weight: 700;
-  transition: var(--transition);
+  transition: $transitions;
   font-size: 15px;
   margin-right: 20px;
 }
@@ -72,6 +68,7 @@
   from {
     transform: translateX(2px);
   }
+
   to {
     transform: translateX(-1px);
   }
@@ -80,33 +77,18 @@
 /* ------------------------------------------- */
 /* The Hero right */
 .hero-right {
-  /* background: var(--black-color); */
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  margin-top: 50px;
 }
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  /* width: 100%; */
+.image-box {
+  height: 75vh;
+  overflow: hidden;
 
-  .image-box {
-    height: 300px;
-    width: 250px;
-    border-radius: 10px;
-    border: 4px solid var(--secondary-color);
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* border-radius: 10px; */
-      /* display: none; */
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
