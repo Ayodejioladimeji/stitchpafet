@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import Hero from "./../components/hero/Hero";
+import Hero from "../components/Hero";
 import Securely from "../components/securely/Securely";
 import Transaction from "../components/transaction/Transaction";
 import BestOffer from "../components/bestoffer/BestOffer";

@@ -24,7 +24,7 @@ const Hero = () => {
           <div className="hero-left ">
             <div className="hero-left-div">
               <h1 className="escrow" data-aos="fade-up" data-aos-once="true">
-                Exquisite and Quality Materials just for you.
+                Exquisite and <span>Quality Materials</span> just for you.
               </h1>
               <p>
                 Our carefully curated collection of clothing is designed and

@@ -4,13 +4,13 @@ import { Formik } from "formik";
 import * as EmailValidator from "email-validator";
 
 // COMPONENTS
-import Loading from "../../common/Loading";
 import Link from "next/link";
 import { CgArrowLongLeft } from "react-icons/cg";
 import { useRouter } from "next/router";
 import { PostRequest } from "@/utils/request";
 import cogoToast from "cogo-toast";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
+import Loading from "@/common/loading";
 
 // VALIDATION REGEX
 
@@ -32,7 +32,7 @@ const Login = () => {
 
       setTimeout(() => {
 
-        if (redirect_route === "/") {
+        if (!redirect_route) {
           // window.location.href = '/dashboard/overview';
           router.push("/");
         } else {
@@ -150,7 +150,7 @@ const Login = () => {
                   <div className="form_group">
                     <button type="submit" disabled={isSubmitting}>
                       {isSubmitting ? (
-                        <Loading width="25px" height="25px" color="#fff" />
+                        <Loading width="25px" height="25px" primaryColor="#fff" secondaryColor="#fff" />
                       ) : (
                         "Login"
                       )}

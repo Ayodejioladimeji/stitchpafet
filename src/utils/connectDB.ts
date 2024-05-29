@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 const URI = process.env.NEXT_PUBLIC_MONGO_URI;
 
 const connectDB = async () => {
-    console.log("caniing")
     try {
         await mongoose.connect(URI);
         console.log("Database connected");

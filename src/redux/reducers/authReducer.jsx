@@ -5,7 +5,7 @@ const initialState = {
   token: null,
   user: {},
   order_id: "",
-  redirect_route: "",
+  redirect_route: null,
 };
 
 const authReducer = (state = initialState, action) => {

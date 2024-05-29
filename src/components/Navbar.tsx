@@ -49,10 +49,11 @@ const Navbar = () => {
 
   //Logout User
   const logoutUser = () => {
+    router.push("/");
     // window.localStorage.clear();
     dispatch({ type: GLOBALTYPES.TOKEN, payload: null });
-    dispatch({ type: GLOBALTYPES.REDIRECT_ROUTE, payload: "" });
-    router.push("/");
+    dispatch({ type: GLOBALTYPES.REDIRECT_ROUTE, payload: null });
+
   };
 
   // The handle search method
@@ -91,7 +92,7 @@ const Navbar = () => {
       <div className="container heading">
         <div className="logo-module" onClick={() => router.push("/")}>
           <Image
-            src="/images/logos.svg"
+            src="/images/logo.jpeg"
             alt=""
             unoptimized
             width={100}

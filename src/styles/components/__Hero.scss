@@ -21,6 +21,10 @@
   color: var(--black-color);
   font-family: "Helvetica Bold";
   /* -webkit-text-stroke: 2px var(--black-color); */
+
+  span {
+    color: $primary-color;
+  }
 }
 
 .hero-left-div p {
@@ -55,7 +59,7 @@
 }
 
 .hero-left-div button:hover {
-  background: var(--black-color);
+  background: $primary-color
 }
 
 /* Key frames for the button arrow */
