@@ -291,7 +291,7 @@ const CreateOrder = () => {
 
               <div className="form-box">
                 <label className="item-image" htmlFor="Image">
-                  Item Image (maximum of 10 images){" "}
+                  Item Image (maximum of 6 images){" "}
                 </label>
 
                 {values.request_images.length === 0 && !loading ? (
@@ -473,7 +473,7 @@ const CreateOrder = () => {
                     secondaryColor="#fff"
                   />
                 ) : (
-                  "Next"
+                  "Create Product"
                 )}
               </button>
             </form>
