@@ -24,7 +24,7 @@
 body {
   font-family: 'Nunito Sans' !important;
   scroll-behavior: smooth;
-  /* background:var(--lighter-color) */
+  // background: #f7f7f7
 }
 
 $transitions: all 0.3s linear;
@@ -132,4 +132,8 @@ button:focus,
     background: #e9ecff;
     /* background:var(--white-color); */
   }
+}
+
+.layout-container {
+  background: #ECECE6
 }

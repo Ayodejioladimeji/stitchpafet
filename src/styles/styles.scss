@@ -82,12 +82,12 @@
 @import './components/BankAccount.css';
 @import './components/Becomevendor.css';
 @import './components/Camera.css';
-@import './components/CreateOrder.css';
+@import './components/__create-order.scss';
 @import './components/CreateProduct.css';
 @import './components/DeliverStates.css';
 @import './components/Graph.css';
-@import './components/MyOrders.css';
-@import './components/MyOrdersDetails.css';
+@import './components/__MyOrders.scss';
+@import './components/__MyOrdersDetails.scss';
 @import './components/MyProducts.css';
 @import './components/MyProfile.css';
 @import './components/MyTransactions.css';
@@ -113,3 +113,4 @@
 @import './components/__popular-category.scss';
 @import './components/__breadcumb.scss';
 @import './components/__reviewcard.scss';
+@import './components/__categories.scss';

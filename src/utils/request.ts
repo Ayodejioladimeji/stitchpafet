@@ -125,3 +125,13 @@ export const DeleteRequest = async (url: string, token?: string) => {
     return error;
   }
 };
+
+export const postDataImages = async (url: string, file: any, token: string) => {
+  const res = await axios.post(endpoint + url, file, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res;
+};

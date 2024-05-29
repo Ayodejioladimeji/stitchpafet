@@ -1,0 +1,35 @@
+.create-categories {
+    padding: 30px 20px;
+    padding-left: 250px;
+    padding-top: 130px;
+    background: $hero-background;
+    height: 100vh;
+
+    h1 {
+        font-size: 25px;
+        color: $black;
+        margin-bottom: 10px;
+        font-family: 'Helvetica Light';
+        font-weight: 600
+    }
+
+    input {
+        @include input($border-color);
+        width: 350px;
+        height: 45px;
+    }
+
+    .category-body {
+        margin-top: 50px;
+
+        .table {
+            @include table();
+
+            th,
+            td,
+            tr {
+                border: 1px solid $border-color !important;
+            }
+        }
+    }
+}

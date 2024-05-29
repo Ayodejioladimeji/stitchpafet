@@ -5,11 +5,11 @@ import Navbar from "@/components/Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="container-fluid p-0">
+    <>
       <Navbar />
       <Sidebar />
       {children}
-    </div>
+    </>
   );
 };
 

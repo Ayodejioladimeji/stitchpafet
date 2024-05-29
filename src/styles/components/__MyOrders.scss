@@ -1,0 +1,50 @@
+.my-order {
+  padding: 30px 20px;
+  padding-left: 250px;
+  padding-top: 130px;
+  background: $hero-background;
+  height: 100vh;
+}
+
+
+
+.my-orders-table {
+  border: none !important;
+  background: var(--white-color);
+  padding: 30px;
+  border-radius: 5px;
+}
+
+table th {
+  font-size: var(--font-smallest);
+}
+
+table td {
+  border: 1px solid var(--light-color) !important;
+  text-transform: capitalize;
+  font-size: var(--font-smaller);
+}
+
+.sellers-email {
+  text-transform: lowercase;
+}
+
+.my-orders-table button {
+  padding: 10px;
+  background: var(--secondary-color) !important;
+  color: var(--white-color);
+  border: none;
+  outline: none;
+  display: block;
+  margin: 0 auto;
+  border-radius: 3px;
+  font-size: var(--font-smaller);
+}
+
+.transaction-loading {
+  margin-top: 70px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

@@ -16,6 +16,7 @@ import { FiSettings } from "react-icons/fi";
 // ASSETS
 
 import Link from "next/link";
+import NavLink from "../common/link";
 
 const Sidebar = () => {
   const { topbar_toggle } = useSelector((state: any) => state.home);
@@ -29,89 +30,78 @@ const Sidebar = () => {
 
           <ul>
             <li>
-              <Link href="/dashboard/overview" className="menu-item active">
+              <NavLink path="/overview">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsUiChecksGrid className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">Overview</div>
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link href="/dashboard/my-orders" className="menu-item ">
+              <NavLink path="/my-orders">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCartCheck className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">My Orders</div>
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link href="/dashboard/create-order" className="menu-item ">
+              <NavLink path="/create-order">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCart className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">Create Order</div>
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link href="/market" className="menu-item ">
+              <NavLink path="/categories">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsBagPlus className="sidebar-icon" />
                 </div>
-                <div className="menu-texts">Market Place</div>
-              </Link>
+                <div className="menu-texts">Categories</div>
+              </NavLink>
             </li>
 
             {user.usertype === "vendor" && (
               <li>
-                <Link href="/dashboard/my-products" className="menu-item ">
+                <NavLink path="/my-products">
                   <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                     <BsBagCheck className="sidebar-icon" />
                   </div>
                   <div className="menu-texts">My Products</div>
-                </Link>
+                </NavLink>
               </li>
             )}
 
             <li>
-              <Link href="/dashboard/transactions" className="menu-item ">
+              <NavLink path="/transactions">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCreditCard className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">Transactions</div>
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link href="/dashboard/payment-disputes" className="menu-item ">
+              <NavLink path="/payment-disputes">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <GiTakeMyMoney className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">Order Disputes</div>
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link href="/dashboard/wallet" className="menu-item ">
-                <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
-                  <FaRegMoneyBillAlt className="sidebar-icon" />
-                </div>
-                <div className="menu-texts">Wallet</div>
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/dashboard/settings" className="menu-item ">
+              <NavLink path="/settings">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <FiSettings className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">Settings</div>
-              </Link>
+              </NavLink>
             </li>
-
-            {/* <hr /> */}
           </ul>
         </div>
       </div>
