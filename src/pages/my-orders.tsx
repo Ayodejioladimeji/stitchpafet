@@ -47,7 +47,7 @@ const MyOrders = () => {
 
   return (
     <Layout>
-      <div className="my-order">
+      <div className="dashboard-container">
 
         {alert.loading ? (
           <div className="transaction-loading">

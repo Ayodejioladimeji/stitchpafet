@@ -2,13 +2,14 @@
   padding: 30px 20px;
   padding-left: 250px;
   padding-top: 130px;
+  margin-bottom: 130px;
   // background: $hero-background;
 }
 
 
 .form {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
 
   @media (max-width: 1180px) {
     padding-top: 200px;

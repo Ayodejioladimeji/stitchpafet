@@ -182,7 +182,7 @@ const CreateOrder = () => {
   return (
     <>
       <Layout>
-        <div className="create-order">
+        <div className="dashboard-container">
 
           {loading ? (
             <div className="form d-flex align-items-center text-center justify-content-center">

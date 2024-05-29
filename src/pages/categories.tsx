@@ -8,7 +8,7 @@ interface Props {
 const categories = (props: Props) => {
     return (
         <Layout>
-            <div className="create-categories">
+            <div className="dashboard-container">
                 <h1>Categories</h1>
                 <div className="form-box">
                     <input type="text" placeholder='Enter new category' />
