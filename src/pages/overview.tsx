@@ -66,7 +66,7 @@ const Overview = () => {
 
   return (
     <Layout>
-      <div className="overview-page">
+      <div className="dashboard-container">
         {profile_alert.error && <ProfileToast />}
         <div className="overview-top">
           <h1>Hello, {user.first_name ? user.first_name : "User"} </h1>

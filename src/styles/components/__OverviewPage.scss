@@ -1,8 +1,11 @@
-.overview-page {
-  padding: 30px 20px;
-  padding-left: 250px;
-  padding-top: 130px;
+.dashboard-background {
   background: $hero-background;
+}
+
+.dashboard-container {
+  padding: 30px 20px;
+  margin-top: 130px;
+  background: $white;
 }
 
 .overview-top h1 {

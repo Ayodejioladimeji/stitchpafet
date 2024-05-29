@@ -1,54 +1,20 @@
 .side-menu {
-  background: var(--white-color);
-  width: 230px;
-  height: 100vh;
+  background: $white;
   box-sizing: border-box;
-  position: fixed;
-  padding-top: 130px;
-  border-right: 1px solid $border-color;
+  margin-top: 130px;
 }
 
-.sidebar-logos {
-  background: var(--white-color);
-  height: 70px;
-  border-right: 1px solid #e9ecff;
-  display: flex;
-  align-items: center !important;
-  justify-content: center !important;
+// .side-menu.inactive {
+//   width: 70px;
+// }
+
+.main-menu {
   width: 100%;
-}
-
-.sidebar-logos img {
-  width: 50%;
-  height: 50%;
-  object-fit: contain;
-}
-
-.sidebar-logos .log {
-  width: 40%;
-  height: 40%;
-  object-fit: contain;
-}
-
-.side-menu.inactive {
-  width: 70px;
-}
-
-.main-menu .account_id {
-  padding: 35px 20px;
-  margin-bottom: 10px;
-  font-size: 11px;
-  color: var(--primary-color);
-  font-weight: 700;
-  transition: opacity 0.2s ease-in;
-  opacity: 1;
-  display: block;
 }
 
 .main-menu ul {
   padding: 0 !important;
   width: 100%;
-  /* padding-top: 20px !important; */
 }
 
 .side-menu .main-menu .menu-item {
@@ -62,6 +28,7 @@
   padding: 15px 20px;
   /* width: 230px; */
   transition: var(--transition);
+  width: 100% !important;
 }
 
 .side-menu .main-menu .menu-item:hover {
