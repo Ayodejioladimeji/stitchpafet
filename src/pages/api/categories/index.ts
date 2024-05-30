@@ -18,11 +18,15 @@ export default async (req, res) => {
 const createCategory = async (req, res) => {
     try {
         const result = await auth(req, res)
-        if (result.role !== 'admin')
-            return res.status(400).json({ err: "Authentication is not valid." })
+        // if (result.role !== 'admin')
+        //     return res.status(400).json({ err: "Authentication is not valid." })
 
         const { name } = req.body
         if (!name) return res.status(400).json({ err: "Name can not be left blank." })
+
+        const check = await Categories.findOne({ name })
+
+        if (check) return res.status(400).json({ err: "Category already exists" })
 
         const newCategory = new Categories({ name })
 
@@ -38,7 +42,7 @@ const createCategory = async (req, res) => {
 
 const getCategories = async (req, res) => {
     try {
-        const categories = await Categories.find()
+        const categories = await Categories.find().sort('-updatedAt')
 
         res.json({ categories })
 
