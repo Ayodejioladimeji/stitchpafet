@@ -17,20 +17,36 @@ import { GLOBALTYPES } from "../redux/actions/globalTypes";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { GetRequest } from "@/utils/request";
 
 //
 const Navbar = () => {
-  const { token, user, productcart } = useSelector((state: any) => state.auth);
-  const { datacart, get_categories } = useSelector((state: any) => state.product);
-  const { callback } = useSelector((state: any) => state.dashboard);
+  const { token, user } = useSelector((state: any) => state.auth);
+  const { datacart } = useSelector((state: any) => state.product);
   const [click, setClick] = useState(false);
   const [selectDrop, setSelectDrop] = useState(false);
-  const [show, setShow] = useState(false);
+  const [categories, setCategories] = useState(false);
   const clickRef = useRef(null);
   const dispatch = useDispatch();
   const [values, setValues] = useState("");
   const router = useRouter()
   const { pathname } = router.query
+  const [loading, setLoading] = useState(true)
+
+  // get categories
+  useEffect(() => {
+    if (token) {
+      const getCategories = async () => {
+        const res = await GetRequest("/categories")
+        if (res?.status === 200) {
+          console.log(res.data.categories)
+          setCategories(res.data.categories)
+        }
+        setLoading(false)
+      }
+      getCategories()
+    }
+  }, [token])
 
 
   // Click outside side effect
@@ -47,15 +63,6 @@ const Navbar = () => {
   };
 
 
-  //Logout User
-  const logoutUser = () => {
-    router.push("/");
-    // window.localStorage.clear();
-    dispatch({ type: GLOBALTYPES.TOKEN, payload: null });
-    dispatch({ type: GLOBALTYPES.REDIRECT_ROUTE, payload: null });
-
-  };
-
   // The handle search method
   const handleSearch = (e) => {
     e.preventDefault();
@@ -71,7 +78,6 @@ const Navbar = () => {
   // cat navigate method
   const catNavigate = (response, id) => {
     dispatch({ type: GLOBALTYPES.CAT, payload: id });
-    dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback });
     router.push(`/${response}`);
   };
 
@@ -125,7 +131,7 @@ const Navbar = () => {
               {selectDrop && (
                 <div className="search-dropdown" ref={clickRef}>
                   {[]
-                    .concat(get_categories)
+                    .concat(categories)
                     .sort((a, b) => (a.name > b.name ? 1 : -1))
                     .map((category) => {
                       const res = category.name.replace(" ", "-");
@@ -139,7 +145,6 @@ const Navbar = () => {
                           key={category._id}
                           className="select-dropdown"
                         >
-                          <BsUiChecksGrid className="category-icon" />{" "}
                           {category.name}
                         </div>
 
@@ -185,64 +190,19 @@ const Navbar = () => {
                     alt='user'
                   />
                   <FaChevronDown className='user-dropdown' />
-
-                  {click && (
-                    <Dropdown>
-                      <div ref={clickRef}>
-                        <Link href='/overview'>
-                          <div className='user-div'>
-                            <FiGrid className='user-div-icons' />
-                            <div className='link'>Dashboard</div>
-                          </div>
-                        </Link>
-
-                        <Link href='/profile'>
-                          <div className='user-div'>
-                            <FaRegUser className='user-div-icons' />
-                            <div className='link'>My Profile</div>
-                          </div>
-                        </Link>
-
-                        <Link href='/market'>
-                          <div className='user-div'>
-                            <MdOutlineSell className='user-div-icons seller' />
-                            <div className='link'>Market Place</div>
-                          </div>
-                        </Link>
-
-                        {/* {user.userType !== 'vendor' && (
-                        <Link href='/register-vendor'>
-                          <div className='user-div'>
-                            <FiUserCheck className='user-div-icons seller' />
-                            <div className='link'>Become a vendor</div>
-                          </div>
-                        </Link>
-                      )} */}
-
-                        <Link href='/settings'>
-                          <div className='user-div'>
-                            <FiSettings className='user-div-icons' />
-                            <div className='link'>Settings</div>
-                          </div>
-                        </Link>
-
-                        <Link href='/wallet'>
-                          <div className='user-div'>
-                            <BiWalletAlt className='user-div-icons' />
-                            <div className='link'>My Wallet</div>
-                          </div>
-                        </Link>
-
-                        <hr className='mb-3' />
-                        <div className='user-div' onClick={logoutUser}>
-                          <HiOutlineLogout className='user-div-icons logout' />
-                          <div className='link'>Logout</div>
-                        </div>
-                      </div>
-                    </Dropdown>
+                  {token && (
+                    <div className='user' onClick={() => router.push("/overview")}>
+                      <img
+                        src={user.profile_pic ? user.profile_pic : "/images/avatar.jpg"}
+                        alt='user'
+                      />
+                    </div>
                   )}
+
                 </div>
               )}
+
+
             </div>
           </div>
         </div>

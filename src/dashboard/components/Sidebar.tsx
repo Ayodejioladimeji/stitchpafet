@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BsUiChecksGrid,
   BsCartCheck,
@@ -17,10 +17,26 @@ import { FiSettings } from "react-icons/fi";
 
 import Link from "next/link";
 import NavLink from "../common/link";
+import { HiOutlineLogout } from "react-icons/hi";
+import { GLOBALTYPES } from "@/redux/actions/globalTypes";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const { topbar_toggle } = useSelector((state: any) => state.home);
   const { user } = useSelector((state: any) => state.auth);
+  const dispatch = useDispatch()
+  const router = useRouter()
+
+  //Logout User
+  const logoutUser = () => {
+    router.push("/");
+    // window.localStorage.clear();
+    dispatch({ type: GLOBALTYPES.TOKEN, payload: null });
+    dispatch({ type: GLOBALTYPES.REDIRECT_ROUTE, payload: null });
+
+  };
+
+  // 
 
   return (
     <>
@@ -100,6 +116,14 @@ const Sidebar = () => {
                   <FiSettings className="sidebar-icon" />
                 </div>
                 <div className="menu-texts">Settings</div>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink path="/settings">
+                <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
+                  <HiOutlineLogout className='sidebar-icon' />
+                </div>
+                <div className="menu-texts">Logout</div>
               </NavLink>
             </li>
           </ul>
