@@ -184,21 +184,11 @@ const Navbar = () => {
               </div>
 
               {token && (
-                <div className='user' onClick={() => setClick(!click)}>
+                <div className='user' onClick={() => router.push("/overview")}>
                   <img
                     src={user.profile_pic ? user.profile_pic : "/images/avatar.jpg"}
                     alt='user'
                   />
-                  <FaChevronDown className='user-dropdown' />
-                  {token && (
-                    <div className='user' onClick={() => router.push("/overview")}>
-                      <img
-                        src={user.profile_pic ? user.profile_pic : "/images/avatar.jpg"}
-                        alt='user'
-                      />
-                    </div>
-                  )}
-
                 </div>
               )}
 

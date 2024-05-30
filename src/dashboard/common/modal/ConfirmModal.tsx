@@ -2,10 +2,14 @@ import React from "react";
 
 // COMPONENTS
 
-const ConfirmModal = ({ children }) => {
+interface Props {
+  children: any
+}
+
+const ConfirmModal = (props: Props) => {
   return (
     <div className="wallet-modalBackground">
-      <div className="wallet-modalContainers">{children}</div>
+      <div className="wallet-modalContainers">{props.children}</div>
     </div>
   );
 };

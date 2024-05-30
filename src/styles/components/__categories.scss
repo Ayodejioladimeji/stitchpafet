@@ -25,6 +25,11 @@
             tr {
                 border: 1px solid $border-color !important;
             }
+
+            .delete {
+                color: red;
+                cursor: pointer;
+            }
         }
     }
 }

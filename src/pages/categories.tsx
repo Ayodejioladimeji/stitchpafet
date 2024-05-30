@@ -1,9 +1,11 @@
 import CustomTable from '@/common/customTable'
 import Layout from '@/dashboard/common/Layout'
-import { GetRequest, PostRequest } from '@/utils/request'
+import { DeleteRequest, GetRequest, PostRequest } from '@/utils/request'
 import cogoToast from 'cogo-toast'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Loading from '@/common/loading'
+import ConfirmModal from '@/dashboard/common/modal/confirm-modal'
 
 interface Props {
 
@@ -15,6 +17,9 @@ const Categories = (props: Props) => {
     const [loading, setLoading] = useState(true)
     const [name, setName] = useState("")
     const [callback, setCallback] = useState(false)
+    const [confirm, setConfirm] = useState(false)
+    const [buttonloading, setButtonloading] = useState(false)
+    const [id, setId] = useState(null)
 
 
     // get categories
@@ -23,7 +28,6 @@ const Categories = (props: Props) => {
             const getCategories = async () => {
                 const res = await GetRequest("/categories")
                 if (res?.status === 200) {
-                    console.log(res.data.categories)
                     setCategory(res.data.categories)
                 }
                 setLoading(false)
@@ -47,6 +51,19 @@ const Categories = (props: Props) => {
         }
     }
 
+
+    // handlesubmit
+    const handleSubmit = async () => {
+        setButtonloading(true)
+
+        const res = await DeleteRequest(`/categories/${id}`, token)
+        if (res?.status === 200) {
+            cogoToast.success(res.data.msg)
+            setCallback(!callback)
+            setConfirm(false)
+        }
+        setButtonloading(false)
+    }
 
     // 
     return (
@@ -76,7 +93,7 @@ const Categories = (props: Props) => {
                                         <tr>
                                             <td>{index + 1}</td>
                                             <td>{item?.name}</td>
-                                            <td>  Delete
+                                            <td className="delete" onClick={() => { setConfirm(true), setId(item._id) }}>  Delete
                                             </td>
                                         </tr>
                                     );
@@ -89,6 +106,8 @@ const Categories = (props: Props) => {
                     </table>
                 </div>
             </div>
+
+            {confirm && <ConfirmModal confirm={confirm} setConfirm={setConfirm} buttonloading={buttonloading} handleSubmit={handleSubmit} />}
         </Layout>
     )
 }
