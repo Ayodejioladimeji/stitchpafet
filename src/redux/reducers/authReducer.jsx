@@ -1,7 +1,6 @@
 import { GLOBALTYPES } from "../actions/globalTypes";
 
 const initialState = {
-  auth_state: {},
   token: null,
   user: {},
   order_id: "",
@@ -12,12 +11,6 @@ const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GLOBALTYPES.AUTH:
-      return {
-        ...state,
-        auth_state: payload,
-      };
-
     case GLOBALTYPES.TOKEN:
       return {
         ...state,

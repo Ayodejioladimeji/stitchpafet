@@ -20,7 +20,7 @@ const ConfirmModal = ({ confirm, setConfirm, buttonloading, handleSubmit }) => {
                 <h3>Delete Category</h3>
 
 
-                <i onClick={() => setConfirm(false)} className="bi bi-x-circle"></i>
+                {/* <i onClick={() => setConfirm(false)} className="bi bi-x-circle"></i> */}
 
                 <p>You are about to delete a category. <br /> Do you wish to proceed?
                 </p>

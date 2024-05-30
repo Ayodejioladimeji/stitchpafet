@@ -1,5 +1,5 @@
 .confirm-modal {
-  // width: 600px !important;
+  width: 400px !important;
   margin-top: 80px;
 
 
@@ -42,9 +42,10 @@
 
     button {
       @include buttons(black);
-      width: 140px;
+      // width: 140px;
       margin: 0 auto;
       font-weight: 600;
+      border: none;
 
       &.no {
         background: $light-color;

@@ -22,7 +22,7 @@ import { GLOBALTYPES } from "@/redux/actions/globalTypes";
 import { useRouter } from "next/router";
 
 const Sidebar = () => {
-  const { topbar_toggle } = useSelector((state: any) => state.home);
+  const { topbar_toggle } = useSelector((state: any) => state.utils);
   const { user } = useSelector((state: any) => state.auth);
   const dispatch = useDispatch()
   const router = useRouter()
