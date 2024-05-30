@@ -23,6 +23,7 @@ import { GetRequest } from "@/utils/request";
 const Navbar = () => {
   const { token, user } = useSelector((state: any) => state.auth);
   const { datacart } = useSelector((state: any) => state.product);
+  const { callback } = useSelector((state: any) => state.utils);
   const [click, setClick] = useState(false);
   const [selectDrop, setSelectDrop] = useState(false);
   const [categories, setCategories] = useState(false);
@@ -46,7 +47,7 @@ const Navbar = () => {
       }
       getCategories()
     }
-  }, [token])
+  }, [token, callback])
 
 
   // Click outside side effect

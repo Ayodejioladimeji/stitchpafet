@@ -1,7 +1,8 @@
-import { GLOBALTYPES } from '../actions/globalTypes';
+import { GLOBALTYPES } from "../actions/globalTypes";
 
 const initialState = {
   topbar_toggle: false,
+  callback: false,
 };
 
 const homeReducer = (state = initialState, action) => {
@@ -12,6 +13,12 @@ const homeReducer = (state = initialState, action) => {
       return {
         ...state,
         topbar_toggle: payload,
+      };
+
+    case GLOBALTYPES.CALLBACK:
+      return {
+        ...state,
+        callback: payload,
       };
 
     default:

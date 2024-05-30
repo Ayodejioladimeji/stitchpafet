@@ -3,9 +3,10 @@ import Layout from '@/dashboard/common/Layout'
 import { DeleteRequest, GetRequest, PostRequest } from '@/utils/request'
 import cogoToast from 'cogo-toast'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Loading from '@/common/loading'
 import ConfirmModal from '@/dashboard/common/modal/confirm-modal'
+import { GLOBALTYPES } from '@/redux/actions/globalTypes'
 
 interface Props {
 
@@ -14,12 +15,13 @@ interface Props {
 const Categories = (props: Props) => {
     const [category, setCategory] = useState(null)
     const { token } = useSelector((state: any) => state.auth)
+    const { callback } = useSelector((state: any) => state.utils)
     const [loading, setLoading] = useState(true)
     const [name, setName] = useState("")
-    const [callback, setCallback] = useState(false)
     const [confirm, setConfirm] = useState(false)
     const [buttonloading, setButtonloading] = useState(false)
     const [id, setId] = useState(null)
+    const dispatch = useDispatch()
 
 
     // get categories
@@ -47,7 +49,7 @@ const Categories = (props: Props) => {
         const res = await PostRequest("/categories", payload, token)
         if (res?.status === 200) {
             cogoToast.success(res.data.msg)
-            setCallback(!callback)
+            dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback })
         }
     }
 
@@ -59,8 +61,8 @@ const Categories = (props: Props) => {
         const res = await DeleteRequest(`/categories/${id}`, token)
         if (res?.status === 200) {
             cogoToast.success(res.data.msg)
-            setCallback(!callback)
             setConfirm(false)
+            dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback })
         }
         setButtonloading(false)
     }
