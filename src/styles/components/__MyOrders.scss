@@ -5,14 +5,15 @@
   border-radius: 5px;
 }
 
-.product-container {
-  // .product-top: {}
+// .product-container {
+//   // .product-top: {}
 
-  .product-section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+// }
+
+.product-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .transaction-loading {

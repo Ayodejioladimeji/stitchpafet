@@ -8,6 +8,7 @@ import { formatMoney } from "@/utils/utils";
 import Layout from "@/dashboard/common/Layout";
 import { GetRequest } from "@/utils/request";
 import Card from "@/dashboard/components/Card";
+import CardSkeleton from "@/dashboard/common/skeleton/CardSkeleton";
 
 
 // 
@@ -62,13 +63,8 @@ const Products = () => {
       <div className="dashboard-container">
 
         {loading ? (
-          <div className="transaction-loading">
-            <Loading
-              height="45px"
-              width="45px"
-              primaryColor="#fff"
-              secondaryColor="#fff"
-            />
+          <div className="product-section">
+            <CardSkeleton />
           </div>
         ) : (
           <div className="product-container">
