@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
 
 const productSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
         required: true,
         trim: true
     },
-    price: {
+    amount: {
         type: Number,
         required: true,
         trim: true
@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    content: {
+    discount: {
         type: String,
         required: true
     },
@@ -23,22 +23,15 @@ const productSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
+    colors: {
+        type: Array,
+        required: true
+    },
     category: {
         type: String,
         required: true
     },
-    checked: {
-        type: Boolean,
-        default: false
-    },
-    inStock: {
-        type: Number,
-        default: 0
-    },
-    sold: {
-        type: Number,
-        default: 0
-    }
+
 }, {
     timestamps: true
 })

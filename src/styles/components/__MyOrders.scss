@@ -5,30 +5,14 @@
   border-radius: 5px;
 }
 
-table th {
-  font-size: var(--font-smallest);
-}
+.product-container {
+  // .product-top: {}
 
-table td {
-  border: 1px solid var(--light-color) !important;
-  text-transform: capitalize;
-  font-size: var(--font-smaller);
-}
-
-.sellers-email {
-  text-transform: lowercase;
-}
-
-.my-orders-table button {
-  padding: 10px;
-  background: var(--secondary-color) !important;
-  color: var(--white-color);
-  border: none;
-  outline: none;
-  display: block;
-  margin: 0 auto;
-  border-radius: 3px;
-  font-size: var(--font-smaller);
+  .product-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 }
 
 .transaction-loading {
