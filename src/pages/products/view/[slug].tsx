@@ -2,25 +2,24 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 //
-import LoadMore from "../../common/loadmore/LoadMore";
-import { GLOBALTYPES } from "../../redux/actions/globalTypes";
-import { FaCartPlus } from "react-icons/fa";
+import { GLOBALTYPES } from "../../../redux/actions/globalTypes";
 import { useRouter } from "next/router";
 import { formatMoney } from "@/utils/utils";
-import DetailsThumb from "../../components/details/DetailsThumb";
 import { data } from "@/constants/SecureData";
-import Layout from "@/common/Layout";
 import { colors } from "@/constants/colors";
 import { RatingsIcon } from "@/assets/svg";
 import Card from "@/common/card/Card";
 import Breadcumb from "@/components/Breadcumb";
 import Tabs from "@/components/Tabs";
 import cogoToast from "cogo-toast";
+import Layout from "@/dashboard/common/Layout";
 import Loading from "@/common/loading";
+import DetailsThumb from "@/components/details/DetailsThumb";
+import { GetRequest } from "@/utils/request";
 
 //
 
-const ProductDetail = () => {
+const DashboardProductDetail = () => {
     const router = useRouter()
     const { slug } = router.query
     const { all_product, datacart, cartcallback } = useSelector((state: any) => state.product);
@@ -50,17 +49,19 @@ const ProductDetail = () => {
 
     //  get detail product
     useEffect(() => {
-        if (slug) {
-            data.find((item) => {
-
-                if (item.id === slug) {
-                    setProduct(item);
-                    console.log(item)
-                    setLoading(false)
+        if (token && slug) {
+            const getProduct = async () => {
+                const res = await GetRequest(`/product/${slug}`, token)
+                if (res?.status === 200) {
+                    setProduct(res.data.product)
                 }
-            });
+                setLoading(false)
+            }
+            getProduct()
         }
-    }, [slug]);
+    }, [token, slug]);
+
+    console.log(product)
 
 
     // setColor method
@@ -135,8 +136,7 @@ const ProductDetail = () => {
 
     return (
         <Layout>
-            <div className="product-detail">
-                <Breadcumb title={product?.title} />
+            <div className="dashboard-product-detail">
                 <div className="container">
 
                     {alert.loading ? (
@@ -153,7 +153,7 @@ const ProductDetail = () => {
                                         // onMouseMove={handleMouseMove}
                                         style={{
                                             backgroundImage:
-                                                product?.images && `url(${product?.images[index]})`,
+                                                product?.images && `url(${product?.images[index]?.url})`,
                                         }}
                                     // ref={imgDiv}
                                     // onMouseLeave={() =>
@@ -178,22 +178,22 @@ const ProductDetail = () => {
 
                                 <div className="detail-right">
                                     <p>Category: {product?.category}</p>
-                                    <h2>{product?.title}</h2>
+                                    <h2>{product?.name}</h2>
                                     <h1 className="detail-price">
-                                        ₦{formatMoney(Number(product?.price))}
+                                        ₦{formatMoney(Number(product?.amount))}
                                     </h1>
 
                                     <RatingsIcon />
 
-                                    <p className="desc">This is the category for the item you just ordered, the order can get to you today or tomorrow</p>
+                                    <p className="desc">{product?.description}</p>
 
                                     <div className="ruler" />
 
-                                    {colors?.length !== 0 && (
+                                    {product?.product_colors?.length !== 0 && (
                                         <div className="colors-section">
                                             <small>Color</small>
                                             <div className="color-div">
-                                                {colors?.map((color, index) => {
+                                                {product?.product_colors?.map((color, index) => {
                                                     return (
                                                         <div
                                                             key={index}
@@ -263,17 +263,10 @@ Gravida in fermentum et sollicitudin ac orci. Porttitor eget dolor morbi non. El
                             ))}
                         </div>
                     </div>
-
-                    {/* show more button */}
-                    {visible > similar.length ? (
-                        ""
-                    ) : (
-                        <LoadMore load={load} showItems={showItems} />
-                    )}
                 </div>
             </div>
         </Layout>
     );
 };
 
-export default ProductDetail;
+export default DashboardProductDetail;

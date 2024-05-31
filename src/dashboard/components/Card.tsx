@@ -52,14 +52,19 @@ const Card = ({ item }) => {
     // }
   };
 
+  // handle delete
+  const handleDelete = async () => {
+    console.log("delete")
+  }
+
 
   return (
     <div className="dashboard-card" >
-      <div className="product-image" onClick={() => router.push(`/products/${item.id}`)}>
+      <div className="product-image">
         <Image src={item.images[0].url} alt="" width={100} height={100} unoptimized />
       </div>
 
-      <div className="product-body" onClick={() => router.push(`/products/${item.id}`)}>
+      <div className="product-body">
         <p>{item.name}</p>
         <small>₦{item.amount}</small>
 
@@ -130,6 +135,18 @@ const Card = ({ item }) => {
             />
           </g>
         </svg>
+
+        <div className="actions">
+          <div className="action-box" onClick={() => router.push(`/products/view/${item._id}`)}>
+            <i className="bi bi-eye"></i>
+          </div>
+          <div className="action-box" onClick={() => router.push(`/products/edit/${item._id}`)}>
+            <i className="bi bi-pencil-square"></i>
+          </div>
+          <div className="action-box" onClick={handleDelete}>
+            <i className="bi bi-trash3"></i>
+          </div>
+        </div>
       </div>
 
     </div>

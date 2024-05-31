@@ -6,7 +6,7 @@ const DetailsThumb = ({ indexs, images, setIndex }) => {
       {images?.map((img, index) => (
         <img
           className={indexs === index ? "image-active" : ""}
-          src={img}
+          src={img.url}
           alt=""
           key={index}
           onClick={() => setIndex(index)}
