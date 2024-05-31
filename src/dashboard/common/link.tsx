@@ -11,7 +11,7 @@ const NavLink = (props: Props) => {
     const router = useRouter()
     // 
     return (
-        <Link href={props.path} className={`menu-item ${router?.asPath.includes(props.path) ? "active" : ""}`}>
+        <Link href={props.path} className={`menu-item ${router?.asPath === props?.path ? "active" : ""}`}>
             {props.children}
         </Link>
     )

@@ -34,13 +34,18 @@
 }
 
 .side-menu .main-menu .menu-item:hover {
-  color: $primary-color;
+  color: $black;
+  background: $primary;
   transition: $transitions;
 }
 
 .side-menu .main-menu .active {
   background: $primary-color;
   color: $white;
+
+  &:hover {
+    color: $black;
+  }
 }
 
 .menu-item .menu-icon {
