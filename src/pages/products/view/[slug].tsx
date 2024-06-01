@@ -16,6 +16,7 @@ import Layout from "@/dashboard/common/Layout";
 import Loading from "@/common/loading";
 import DetailsThumb from "@/components/details/DetailsThumb";
 import { GetRequest } from "@/utils/request";
+import Goback from "@/common/goback/Goback";
 
 //
 
@@ -75,13 +76,16 @@ const DashboardProductDetail = () => {
         <Layout>
             <div className="dashboard-product-detail">
                 <div className="container">
+                    <div className="mb-3">
+                        <Goback size="25px" />
+                    </div>
 
                     {alert.loading ? (
                         <div className="detail-loading">
                             <Loading width="25px" height="25px" primaryColor="#000" secondaryColor="#000" />
                         </div>
                     ) : (
-                        <div className="row mt-5">
+                        <div className="row">
                             <div className="col">
 
                                 <div className="detail-left">
