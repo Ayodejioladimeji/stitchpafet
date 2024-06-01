@@ -61,75 +61,12 @@ const DashboardProductDetail = () => {
         }
     }, [token, slug]);
 
-    console.log(product)
 
 
     // setColor method
     const setColor = (color) => {
         setProductColor(color);
     }
-
-    // add to cart function
-    const addToCart = (e) => {
-        e.preventDefault();
-
-        // check if the color and size is selected
-        if (product?.colors?.length >= 1 && productColor === "") {
-            cogoToast.error("Select the fabric color of your choice")
-            return;
-        }
-
-        if (token) {
-            const cartItems = [
-                {
-                    product_id: product?.id,
-                    quantity: 1,
-                },
-            ];
-
-            // dispatch(addCart(cartItems, token.token, cartcallback, setLoading));
-        } else {
-            const check = datacart.every((item) => {
-                return item.id !== product?.id;
-            });
-
-            if (check) {
-                setLoading(true);
-                const cartData = {
-                    ...product,
-                    colors: productColor,
-                    quantity: 1,
-                };
-
-                // const dataCart = {
-                //     product_id: product?.id,
-                //     quantity: 1,
-                // };
-
-                cogoToast.success("Item added to cart")
-                // dispatch({ type: GLOBALTYPES.PRODUCT_CART, payload: cartData });
-                dispatch({ type: GLOBALTYPES.DATA_CART, payload: cartData });
-                setLoading(false)
-
-            } else {
-                cogoToast.error("This item already exist in cart")
-            }
-        }
-    };
-
-    //similar product
-    const similar = all_product.filter(
-        (item) => item.categories === product?.categories
-    );
-
-    // continue shopping method
-    const continueBtn = () => {
-        if (redirect_route === router.pathname) {
-            router.push("/market");
-        } else {
-            router.back();
-        }
-    };
 
     if (loading) return;
     // 
@@ -189,11 +126,11 @@ const DashboardProductDetail = () => {
 
                                     <div className="ruler" />
 
-                                    {product?.product_colors?.length !== 0 && (
+                                    {product?.colors?.length !== 0 && (
                                         <div className="colors-section">
                                             <small>Color</small>
                                             <div className="color-div">
-                                                {product?.product_colors?.map((color, index) => {
+                                                {product?.colors?.map((color, index) => {
                                                     return (
                                                         <div
                                                             key={index}
@@ -218,27 +155,9 @@ const DashboardProductDetail = () => {
                                     {product?.discount !== null && (
                                         <div className="discount-box">
                                             <p>Discount</p>
-                                            <span className="discounts">-{product?.discount}%</span>
+                                            <span className="discounts">-{parseInt(product?.discount)}%</span>
                                         </div>
                                     )}
-
-
-
-                                    <div className="d-flex align-items-center gap-3">
-                                        <button onClick={addToCart} className="add-cart">
-                                            {buttonloading ? (
-                                                <Loading width="25px" height="25px" primaryColor="#000" secondaryColor="#000" />
-                                            ) : (
-                                                <>
-                                                    Add to cart
-                                                </>
-                                            )}
-                                        </button>
-
-                                        <button onClick={continueBtn} className="continue-shopping">
-                                            Continue Shopping
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -247,22 +166,9 @@ const DashboardProductDetail = () => {
 
                     {/* description section */}
                     <div className="description">
-                        <Tabs productdescription={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis purus sit amet volutpat consequat mauris nunc. Sed viverra tellus in hac. Sodales neque sodales ut etiam. Sed blandit libero volutpat sed. Enim facilisis gravida neque convallis a. Faucibus a pellentesque sit amet porttitor eget dolor morbi non. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Vulputate mi sit amet mauris commodo quis. Nulla facilisi cras fermentum odio eu. Tincidunt dui ut ornare lectus sit amet. Ac turpis egestas maecenas pharetra convallis. Amet commodo nulla facilisi nullam vehicula ipsum. Orci a scelerisque purus semper eget duis at tellus at. Nisi vitae suscipit tellus mauris a. Ipsum a arcu cursus vitae congue mauris rhoncus. In eu mi bibendum neque.
-Tincidunt ornare massa eget egestas purus viverra accumsan in. Mattis enim ut tellus elementum sagittis vitae. Varius vel pharetra vel turpis nunc. Pretium viverra suspendisse potenti nullam ac. Quisque egestas diam in arcu cursus euismod quis viverra. Suspendisse in est ante in nibh mauris. Fames ac turpis egestas integer eget. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Egestas egestas fringilla phasellus faucibus scelerisque. Gravida cum sociis natoque penatibus et magnis dis. Interdum velit laoreet id donec ultrices tincidunt. Morbi tincidunt ornare massa eget egestas. Vulputate odio ut enim blandit. Lectus urna duis convallis convallis tellus id interdum. Proin libero nunc consequat interdum varius sit amet mattis vulputate. Tellus molestie nunc non blandit massa enim nec.
-Gravida in fermentum et sollicitudin ac orci. Porttitor eget dolor morbi non. Elementum nibh tellus molestie nunc non blandit massa enim nec. Id cursus metus aliquam eleifend mi in nulla posuere. Mauris pharetra et ultrices neque ornare aenean euismod elementum. Et netus et malesuada fames ac. Enim blandit volutpat maecenas volutpat blandit. Egestas erat imperdiet sed euismod nisi porta lorem mollis. Consequat interdum varius sit amet mattis. Blandit libero volutpat sed cras.`} />
+                        <Tabs productdescription={product.description} />
                     </div>
 
-                    <div className="rule" />
-
-                    {/* more products section */}
-                    <div className="more-products">
-                        <h3>Similar Products</h3>
-                        <div className="more-products-center">
-                            {data?.slice(0, visible).map((item, key) => (
-                                <Card item={item} key={key} />
-                            ))}
-                        </div>
-                    </div>
                 </div>
             </div>
         </Layout>

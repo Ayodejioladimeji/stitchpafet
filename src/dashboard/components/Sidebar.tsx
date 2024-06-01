@@ -55,7 +55,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <NavLink path="/products">
+              <NavLink path="/products" slug>
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCartCheck className="sidebar-icon" />
                 </div>
@@ -64,7 +64,7 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <NavLink path="/products/create">
+              <NavLink path="/create-product">
                 <div className={topbar_toggle ? "menu-icons" : "menu-icon "}>
                   <BsCart className="sidebar-icon" />
                 </div>

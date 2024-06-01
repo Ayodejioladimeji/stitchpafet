@@ -23,7 +23,7 @@ const initialState = {
 const MyProfile = () => {
   const [values, setValues] = useState(initialState);
   const { user, token } = useSelector((state: any) => state.auth);
-  const { callback } = useSelector((state: any) => state.dashboard);
+  const { callback } = useSelector((state: any) => state.utils);
   const dispatch = useDispatch();
   const [avatar, setAvatar] = useState("");
   const [loading, setLoading] = useState(false);

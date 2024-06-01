@@ -2,24 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { useRouter } from "next/router";
-import { formatMoney } from "@/utils/utils";
 import Layout from "@/dashboard/common/Layout";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
-import ProfileToast from "@/common/alert/ProfileToast";
-import RecentTransactions from "@/dashboard/components/wallets/RecentTransactions";
-import Loading from "@/common/loading";
 
 //
 
 const Overview = () => {
-  const { userTransaction, walletBalance } = useSelector(
-    (state: any) => state.wallet
-  );
-  const { alert } = useSelector((state: any) => state);
-  const { profile_alert } = useSelector((state: any) => state.other);
   const { user, token } = useSelector((state: any) => state.auth);
-  const { my_orders } = useSelector((state: any) => state.order);
-  const { callback, show_balance } = useSelector((state: any) => state.dashboard);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -36,38 +25,12 @@ const Overview = () => {
         },
       });
     }
-  }, [dispatch, callback, user.first_name, user.last_name]);
+  }, [dispatch, user.first_name, user.last_name]);
 
-  // completed orders
-  const completed_order = my_orders?.filter(
-    (item) => item.status === "completed"
-  );
-
-  // pending orders
-  const pending_order = my_orders?.filter((item) => item.status === "pending");
-
-  // funded orders
-  const funded_order = my_orders?.filter((item) => item.status === "funded");
-
-  // Wallet topup
-  const wallet_topup = userTransaction?.filter(
-    (item) => item.status === "completed"
-  );
-
-  // Wallet transfer
-  const wallet_transfer = userTransaction?.filter(
-    (item) => item.status === "transfer"
-  );
-
-  // Get recent sales
-  // const recent_sales = my_orders?.filter((item) => item.status === 'delivered');
-
-  // console.log(user);
 
   return (
     <Layout>
       <div className="dashboard-container">
-        {profile_alert.error && <ProfileToast />}
         <div className="overview-top">
           <h1>Hello, {user.first_name ? user.first_name : "User"} </h1>
           <p>Welcome to your Dashboard</p>
@@ -76,22 +39,14 @@ const Overview = () => {
         <div className="overview-balance">
           <h1>
             <span>Wallet Balance</span> <br /> ₦{" "}
-            {show_balance ? formatMoney(walletBalance) : <span>*******</span>}
-            {!show_balance ? (
-              <BsEye
-                onClick={() =>
-                  dispatch({ type: GLOBALTYPES.SHOW_BALANCE, payload: true })
-                }
-                className="balance-eyes"
-              />
-            ) : (
-              <BsEyeSlash
-                onClick={() =>
-                  dispatch({ type: GLOBALTYPES.SHOW_BALANCE, payload: false })
-                }
-                className="balance-eyes"
-              />
-            )}
+
+            <BsEyeSlash
+              onClick={() =>
+                dispatch({ type: GLOBALTYPES.SHOW_BALANCE, payload: false })
+              }
+              className="balance-eyes"
+            />
+
           </h1>
           <button onClick={() => router.push("/create-order")}>
             Create Order
@@ -109,18 +64,7 @@ const Overview = () => {
               <div className="overview-box-icon">Total Transactions</div>
               <div className="total-circle">
                 <h1>
-                  {alert.loading ? (
-                    <Loading
-                      height="25px"
-                      width="25px"
-                      primaryColor="#fff"
-                      secondaryColor="#fff"
-                    />
-                  ) : userTransaction?.length ? (
-                    userTransaction?.length
-                  ) : (
-                    0
-                  )}
+
                 </h1>
               </div>
             </div>
@@ -128,105 +72,36 @@ const Overview = () => {
             <div className="overview-box">
               <div className="overview-box-icon">Completed Orders</div>
               <div className="complete-circle">
-                <h1>
-                  {" "}
-                  {alert.loading ? (
-                    <Loading
-                      height="25px"
-                      width="25px"
-                      primaryColor="#fff"
-                      secondaryColor="#fff"
-                    />
-                  ) : completed_order?.length ? (
-                    completed_order?.length
-                  ) : (
-                    0
-                  )}
-                </h1>
+
               </div>
             </div>
 
             <div className="overview-box">
               <div className="overview-box-icon">Pending Orders</div>
               <div className="pending-circle">
-                <h1>
-                  {" "}
-                  {alert.loading ? (
-                    <Loading
-                      height="25px"
-                      width="25px"
-                      primaryColor="#fff"
-                      secondaryColor="#fff"
-                    />
-                  ) : pending_order?.length ? (
-                    pending_order?.length
-                  ) : (
-                    0
-                  )}
-                </h1>
+
+
               </div>
             </div>
 
             <div className="overview-box">
               <div className="overview-box-icon">Funded Orders</div>
               <div className="funded-circle">
-                <h1>
-                  {" "}
-                  {alert.loading ? (
-                    <Loading
-                      height="25px"
-                      width="25px"
-                      primaryColor="#fff"
-                      secondaryColor="#fff"
-                    />
-                  ) : funded_order?.length ? (
-                    funded_order?.length
-                  ) : (
-                    0
-                  )}
-                </h1>
+
               </div>
             </div>
 
             <div className="overview-box">
               <div className="overview-box-icon">Total Topup</div>
               <div className="topup-circle">
-                <h1>
-                  {" "}
-                  {alert.loading ? (
-                    <Loading
-                      height="25px"
-                      width="25px"
-                      primaryColor="#fff"
-                      secondaryColor="#fff"
-                    />
-                  ) : wallet_topup?.length ? (
-                    wallet_topup?.length
-                  ) : (
-                    0
-                  )}
-                </h1>
+
               </div>
             </div>
 
             <div className="overview-box">
               <div className="overview-box-icon">Total Transfer</div>
               <div className="transfer-circle">
-                <h1>
-                  {" "}
-                  {alert.loading ? (
-                    <Loading
-                      height="25px"
-                      width="25px"
-                      primaryColor="#fff"
-                      secondaryColor="#fff"
-                    />
-                  ) : wallet_transfer?.length ? (
-                    wallet_transfer.length
-                  ) : (
-                    0
-                  )}
-                </h1>
+
               </div>
             </div>
 
@@ -237,36 +112,6 @@ const Overview = () => {
               </div>
             </div>
           </div>
-
-          {/* {user.usertype === "vendor" && (
-          <div className="overview-right">
-            <div className="overview-right-heading">Recent Sales</div>
-
-            {recent_sales?.length === 0 ? (
-              <span className="text-center d-block">No Sales yet</span>
-            ) : (
-              <div className="overview-right-body">
-                {recent_sales?.map((item) => (
-                  <div key={item._id} className="overview-card">
-                    <div className="overview-card-box">
-                      <img src={item.products[0].productimage} alt="" />
-                      <div className="overview-card-div">
-                        <h4>{item.buyersname}</h4>
-                        <h3>${addComma(item.total)}</h3>
-                      </div>
-                    </div>
-
-                    <FaCheckCircle className="overview-check" />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )} */}
-        </div>
-
-        <div className="overview-recent-transactions">
-          <RecentTransactions />
         </div>
       </div>
     </Layout>

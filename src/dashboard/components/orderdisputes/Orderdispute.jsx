@@ -11,7 +11,8 @@ import Goback from "./../../../common/goback/Goback";
 
 const Orderdispute = () => {
   const { alert } = useSelector((state) => state);
-  const { my_orders } = useSelector((state) => state.order);
+  // const { my_orders } = useSelector((state) => state.order);
+  const [my_orders, setMyorders] = useState(null);
   const dispatch = useDispatch();
   const history = useHistory();
   const [data, setData] = useState("");

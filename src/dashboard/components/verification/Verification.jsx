@@ -20,7 +20,7 @@ const initialState = {
 
 const Verification = () => {
   const [cam, setCam] = useState(false);
-  const { camera } = useSelector((state) => state.dashboard);
+  const { camera } = useSelector((state) => state.utils);
   const dispatch = useDispatch();
   const [values, setValues] = useState(initialState);
 

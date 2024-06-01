@@ -17,7 +17,7 @@ const ProductCard = ({ ...item }) => {
   const [favorite, setFavorite] = useState(false);
   const history = useHistory();
   const { token } = useSelector((state) => state.auth);
-  const { callback } = useSelector((state) => state.dashboard);
+  const { callback } = useSelector((state) => state.utils);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
