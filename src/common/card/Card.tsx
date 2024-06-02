@@ -57,13 +57,13 @@ const Card = ({ item }) => {
 
   return (
     <div className="card" >
-      <div className="product-image" onClick={() => router.push(`/products/${item.id}`)}>
-        <Image src={item.image} alt="" width={100} height={100} unoptimized />
+      <div className="product-image" onClick={() => router.push(`/products/${item._id}`)}>
+        <Image src={item.images[0]?.url} alt="" width={100} height={100} unoptimized />
       </div>
 
-      <div className="product-body" onClick={() => router.push(`/products/${item.id}`)}>
-        <p>{item.title}</p>
-        <small>₦{item.price}</small>
+      <div className="product-body" onClick={() => router.push(`/products/${item._id}`)}>
+        <p>{item.name}</p>
+        <small>₦{item.amount}</small>
 
         <svg
           width="90"

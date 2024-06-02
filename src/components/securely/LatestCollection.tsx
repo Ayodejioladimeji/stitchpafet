@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { data } from "../../constants/SecureData";
 import Heading from "../heading/Heading";
 import Card from "@/common/card/Card";
 import ProductCard from "@/common/productcard/ProductCard";
+import { useSelector } from "react-redux";
+import { GetRequest } from "@/utils/request";
+import CardSkeleton from "@/dashboard/common/skeleton/CardSkeleton";
 
 const LatestCollection = () => {
+  const [product, setProduct] = useState(null)
+  const { token } = useSelector((state: any) => state.auth)
+  const [loading, setLoading] = useState(true)
+
+  // 
+
+  useEffect(() => {
+    if (token) {
+      const getProduct = async () => {
+        const res = await GetRequest("/product", token)
+        if (res?.status === 200) {
+          setProduct(res.data.products)
+        }
+        setLoading(false)
+      }
+      getProduct()
+    }
+  }, [token])
+
+  // 
+
   return (
     <div className="secure">
       <div className="container">
@@ -14,9 +38,11 @@ const LatestCollection = () => {
         />
 
         <div className="secure-box">
-          {data?.slice(0, 5)?.map((item, key) => {
-            return <Card item={item} key={key} />;
-          })}
+          {loading ? <CardSkeleton length={5} /> : <>
+            {product?.slice(0, 5)?.map((item, key) => {
+              console.log(item)
+              return <Card item={item} key={key} />;
+            })}</>}
         </div>
       </div>
     </div>

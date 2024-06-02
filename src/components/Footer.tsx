@@ -28,7 +28,7 @@ const Footer = () => {
               </div>
 
               <p>Stay trendy, stay you</p>
-              <small>Visit our Store to discover the perfect fabrics for your next occasion.</small><br />
+              <small>Visit our Store to discover the perfect fabrics for your next occasion.</small>
               <small>Follow us on social media to stay updated on the latest trends,
                 new arrivals, and special promotions.</small>
 

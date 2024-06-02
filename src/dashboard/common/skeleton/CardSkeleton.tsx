@@ -1,8 +1,16 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { loadingdata } from "../../../constants/loadingdata";
 
-const CardSkeleton = () => {
+interface Props {
+    length?: number
+}
+
+const CardSkeleton = (props: Props) => {
+
+    const loadingdata = Array.from({ length: props.length }, (_, index) => ({
+        key: String(index),
+        value: `Item ${index + 1}`
+    }))
 
     return (
         <>
