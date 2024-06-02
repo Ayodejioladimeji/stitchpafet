@@ -17,16 +17,16 @@
 }
 
 .logo-module {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 80px;
+  margin-right: 100px;
 
   img {
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
   }
 }

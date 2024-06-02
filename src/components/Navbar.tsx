@@ -106,7 +106,7 @@ const Navbar = () => {
       <div className="container heading">
         <div className="logo-module" onClick={() => router.push("/")}>
           <Image
-            src="/images/logo.jpeg"
+            src="/images/logo.svg"
             alt=""
             unoptimized
             width={100}
