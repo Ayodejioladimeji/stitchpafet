@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect, use } from "react";
 import { formatMoney, removeNum } from "@/utils/utils";
-import { GetRequest, PostRequest, postDataImages } from "@/utils/request";
+import { GetRequest, PatchRequest, PostRequest, postDataImages } from "@/utils/request";
 import cogoToast from "cogo-toast";
 import Loading from "@/common/loading";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import Layout from "@/dashboard/common/Layout";
 import { FaTimesCircle } from "react-icons/fa";
 import { GLOBALTYPES } from "@/redux/actions/globalTypes";
 import { imageUpload } from "@/utils/imageUpload";
+import Goback from "@/common/goback/Goback";
 
 //
 
@@ -27,6 +28,7 @@ const initialValues: any = {
 
 const EditProduct = () => {
     const router = useRouter();
+    const { slug } = router.query
     const [authLoading, setAuthLoading] = useState(true);
     const [values, setValues] = useState(initialValues);
     const [buttonloading, setButtonloading] = useState(false);
@@ -36,6 +38,7 @@ const EditProduct = () => {
     const [images, setImages] = useState<any>([])
     const [category, setCategory] = useState(null)
     const dispatch = useDispatch()
+    const [product, setProduct] = useState(null)
 
 
     // get user token from local storage
@@ -47,6 +50,32 @@ const EditProduct = () => {
         }
         setAuthLoading(false);
     }, [router]);
+
+    //  get detail product
+    useEffect(() => {
+        if (token && slug) {
+            const getProduct = async () => {
+                const res = await GetRequest(`/product/${slug}`, token)
+                if (res?.status === 200) {
+                    setProduct(res.data.product)
+                    const newData = {
+                        name: res?.data?.product?.name,
+                        category: res?.data?.product?.category,
+                        oldAmount: res?.data?.product?.amount,
+                        newAmount: res?.data?.product?.amount,
+                        description: res?.data?.product?.description,
+                        product_colors: res?.data?.product?.colors,
+                        colors: null
+                    }
+
+                    setValues(newData)
+                    setImages(res?.data?.product?.images)
+                }
+                setLoading(false)
+            }
+            getProduct()
+        }
+    }, [token, slug]);
 
     // get categories
     useEffect(() => {
@@ -168,7 +197,7 @@ const EditProduct = () => {
         };
 
 
-        const res = await PostRequest("/product", payload, token);
+        const res = await PatchRequest(`/product/${slug}`, payload, token);
 
         if (res?.status === 200) {
             dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback })
@@ -184,9 +213,13 @@ const EditProduct = () => {
     //
 
     return (
-        <>
-            <Layout>
-                <div className="dashboard-container">
+        <Layout>
+            <div className="dashboard-container">
+                <div className="container">
+
+                    <div className="mb-3">
+                        <Goback size="25px" />
+                    </div>
 
                     {loading ? (
                         <div className="form d-flex align-items-center text-center justify-content-center">
@@ -421,39 +454,41 @@ const EditProduct = () => {
                                 </div>
                             </div>
 
+                            <div className="form-box">
 
-                            <button
-                                type="submit"
-                                id="next"
-                                className="nexts"
-                                disabled={
-                                    !values?.name ||
-                                        !values?.category ||
-                                        !values?.oldAmount ||
-                                        !values?.newAmount ||
-                                        !values?.description ||
-                                        values?.product_colors?.length === 0 ||
-                                        images?.length === 0
-                                        ? true
-                                        : false
-                                }
-                            >
-                                {buttonloading ? (
-                                    <Loading
-                                        height="25px"
-                                        width="25px"
-                                        primaryColor="#fff"
-                                        secondaryColor="#fff"
-                                    />
-                                ) : (
-                                    "Create Product"
-                                )}
-                            </button>
+                                <button
+                                    type="submit"
+                                    id="next"
+                                    className="nexts"
+                                    disabled={
+                                        !values?.name ||
+                                            !values?.category ||
+                                            !values?.oldAmount ||
+                                            !values?.newAmount ||
+                                            !values?.description ||
+                                            values?.product_colors?.length === 0 ||
+                                            images?.length === 0
+                                            ? true
+                                            : false
+                                    }
+                                >
+                                    {buttonloading ? (
+                                        <Loading
+                                            height="25px"
+                                            width="25px"
+                                            primaryColor="#fff"
+                                            secondaryColor="#fff"
+                                        />
+                                    ) : (
+                                        "Update Product"
+                                    )}
+                                </button>
+                            </div>
                         </form>
                     )}
                 </div>
-            </Layout>
-        </>
+            </div>
+        </Layout>
     );
 };
 

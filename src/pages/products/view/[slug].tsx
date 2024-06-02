@@ -35,18 +35,7 @@ const DashboardProductDetail = () => {
     const dispatch = useDispatch();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [buttonloading, setButtonloading] = useState(false);
-    const [visible, setVisible] = useState(10);
-    const [load, setLoad] = useState(false);
 
-
-    const showItems = () => {
-        setLoad(true);
-        setTimeout(() => {
-            setVisible((prevState) => prevState + 6);
-            setLoad(false);
-        }, 2000);
-    };
 
     //  get detail product
     useEffect(() => {
@@ -87,7 +76,6 @@ const DashboardProductDetail = () => {
                     ) : (
                         <div className="row">
                             <div className="col">
-
                                 <div className="detail-left">
                                     <div
                                         className="detail-image"
