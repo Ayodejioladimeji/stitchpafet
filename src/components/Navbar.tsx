@@ -33,6 +33,14 @@ const Navbar = () => {
   const router = useRouter()
   const { pathname } = router.query
   const [loading, setLoading] = useState(true)
+  const [cart, setCart] = useState(0)
+  const [usertoken, setUsertoken] = useState(null)
+
+  // get the cart length
+  useEffect(() => {
+    setCart(datacart?.length)
+    setUsertoken(token)
+  }, [])
 
   // get categories
   useEffect(() => {
@@ -40,7 +48,6 @@ const Navbar = () => {
       const getCategories = async () => {
         const res = await GetRequest("/categories")
         if (res?.status === 200) {
-          console.log(res.data.categories)
           setCategories(res.data.categories)
         }
         setLoading(false)
@@ -169,7 +176,7 @@ const Navbar = () => {
           </div>
 
           <div className={`nav-div ${!token ? "no-auth" : ""}`}>
-            {!token && (
+            {!usertoken && (
               <div className="auth-div">
                 <button className="sign-up" onClick={() => router.push("/auth/register")}>Sign up</button>
                 <button onClick={routeChange}>Sign in</button>
@@ -181,10 +188,10 @@ const Navbar = () => {
               <div className="cart" onClick={() => router.push("/cart")}>
                 <BsCart4 />
                 <div className="carting">Cart</div>
-                {/* <small className="count">{datacart?.length || 0}</small> */}
+                <small className="count">{cart}</small>
               </div>
 
-              {token && (
+              {usertoken && (
                 <div className='user' onClick={() => router.push("/overview")}>
                   <img
                     src={user.profile_pic ? user.profile_pic : "/images/avatar.jpg"}
@@ -192,8 +199,6 @@ const Navbar = () => {
                   />
                 </div>
               )}
-
-
             </div>
           </div>
         </div>

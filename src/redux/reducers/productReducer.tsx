@@ -1,34 +1,16 @@
 import { GLOBALTYPES } from "../actions/globalTypes";
 
 const initialState = {
-  product_modal: false,
-  get_categories: [],
-  get_sub_categories: [],
-  all_product: [],
-  vendor_product: [],
-  search: [],
   cartcallback: false,
   productcart: [],
   datacart: [],
-  cart: [],
-  cat: "",
 };
 
 const productReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GLOBALTYPES.GET_CATEGORIES:
-      return {
-        ...state,
-        get_categories: payload,
-      };
 
-    case GLOBALTYPES.ALL_PRODUCT:
-      return {
-        ...state,
-        all_product: payload,
-      };
 
     case GLOBALTYPES.SEARCH:
       return {

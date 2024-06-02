@@ -36,23 +36,6 @@ const Overview = () => {
           <p>Welcome to your Dashboard</p>
         </div>
 
-        <div className="overview-balance">
-          <h1>
-            <span>Wallet Balance</span> <br /> ₦{" "}
-
-            <BsEyeSlash
-              onClick={() =>
-                dispatch({ type: GLOBALTYPES.SHOW_BALANCE, payload: false })
-              }
-              className="balance-eyes"
-            />
-
-          </h1>
-          <button onClick={() => router.push("/create-order")}>
-            Create Order
-          </button>
-        </div>
-
         <div className="overview-center">
           <div
             // className="overview-left"
@@ -68,51 +51,9 @@ const Overview = () => {
                 </h1>
               </div>
             </div>
-
-            <div className="overview-box">
-              <div className="overview-box-icon">Completed Orders</div>
-              <div className="complete-circle">
-
-              </div>
-            </div>
-
-            <div className="overview-box">
-              <div className="overview-box-icon">Pending Orders</div>
-              <div className="pending-circle">
-
-
-              </div>
-            </div>
-
-            <div className="overview-box">
-              <div className="overview-box-icon">Funded Orders</div>
-              <div className="funded-circle">
-
-              </div>
-            </div>
-
-            <div className="overview-box">
-              <div className="overview-box-icon">Total Topup</div>
-              <div className="topup-circle">
-
-              </div>
-            </div>
-
-            <div className="overview-box">
-              <div className="overview-box-icon">Total Transfer</div>
-              <div className="transfer-circle">
-
-              </div>
-            </div>
-
-            <div className="overview-box">
-              <div className="overview-box-icon">Total Withdrawal</div>
-              <div className="withdraw-circle">
-                <h1>50</h1>
-              </div>
-            </div>
           </div>
         </div>
+
       </div>
     </Layout>
   );

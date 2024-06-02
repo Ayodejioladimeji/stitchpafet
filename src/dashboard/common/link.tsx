@@ -10,7 +10,7 @@ interface Props {
 
 const NavLink = (props: Props) => {
     const router = useRouter()
-    console.log(router)
+
     // 
     return (
         <Link href={props.path} className={`menu-item ${router?.asPath.includes(props?.path) ? "active" : ""
