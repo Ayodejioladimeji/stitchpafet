@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useState, useEffect, use } from "react";
 import { formatMoney, removeNum } from "@/utils/utils";
-import { GetRequest, PatchRequest, PostRequest, postDataImages } from "@/utils/request";
+import { GetRequest, PatchRequest, PostRequest, PutRequest, postDataImages } from "@/utils/request";
 import cogoToast from "cogo-toast";
 import Loading from "@/common/loading";
 import { useDispatch, useSelector } from "react-redux";
@@ -61,7 +61,7 @@ const EditProduct = () => {
                     const newData = {
                         name: res?.data?.product?.name,
                         category: res?.data?.product?.category,
-                        oldAmount: res?.data?.product?.amount,
+                        oldAmount: res?.data?.product?.old_amount,
                         newAmount: res?.data?.product?.amount,
                         description: res?.data?.product?.description,
                         product_colors: res?.data?.product?.colors,
@@ -190,6 +190,7 @@ const EditProduct = () => {
             name: values.name,
             category: values.category,
             amount: Number(removeNum(values.newAmount)),
+            old_amount: Number(removeNum(values.oldAmount)),
             discount,
             description: values.description,
             product_colors: values.product_colors,
@@ -197,7 +198,7 @@ const EditProduct = () => {
         };
 
 
-        const res = await PatchRequest(`/product/${slug}`, payload, token);
+        const res = await PutRequest(`/product/${slug}`, payload, token);
 
         if (res?.status === 200) {
             dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback })
@@ -265,7 +266,7 @@ const EditProduct = () => {
 
                             <div className="form-box col-6">
                                 <label className="item-value" htmlFor="value">
-                                    Product Amount
+                                    Old Amount
                                 </label>
                                 <input
                                     autoComplete="off"

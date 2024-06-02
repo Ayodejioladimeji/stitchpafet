@@ -73,6 +73,27 @@ export const PatchRequest = async (url: string, data?: any, token?: string) => {
   }
 };
 
+export const PutRequest = async (url: string, data?: any, token?: string) => {
+  try {
+    const res = await axios.put(
+      endpoint + url,
+      data && data,
+      token && {
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return res;
+  } catch (error) {
+    cogoToast.error(error?.response?.data?.err);
+
+    return error;
+  }
+};
+
 // =================================
 export const GetRequest = async (url: string, token?: string) => {
   try {

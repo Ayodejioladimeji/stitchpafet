@@ -161,6 +161,7 @@ const CreateOrder = () => {
       name: values.name,
       category: values.category,
       amount: Number(removeNum(values.newAmount)),
+      old_amount: Number(removeNum(values.oldAmount)),
       discount,
       description: values.description,
       product_colors: values.product_colors,

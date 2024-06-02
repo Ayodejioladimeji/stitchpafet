@@ -39,14 +39,14 @@ const updateProduct = async (req, res) => {
         // return res.status(400).json({err: 'Authentication is not valid.'})
 
         const { id } = req.query
-        const { name, amount, category, description, discount, product_colors, images } = req.body
+        const { name, amount, old_amount, category, description, discount, product_colors, images } = req.body
 
-        if (!name || !amount || !category || !description || !discount || category === '---' || images.length === 0 || product_colors.length === 0)
+        if (!name || !amount || !old_amount || !category || !description || !discount || category === '---' || images.length === 0 || product_colors.length === 0)
             return res.status(400).json({ err: 'Please add all the fields.' })
 
 
         await Products.findOneAndUpdate({ _id: id }, {
-            name: name.toLowerCase(), amount, category, description, discount, images, colors: product_colors
+            name: name.toLowerCase(), amount, old_amount, category, description, discount, images, colors: product_colors
         })
 
         res.json({ msg: 'Success! Updated a product' })
