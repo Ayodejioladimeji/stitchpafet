@@ -1,12 +1,25 @@
 .dashboard-container {
 
-    h1 {
-        font-size: 20px;
-        color: $black;
-        margin-bottom: 10px;
-        font-family: 'Helvetica Light';
-        font-weight: 600
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 20px;
+            color: $black;
+            margin-bottom: 10px;
+            font-weight: 600
+        }
+
+        button {
+            @include buttons(black);
+            font-size: 14px;
+            padding: 10px;
+            border: none;
+        }
     }
+
 
     input {
         @include input($border-color);

@@ -223,9 +223,9 @@ const CreateOrder = () => {
                   name="category"
                   onChange={handleChange}>
                   <option defaultValue="">---</option>
-                  {category?.map((item, index) => {
+                  {category?.map((item: any, index: number) => {
                     return (
-                      <option key={index} value={item.name}>{item.name}</option>
+                      <option key={index} value={item._id}>{item.name}</option>
                     )
                   })}
                 </select>

@@ -71,10 +71,11 @@ const Categories = (props: Props) => {
     return (
         <Layout>
             <div className="dashboard-container">
-                <h1>Categories</h1>
-                <form onSubmit={handleCreate} className="form-box">
-                    <input type="text" placeholder='Enter new category' value={name} onChange={(e) => setName(e.target.value)} />
-                </form>
+                <div className="top">
+                    <h1>All Categories</h1>
+                    <button>Add category</button>
+
+                </div>
 
                 <div className="category-body">
                     <table className="table">
@@ -104,8 +105,8 @@ const Categories = (props: Props) => {
                         }
 
 
-                        {category?.length === 0 && <p>No categories found</p>}
                     </table>
+                    {category?.length === 0 && <p className="mt-5 text-center">No categories found</p>}
                 </div>
             </div>
 
