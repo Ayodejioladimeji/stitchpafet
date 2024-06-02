@@ -233,7 +233,7 @@ const CreateOrder = () => {
 
               <div className="form-box col-6">
                 <label className="item-value" htmlFor="value">
-                  Product Amount
+                  Old Amount
                 </label>
                 <input
                   autoComplete="off"

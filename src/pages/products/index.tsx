@@ -16,6 +16,7 @@ import CardSkeleton from "@/dashboard/common/skeleton/CardSkeleton";
 const Products = () => {
   const { token } = useSelector((state: any) => state?.auth);
   const { my_orders } = useSelector((state: any) => state.order);
+  const { callback } = useSelector((state: any) => state.utils);
   const dispatch = useDispatch();
   const router = useRouter();
   const [data, setData] = useState("");
@@ -36,7 +37,7 @@ const Products = () => {
       }
       getProduct()
     }
-  }, [token]);
+  }, [token, callback]);
 
   //   The search handleChange
   const handleChange = (e) => {
@@ -47,14 +48,6 @@ const Products = () => {
   const filteredData = my_orders?.filter((my_order) => {
     return Object.values(my_order).join(" ").toLowerCase().match(data);
   });
-
-  // order details method
-  const orderDetailsMethod = (id) => {
-    router.push(`/dashboard/my-orders/details/${id}`);
-    dispatch({ type: GLOBALTYPES.ORDER_ID, payload: id });
-  };
-
-  console.log(product)
 
   //
 

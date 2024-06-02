@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GLOBALTYPES } from "../../redux/actions/globalTypes";
+import { DeleteRequest } from "@/utils/request";
+import ConfirmDeleteModal from "../common/modal/ConfirmModal";
 
 
 
@@ -12,49 +14,22 @@ const Card = ({ item }) => {
   const router = useRouter()
   const dispatch = useDispatch()
   const { datacart } = useSelector((state: any) => state?.product)
-  const { id } = item
+  const { token } = useSelector((state: any) => state?.auth)
+  const { callback } = useSelector((state: any) => state?.utils)
+  const [show, setShow] = useState(false)
+  const [buttonloading, setButtonloading] = useState(false)
 
-
-  // add to cart function
-  const handleCart = () => {
-
-
-    // check if the color and size is selected
-    // if (token.token) {
-    //   const cartItems = [
-    //     {
-    //       product_id: _id,
-    //       quantity: 1,
-    //     },
-    //   ];
-
-    //   dispatch(addCart(cartItems, token.token, cartcallback, setLoading));
-    // } 
-    // else {
-    const check = datacart.every((item) => {
-      return item.id !== id;
-    });
-
-    if (check) {
-      const cartData = {
-        ...item,
-        quantity: 1,
-      };
-
-      dispatch({
-        type: GLOBALTYPES.ALERT,
-        payload: { success: "Item added to cart" },
-      });
-      dispatch({ type: GLOBALTYPES.DATA_CART, payload: cartData });
-    } else {
-      cogoToast.error("Item already in your cart")
-    }
-    // }
-  };
 
   // handle delete
-  const handleDelete = async () => {
-    console.log("delete")
+  const handleSubmit = async () => {
+    setButtonloading(true)
+    const res = await DeleteRequest(`/product/${item._id}`, token)
+    if (res?.status === 200) {
+      cogoToast.success(res.data.msg)
+      dispatch({ type: GLOBALTYPES.CALLBACK, payload: !callback })
+      setShow(false)
+    }
+    setButtonloading(false)
   }
 
 
@@ -143,12 +118,13 @@ const Card = ({ item }) => {
           <div className="action-box" onClick={() => router.push(`/products/edit/${item._id}`)}>
             <i className="bi bi-pencil-square"></i>
           </div>
-          <div className="action-box" onClick={handleDelete}>
+          <div className="action-box" onClick={() => setShow(true)}>
             <i className="bi bi-trash3"></i>
           </div>
         </div>
       </div>
 
+      <ConfirmDeleteModal show={show} setShow={setShow} buttonloading={buttonloading} handleSubmit={handleSubmit} />
     </div>
   );
 };
