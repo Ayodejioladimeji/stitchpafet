@@ -30,6 +30,7 @@
             td,
             tr {
                 border: 1px solid $border-color !important;
+                text-transform: capitalize;
             }
 
             .image-box {

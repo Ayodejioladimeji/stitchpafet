@@ -41,6 +41,7 @@ const AddCategoryModal = ({ show, setShow }) => {
   // create category
   const handleCreate = async (e) => {
     e.preventDefault()
+    setButtonloading(true)
 
     let media: any;
 
@@ -48,7 +49,7 @@ const AddCategoryModal = ({ show, setShow }) => {
       media = await singleUpload(selectedFile)
     }
 
-    setButtonloading(true)
+
 
     const payload = {
       name: name.toLowerCase(),

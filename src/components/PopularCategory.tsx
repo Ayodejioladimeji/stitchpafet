@@ -39,7 +39,7 @@ const PopularCategory = (props: Props) => {
                         {category?.slice(0, 5)?.map((item, key) => {
                             return <div className="category-card" key={key}>
                                 <div className="category-image">
-                                    <Image src="/images/one.jpeg" alt="" width={100} height={100} unoptimized />
+                                    <Image src={item.image.url} alt="" width={100} height={100} unoptimized />
                                 </div>
 
                                 <h4>{item.name}</h4>
