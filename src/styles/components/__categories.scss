@@ -20,13 +20,6 @@
         }
     }
 
-
-    input {
-        @include input($border-color);
-        width: 350px;
-        height: 45px;
-    }
-
     .category-body {
         margin-top: 50px;
 
@@ -37,6 +30,13 @@
             td,
             tr {
                 border: 1px solid $border-color !important;
+            }
+
+            .image-box {
+                height: 100px;
+                width: 100%;
+                border-radius: 5px;
+
             }
 
             .delete {

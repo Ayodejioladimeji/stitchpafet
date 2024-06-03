@@ -21,14 +21,14 @@ const createCategory = async (req, res) => {
         // if (result.role !== 'admin')
         //     return res.status(400).json({ err: "Authentication is not valid." })
 
-        const { name } = req.body
-        if (!name) return res.status(400).json({ err: "Name can not be left blank." })
+        const { name, image } = req.body
+        if (!name || !image) return res.status(400).json({ err: "Field can not be left blank." })
 
         const check = await Categories.findOne({ name })
 
         if (check) return res.status(400).json({ err: "Category already exists" })
 
-        const newCategory = new Categories({ name })
+        const newCategory = new Categories({ name, image })
 
         await newCategory.save()
         res.json({
